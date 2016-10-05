@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pantry List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs tabsPlacement="bottom">
+    <ion-tab tabIcon="heart" tabTitle="Snacks" [root]="tab1"></ion-tab>
+    <ion-tab tabIcon="wine"  tabTitle="Drinks" [root]="tab2"></ion-tab>
+    <ion-tab tabIcon="snow"  tabTitle="Frozen" [root]="tab3"></ion-tab>
+  </ion-tabs>
+</ion-content>

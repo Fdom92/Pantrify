@@ -1,1 +1,5 @@
-./node_modules
+/hooks
+/node_modules
+/plugins
+/resources
+/www
