@@ -7,6 +7,8 @@ import { Snacks } from '../pages/pantryList/tabs/snacksTab';
 import { Drinks } from '../pages/pantryList/tabs/drinksTab';
 import { Frozen } from '../pages/pantryList/tabs/frozenTab';
 
+import { PantryModal } from '../pages/pantryList/modal/pantryModal';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,6 +16,7 @@ import { Frozen } from '../pages/pantryList/tabs/frozenTab';
     Snacks,
     Drinks,
     Frozen,
+    PantryModal,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,6 +28,7 @@ import { Frozen } from '../pages/pantryList/tabs/frozenTab';
     Snacks,
     Drinks,
     Frozen,
+    PantryModal,
   ],
   providers: []
 })

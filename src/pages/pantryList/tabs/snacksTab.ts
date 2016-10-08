@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from 'ionic-angular';
+
+import { PantryModal } from '../modal/pantryModal';
 
 @Component({
   template: `
@@ -12,7 +15,7 @@ import { Component } from '@angular/core';
     <ion-item *ngFor="let item of items">
       <h2>{{item.title}}</h2>
       <p>Quantity: {{item.units}}</p>
-      <ion-icon name="trash" item-right (click)="onDelete()"></ion-icon>
+      <ion-icon name="trash" item-right (click)="onDelete(item)"></ion-icon>
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
@@ -35,12 +38,14 @@ export class Snacks {
     'units': 1
   }];
 
-  constructor() {
+  constructor(public modalCtrl: ModalController) {
     console.log('Snacks');
   }
 
-  onDelete() {
+  onDelete(item) {
     console.log('deleted');
+    let deleteModal = this.modalCtrl.create(PantryModal, { product: item });
+    deleteModal.present();
   }
 
   onAdd() {
