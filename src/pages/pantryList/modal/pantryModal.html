@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Close</button>
+    </ion-buttons>
+    <ion-title>Modals</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-number-selector [max]="units"></ion-number-selector>
+  <button ion-button color="default" block (click)="dismiss()">Accept</button>
+  <button ion-button clear block (click)="dismiss()">Cancel</button>
+</ion-content>

@@ -9,6 +9,8 @@ import { Frozen } from '../pages/pantryList/tabs/frozenTab';
 
 import { PantryModal } from '../pages/pantryList/modal/pantryModal';
 
+import { numberSelector } from '../pages/pantryList/component/numberSelector';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -17,6 +19,7 @@ import { PantryModal } from '../pages/pantryList/modal/pantryModal';
     Drinks,
     Frozen,
     PantryModal,
+    numberSelector,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,6 +32,7 @@ import { PantryModal } from '../pages/pantryList/modal/pantryModal';
     Drinks,
     Frozen,
     PantryModal,
+    numberSelector,
   ],
   providers: []
 })
