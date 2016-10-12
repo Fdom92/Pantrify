@@ -7,9 +7,10 @@ import { Snacks } from '../pages/pantryList/tabs/snacksTab';
 import { Drinks } from '../pages/pantryList/tabs/drinksTab';
 import { Frozen } from '../pages/pantryList/tabs/frozenTab';
 
-import { PantryModal } from '../pages/pantryList/modal/pantryModal';
+import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
+import { AddItemModal } from '../pages/pantryList/modals/addIemModal/addIemModal';
 
-import { numberSelector } from '../pages/pantryList/component/numberSelector';
+import { numberSelector } from '../pages/pantryList/components/numberSelector/numberSelector';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { numberSelector } from '../pages/pantryList/component/numberSelector';
     Snacks,
     Drinks,
     Frozen,
-    PantryModal,
+    RemoveItemModal,
+    AddItemModal,
     numberSelector,
   ],
   imports: [
@@ -31,7 +33,8 @@ import { numberSelector } from '../pages/pantryList/component/numberSelector';
     Snacks,
     Drinks,
     Frozen,
-    PantryModal,
+    RemoveItemModal,
+    AddItemModal,
     numberSelector,
   ],
   providers: []

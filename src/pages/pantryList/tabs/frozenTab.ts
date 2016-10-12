@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
-import { PantryModal } from '../modal/pantryModal';
+import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
+import { AddItemModal } from '../modals/addIemModal/addIemModal';
 
 @Component({
   template: `
@@ -63,16 +64,15 @@ export class Frozen {
   }];
 
   constructor(public modalCtrl: ModalController) {
-    console.log('Frozen');
   }
 
   onDelete(item) {
-    console.log('deleted');
-    let deleteModal = this.modalCtrl.create(PantryModal, { product: item });
+    let deleteModal = this.modalCtrl.create(RemoveItemModal, { product: item });
     deleteModal.present();
   }
 
   onAdd() {
-    console.log('added');
+    let addModal = this.modalCtrl.create(AddItemModal);
+    addModal.present();
   }
 }

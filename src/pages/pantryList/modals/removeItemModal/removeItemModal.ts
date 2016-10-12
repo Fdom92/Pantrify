@@ -3,9 +3,9 @@ import { NavParams, ViewController } from 'ionic-angular';
 
 
 @Component({
-  templateUrl: "pantryModal.html",
+  templateUrl: "removeItemModal.html",
 })
-export class PantryModal {
+export class RemoveItemModal {
 
   units: number;
 
