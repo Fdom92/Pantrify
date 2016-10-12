@@ -3,6 +3,20 @@ import { ModalController } from 'ionic-angular';
 
 import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../modals/addIemModal/addIemModal';
+import { Item } from '../items';
+
+const DrinksItems = [{
+  'title': '7up',
+  'units': 1
+},
+{
+  'title': 'Coke',
+  'units': 4
+},
+{
+  'title': 'Pepsi',
+  'units': 2
+}];
 
 @Component({
   template: `
@@ -26,20 +40,10 @@ import { AddItemModal } from '../modals/addIemModal/addIemModal';
 })
 export class Drinks {
 
-  items = [{
-    'title': '7up',
-    'units': 1
-  },
-  {
-    'title': 'Coke',
-    'units': 4
-  },
-  {
-    'title': 'Pepsi',
-    'units': 2
-  }];
+  items : Array<Item>;
 
   constructor(public modalCtrl: ModalController) {
+    this.items = DrinksItems;
   }
 
   onDelete(item) {
@@ -49,6 +53,12 @@ export class Drinks {
 
   onAdd() {
     let addModal = this.modalCtrl.create(AddItemModal);
+    addModal.onDidDismiss(data => {
+      if (data) {
+        console.log(data);
+        this.items.push(data);
+      }
+    });
     addModal.present();
   }
 }

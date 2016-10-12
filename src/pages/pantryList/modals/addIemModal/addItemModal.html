@@ -8,6 +8,16 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button color="default" block (click)="dismiss()">Accept</button>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="itemName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Cantidad</ion-label>
+      <ion-input type="number" [(ngModel)]="itemQuantity"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="default" block (click)="accept()">Accept</button>
   <button ion-button clear block (click)="dismiss()">Cancel</button>
 </ion-content>

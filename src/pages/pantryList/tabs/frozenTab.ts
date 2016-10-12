@@ -3,6 +3,20 @@ import { ModalController } from 'ionic-angular';
 
 import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../modals/addIemModal/addIemModal';
+import { Item } from '../items';
+
+const FrozenItems = [{
+  'title': 'Onion',
+  'units': 1
+},
+{
+  'title': 'Meat',
+  'units': 2
+},
+{
+  'title': 'Fish',
+  'units': 1
+}];
 
 @Component({
   template: `
@@ -26,44 +40,10 @@ import { AddItemModal } from '../modals/addIemModal/addIemModal';
 })
 export class Frozen {
 
-  items = [{
-    'title': 'Onion',
-    'units': 1
-  },
-  {
-    'title': 'Meat',
-    'units': 2
-  },
-  {
-    'title': 'Fish',
-    'units': 1
-  },
-  {
-    'title': 'Meat',
-    'units': 2
-  },
-  {
-    'title': 'Fish',
-    'units': 1
-  },
-  {
-    'title': 'Meat',
-    'units': 2
-  },
-  {
-    'title': 'Fish',
-    'units': 1
-  },
-  {
-    'title': 'Meat',
-    'units': 2
-  },
-  {
-    'title': 'Fish',
-    'units': 1
-  }];
+  items : Array<Item>;
 
   constructor(public modalCtrl: ModalController) {
+    this.items = FrozenItems;
   }
 
   onDelete(item) {
@@ -73,6 +53,12 @@ export class Frozen {
 
   onAdd() {
     let addModal = this.modalCtrl.create(AddItemModal);
+    addModal.onDidDismiss(data => {
+      if (data) {
+        console.log(data);
+        this.items.push(data);
+      }
+    });
     addModal.present();
   }
 }
