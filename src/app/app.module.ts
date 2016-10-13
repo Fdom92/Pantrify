@@ -6,6 +6,7 @@ import { pantryList } from '../pages/pantryList/pantryList';
 import { Snacks } from '../pages/pantryList/tabs/snacksTab';
 import { Drinks } from '../pages/pantryList/tabs/drinksTab';
 import { Frozen } from '../pages/pantryList/tabs/frozenTab';
+import { Login } from '../pages/login/login';
 
 import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemModal';
@@ -22,6 +23,7 @@ import { numberSelector } from '../pages/pantryList/components/numberSelector/nu
     RemoveItemModal,
     AddItemModal,
     numberSelector,
+    Login,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -36,6 +38,7 @@ import { numberSelector } from '../pages/pantryList/components/numberSelector/nu
     RemoveItemModal,
     AddItemModal,
     numberSelector,
+    Login,
   ],
   providers: []
 })
