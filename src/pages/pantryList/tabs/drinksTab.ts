@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
 import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
-import { AddItemModal } from '../modals/addIemModal/addIemModal';
+import { AddItemModal } from '../modals/addItemModal/addItemModal';
 import { Item } from '../items';
 
 const DrinksItems = [{

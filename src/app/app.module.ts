@@ -8,7 +8,7 @@ import { Drinks } from '../pages/pantryList/tabs/drinksTab';
 import { Frozen } from '../pages/pantryList/tabs/frozenTab';
 
 import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
-import { AddItemModal } from '../pages/pantryList/modals/addIemModal/addIemModal';
+import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemModal';
 
 import { numberSelector } from '../pages/pantryList/components/numberSelector/numberSelector';
 
