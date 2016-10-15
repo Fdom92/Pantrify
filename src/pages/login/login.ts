@@ -8,7 +8,7 @@ import { pantryList } from '../pantryList/pantryList';
 })
 export class Login {
 
-    username: string;
+    email: string;
     password: string;
 
     constructor(public navCtrl: NavController) {
