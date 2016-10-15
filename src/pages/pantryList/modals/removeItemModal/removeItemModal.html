@@ -8,7 +8,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-number-selector [max]="units"></ion-number-selector>
-  <button ion-button color="default" block (click)="dismiss()">Accept</button>
+  <button ion-button icon-left (click)="onMinus()">
+    <ion-icon name="remove"></ion-icon>
+  </button>
+  <span class="number-selctor-number">{{counter}}</span>
+  <button ion-button icon-right (click)="onAdd()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+  <button ion-button color="default" block (click)="accept()">Accept</button>
   <button ion-button clear block (click)="dismiss()">Cancel</button>
 </ion-content>

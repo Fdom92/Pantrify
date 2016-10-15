@@ -48,6 +48,17 @@ export class Snacks {
 
   onDelete(item) {
     let deleteModal = this.modalCtrl.create(RemoveItemModal, { product: item });
+    deleteModal.onDidDismiss(data => {
+      if (data) {
+        let index = this.items.findIndex(x => x.title === data.product.title);
+        let result = this.items[index].units - data.units;
+        if (result > 0) {
+          this.items[index].units = result;
+        } else {
+          this.items.splice(index, 1);
+        }
+      }
+    });
     deleteModal.present();
   }
 
@@ -55,7 +66,6 @@ export class Snacks {
     let addModal = this.modalCtrl.create(AddItemModal);
     addModal.onDidDismiss(data => {
       if (data) {
-        console.log(data);
         this.items.push(data);
       }
     });

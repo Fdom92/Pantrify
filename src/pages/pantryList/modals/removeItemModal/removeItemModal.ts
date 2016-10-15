@@ -7,14 +7,34 @@ import { NavParams, ViewController } from 'ionic-angular';
 })
 export class RemoveItemModal {
 
-  units: number;
+  counter: number;
+  max: number;
+  product: any;
+
 
  constructor(public viewCtrl: ViewController, params: NavParams) {
-   console.log('product', params.get('product'));
-   this.units = params.get('product').units;
+   this.product = params.get('product');
+   this.max = params.get('product').units;
+   this.counter = 1;
+ }
+
+ onAdd() {
+   if (this.counter < this.max) {
+       this.counter++;
+   }
+ }
+
+ onMinus() {
+   if (this.counter > 0) {
+       this.counter--;
+   }
  }
 
  dismiss() {
    this.viewCtrl.dismiss();
+ }
+
+ accept() {
+   this.viewCtrl.dismiss({'product': this.product, 'units': this.counter});
  }
 }

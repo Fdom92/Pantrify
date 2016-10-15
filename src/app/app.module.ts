@@ -13,8 +13,6 @@ import { Signup } from '../pages/signup/signup';
 import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemModal';
 
-import { numberSelector } from '../pages/pantryList/components/numberSelector/numberSelector';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +22,6 @@ import { numberSelector } from '../pages/pantryList/components/numberSelector/nu
     Frozen,
     RemoveItemModal,
     AddItemModal,
-    numberSelector,
     Login,
     Home,
     Signup,
@@ -41,7 +38,6 @@ import { numberSelector } from '../pages/pantryList/components/numberSelector/nu
     Frozen,
     RemoveItemModal,
     AddItemModal,
-    numberSelector,
     Login,
     Home,
     Signup,
