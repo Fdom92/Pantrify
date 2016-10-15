@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { pantryList } from '../pages/pantryList/pantryList';
-import { Login } from '../pages/login/login';
+import { Home } from '../pages/home/home';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { Login } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Login;
+  rootPage: any = Home;
 
   pages: Array<{title: string, component: any}>;
 
