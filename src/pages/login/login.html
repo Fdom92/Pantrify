@@ -1,15 +1,10 @@
 <ion-content class="login">
-  <ion-list padding>
-    <ion-item>
-      <ion-input [(ngModel)]="email" type="text" placeholder="Email" value=""></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input [(ngModel)]="password"  type="password" placeholder="Password" value=""></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <div padding>
-    <button ion-button color="default" block (click)="onLogin()">Log in</button>
+  <div class="logo">
+    <div class="logo-icon">
+      LOGO
+    </div>
   </div>
+  <ion-input [(ngModel)]="email" type="text" placeholder="Email" value=""></ion-input>
+  <ion-input [(ngModel)]="password"  type="password" placeholder="Password" value=""></ion-input>
+  <button ion-button color="default" block (click)="onLogin()">Log in</button>
 </ion-content>
