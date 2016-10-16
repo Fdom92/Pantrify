@@ -1,0 +1,19 @@
+.remove-item {
+
+  .number-selector {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .minus-button {
+      float: left;
+      border-radius: 20px;
+    }
+
+    .add-button {
+      float: right;
+      border-radius: 20px;
+    }
+  }
+}
