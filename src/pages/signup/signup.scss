@@ -1,33 +1,29 @@
-.sign-up {
-  background-image: url('../assets/img/despensa.jpg');
-  background-size: cover;
-  background-position: 0 0;
-  background-repeat: no-repeat;
+.signup {
+    background-image: url('../assets/img/despensa.jpg');
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
 
-  .log-in-txt {
-    width: 100%;
-    text-align: right;
-    color: black;
-  }
+    .logo {
+      height: 50%;
+      width: 100%;
+      .logo-icon {
+        text-align: center;
+        font-size: 40px;
+        padding-top: 30%;
+        color: white;
+      }
+    }
 
-  form {
-    width: 95%;
-    margin: auto;
-
-    .sign-up-btn {
-      background-color: rgb(74, 165, 217);
+    ion-input, button {
       margin: auto;
+      width: 95%;
+      margin-bottom: 5px;
     }
-  }
 
-  .error {
-    margin-top: 20px;
-    width: 100%;
-    text-align: center;
-    background-color: rgb(217, 74, 87);
-    p {
-      color: white;
-      font-weight: bold;
+    ion-input {
+      -webkit-box-shadow: inset 0px 0px 150px 6px rgba(255,255,255,1);
+      -moz-box-shadow: inset 0px 0px 150px 6px rgba(255,255,255,1);
+      box-shadow: inset 0px 0px 150px 6px rgba(255,255,255,1);
     }
-  }
 }
