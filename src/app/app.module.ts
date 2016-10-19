@@ -7,6 +7,7 @@ import { Snacks } from '../pages/pantryList/tabs/snacksTab';
 import { Drinks } from '../pages/pantryList/tabs/drinksTab';
 import { Frozen } from '../pages/pantryList/tabs/frozenTab';
 import { Login } from '../pages/login/login';
+import { Menu } from '../pages/menu/menu';
 import { Home } from '../pages/home/home';
 import { Signup } from '../pages/signup/signup';
 
@@ -23,8 +24,9 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     RemoveItemModal,
     AddItemModal,
     Login,
-    Home,
     Signup,
+    Menu,
+    Home,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -39,8 +41,9 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     RemoveItemModal,
     AddItemModal,
     Login,
-    Home,
     Signup,
+    Menu,
+    Home,
   ],
   providers: []
 })

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { pantryList } from '../pantryList/pantryList';
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
+import { Menu } from '../menu/menu';
 
 @Component({
   templateUrl: 'home.html',
@@ -15,12 +15,12 @@ export class Home {
 
   registerUserWithFacebook(){
     console.log('Facebook');
-    this.navCtrl.setRoot(pantryList);
+    this.navCtrl.setRoot(Menu);
   }
 
   registerUserWithGoogle() {
     console.log('Google');
-    this.navCtrl.setRoot(pantryList);
+    this.navCtrl.setRoot(Menu);
   }
 
   openSignUpPage(){

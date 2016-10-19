@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import { NavController } from 'ionic-angular';
 
-import { pantryList } from '../pantryList/pantryList';
+import { Menu } from '../menu/menu';
 
 @Component({
     templateUrl: "signup.html"
@@ -12,6 +12,6 @@ export class Signup {
     }
 
     registerUser() {
-      this.navCtrl.setRoot(pantryList);
+      this.navCtrl.setRoot(Menu);
     }
 }
