@@ -30,7 +30,7 @@ const SnacksItems = [{
     <ion-item *ngFor="let item of items">
       <h2>{{item.title}}</h2>
       <p>Quantity: {{item.units}}</p>
-      <ion-icon name="trash" item-right (click)="onDelete(item)"></ion-icon>
+      <ion-icon name="trash" item-right color="md-blue" (click)="onDelete(item)"></ion-icon>
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
