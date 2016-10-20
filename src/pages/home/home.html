@@ -15,10 +15,6 @@
   <button ion-button outline color="light" class="sign-up-btn" (click)="openSignUpPage()">Sign Up</button>
   <button ion-button outline color="light" class="log-in-btn" (click)="openLoginPage()">Log In</button>
 
-  <div padding class="error" *ngIf="error">
-    <p>{{error}}</p>
-  </div>
-
   <div class="terms-of-use-txt">
     By Signing up you agree to the
     <b (click)="openTermsOfService()">Terms of Service</b>
