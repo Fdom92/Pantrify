@@ -12,6 +12,10 @@ export class Signup {
     }
 
     registerUser() {
-      this.navCtrl.setRoot(Menu);
+        this.navCtrl.setRoot(Menu);
+    }
+
+    openTermsOfService(){
+        console.log('Terms of service');
     }
 }
