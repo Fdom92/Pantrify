@@ -7,4 +7,9 @@
   <ion-input type="text" placeholder="Email" value=""></ion-input>
   <ion-input type="password" placeholder="Password" value=""></ion-input>
   <button ion-button color="default" block (click)="onLogin()">Log in</button>
+
+  <div class="terms-of-use-txt">
+    By Signing up you agree to the
+    <b (click)="openTermsOfService()">Terms of Service</b>
+  </div>
 </ion-content>

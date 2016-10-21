@@ -15,6 +15,10 @@ export class Login {
     }
 
     onLogin() {
-      this.navCtrl.setRoot(Menu);
+        this.navCtrl.setRoot(Menu);
+    }
+
+    openTermsOfService(){
+        console.log('Terms of service');
     }
 }
