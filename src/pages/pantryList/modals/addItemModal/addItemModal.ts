@@ -19,7 +19,12 @@ export class AddItemModal {
  }
 
  accept() {
-   let item = new Item(this.itemName, this.itemQuantity);
+   let item = null;
+
+   if (this.itemName !== "" && this.itemQuantity !== null) {
+     item = new Item(this.itemName, this.itemQuantity);
+   }
+
    this.viewCtrl.dismiss(item);
  }
 }
