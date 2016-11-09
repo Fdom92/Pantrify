@@ -30,11 +30,11 @@ const FrozenItems = [{
     <ion-item *ngFor="let item of items">
       <h2>{{item.title}}</h2>
       <p>Quantity: {{item.units}}</p>
-      <ion-icon name="trash" item-right color="md-blue" (click)="onDelete(item)"></ion-icon>
+      <ion-icon name="trash" item-right color="indigo100" (click)="onDelete(item)"></ion-icon>
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
-     <button ion-fab mini (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
+     <button ion-fab mini color="pink200" (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   </ion-content>`
 })
