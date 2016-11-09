@@ -11,13 +11,14 @@ export class Menu {
 
   rootPage: any = pantryList;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform) {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'List', component: pantryList }
+      { title: 'List', component: pantryList, icon: 'list' },
+      { title: 'Settings', component: pantryList, icon: 'settings' }
     ];
 
   }
