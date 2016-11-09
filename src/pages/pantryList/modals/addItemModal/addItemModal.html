@@ -1,20 +1,20 @@
 <ion-header>
-  <ion-navbar color="md-blue">
+  <ion-navbar color="indigo500">
     <ion-title text-center>Add Item</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="addItemModal">
   <ion-list>
     <ion-item>
-      <ion-label floating>Nombre</ion-label>
+      <ion-label color="pink500" floating>Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="itemName"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Cantidad</ion-label>
+      <ion-label  floating>Cantidad</ion-label>
       <ion-input type="number" [(ngModel)]="itemQuantity"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button color="default" block (click)="accept()">Accept</button>
+  <button ion-button color="indigo500" block (click)="accept()">Accept</button>
   <button ion-button clear block (click)="dismiss()">Cancel</button>
 </ion-content>
