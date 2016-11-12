@@ -4,10 +4,14 @@ import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { Menu } from '../menu/menu';
 
+import firebase from 'firebase';
+
 @Component({
   templateUrl: 'home.html',
 })
 export class Home {
+
+  googleProvider = new firebase.auth.GoogleAuthProvider();
 
   constructor(public navCtrl: NavController) {
 
@@ -20,7 +24,14 @@ export class Home {
 
   registerUserWithGoogle() {
     console.log('Google');
-    this.navCtrl.setRoot(Menu);
+    firebase.auth().signInWithPopup(this.googleProvider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      console.log('token', result.credential.accessToken);
+      // The signed-in user info.
+      console.log('user', result.user);
+    }).catch(function(error) {
+      console.log('KO', error);
+    });
   }
 
   openSignUpPage(){
