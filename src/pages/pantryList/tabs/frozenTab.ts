@@ -20,11 +20,6 @@ const FrozenItems = [{
 
 @Component({
   template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Frozen</ion-title>
-    </ion-navbar>
-  </ion-header>
   <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items">
