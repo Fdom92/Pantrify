@@ -14,7 +14,7 @@ import firebase from 'firebase';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Home;
+  rootPage: any = Menu;
   constructor(public platform: Platform) {
     this.initializeApp();
   }
@@ -24,9 +24,7 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
-        this.rootPage = Home;
-      } else {
-        this.rootPage = Menu;
+        this.nav.setRoot(Home);
       }
     });
 

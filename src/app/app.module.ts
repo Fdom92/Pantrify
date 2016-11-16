@@ -11,6 +11,8 @@ import { Menu } from '../pages/menu/menu';
 import { Home } from '../pages/home/home';
 import { Signup } from '../pages/signup/signup';
 
+import { AuthData } from '../providers/auth';
+
 import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemModal';
 
@@ -45,6 +47,6 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     Menu,
     Home,
   ],
-  providers: []
+  providers: [AuthData]
 })
 export class AppModule {}

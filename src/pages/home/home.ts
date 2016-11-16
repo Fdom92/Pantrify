@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { Menu } from '../menu/menu';
+import { AuthData } from '../../providers/auth';
 
 import firebase from 'firebase';
 
@@ -13,7 +14,7 @@ export class Home {
 
   googleProvider = new firebase.auth.GoogleAuthProvider();
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public authData: AuthData) {
 
   }
 
@@ -24,14 +25,7 @@ export class Home {
 
   registerUserWithGoogle() {
     console.log('Google');
-    firebase.auth().signInWithPopup(this.googleProvider).then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      console.log('token', result.credential.accessToken);
-      // The signed-in user info.
-      console.log('user', result.user);
-    }).catch(function(error) {
-      console.log('KO', error);
-    });
+    this.authData.googleSignin();
   }
 
   openSignUpPage(){
