@@ -28,7 +28,7 @@ const DrinksItems = [{
       <ion-icon name="trash" item-right color="indigo100" (click)="onDelete(item)"></ion-icon>
     </ion-item>
   </ion-list>
-  <ion-fab right bottom>
+  <ion-fab center bottom>
      <button ion-fab mini color="pink200" (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   </ion-content>`
