@@ -1,4 +1,4 @@
-export const DrinksItems = [{
+export const DrinkItems = [{
   'title': 'drink 1',
   'units': 1
 },
@@ -11,28 +11,28 @@ export const DrinksItems = [{
   'units': 2
 }];
 
-export const FrozenItems = [{
-  'title': 'frozen 1',
+export const HomeItems = [{
+  'title': 'home 1',
   'units': 1
 },
 {
-  'title': 'frozen 2',
+  'title': 'home 2',
   'units': 2
 },
 {
-  'title': 'frozen 3',
+  'title': 'home 3',
   'units': 1
 }];
 
-export const SnacksItems = [{
-  'title': 'snack 1',
+export const FoodItems = [{
+  'title': 'food 1',
   'units': 1
 },
 {
-  'title': 'snack 2',
+  'title': 'food 2',
   'units': 2
 },
 {
-  'title': 'snack 3',
+  'title': 'food 3',
   'units': 1
 }];

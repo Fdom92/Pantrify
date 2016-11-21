@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { customTab } from '../customTab/customTab';
 import { ModalController } from 'ionic-angular';
-import { DrinksItems, FrozenItems, SnacksItems} from './data';
+import { HomeItems, DrinkItems, FoodItems} from './data';
 import { Item } from '../items';
 
 export class Tab {
@@ -10,9 +10,9 @@ export class Tab {
     items: Array<Item>;
 };
 
-const tabs = [{title: 'Snacks',  component: customTab, items: SnacksItems},
-              {title: 'Drinks',  component: customTab, items: DrinksItems},
-              {title: 'Frozen',  component: customTab, items: FrozenItems}];
+const tabs = [{title: 'FOOD',  component: customTab, items: FoodItems},
+              {title: 'HOME',  component: customTab, items: HomeItems},
+              {title: 'DRINKS',  component: customTab, items: DrinkItems}];
 
 @Component({
   selector: 'multi-tab',
