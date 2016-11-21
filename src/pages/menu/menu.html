@@ -6,10 +6,16 @@
   </ion-header>
 
   <ion-content>
-    <ion-list>
+    <ion-list no-lines>
       <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="{{p.icon}}" item-left></ion-icon>
+        <ion-icon color="gray" name="{{p.icon}}" item-left></ion-icon>
           {{p.title}}
+      </ion-item>
+    </ion-list>
+    <ion-list no-lines>
+      <ion-item menuClose *ngFor="let p2 of pages2" (click)="openPage(p2)">
+        <ion-icon color="gray" name="{{p2.icon}}" item-left></ion-icon>
+          {{p2.title}}
       </ion-item>
     </ion-list>
   </ion-content>

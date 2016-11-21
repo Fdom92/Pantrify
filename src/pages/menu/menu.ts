@@ -12,14 +12,14 @@ export class Menu {
   rootPage: any = PantryList;
 
   pages: Array<{title: string, component: any, icon: string}>;
+  pages2: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform) {
-    this.pages = [
-      { title: 'Pantry', component: PantryList, icon: 'list' },
-      { title: 'Settings', component: Settings, icon: 'settings' },
+    this.pages = [{ title: 'Pantry', component: PantryList, icon: 'home' }];
+
+    this.pages2 = [{ title: 'Settings', component: Settings, icon: 'settings' },
       { title: 'Send feedback', component: Settings, icon: 'text' },
-      { title: 'Help', component: Settings, icon: 'help-circle' }
-    ];
+      { title: 'Help', component: Settings, icon: 'help-circle' }];
   }
 
   openPage(page) {
