@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { pantryList } from '../pages/pantryList/pantryList';
+import { PantryList } from '../pages/pantryList/pantryList';
 import { Login } from '../pages/login/login';
 import { Menu } from '../pages/menu/menu';
 import { Home } from '../pages/home/home';
 import { Signup } from '../pages/signup/signup';
+import { Settings } from '../pages/settings/settings';
 
 import { multiTab } from '../pages/pantryList/multitab/multitab';
 import { customTab } from '../pages/pantryList/customTab/customTab';
@@ -17,7 +18,7 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
 @NgModule({
   declarations: [
     MyApp,
-    pantryList,
+    PantryList,
     RemoveItemModal,
     AddItemModal,
     Login,
@@ -26,6 +27,7 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     Home,
     multiTab,
     customTab,
+    Settings,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -33,7 +35,7 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    pantryList,
+    PantryList,
     RemoveItemModal,
     AddItemModal,
     Login,
@@ -42,6 +44,7 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     Home,
     multiTab,
     customTab,
+    Settings,
   ],
   providers: []
 })

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   templateUrl: 'pantryList.html'
 })
-export class pantryList {
+export class PantryList {
 
   constructor() {
 
