@@ -3,13 +3,13 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { pantryList } from '../pages/pantryList/pantryList';
-import { Snacks } from '../pages/pantryList/tabs/snacksTab';
-import { Drinks } from '../pages/pantryList/tabs/drinksTab';
-import { Frozen } from '../pages/pantryList/tabs/frozenTab';
 import { Login } from '../pages/login/login';
 import { Menu } from '../pages/menu/menu';
 import { Home } from '../pages/home/home';
 import { Signup } from '../pages/signup/signup';
+
+import { multiTab } from '../pages/pantryList/multitab/multitab';
+import { customTab } from '../pages/pantryList/customTab/customTab';
 
 import { AuthData } from '../providers/auth';
 
@@ -20,15 +20,14 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
   declarations: [
     MyApp,
     pantryList,
-    Snacks,
-    Drinks,
-    Frozen,
     RemoveItemModal,
     AddItemModal,
     Login,
     Signup,
     Menu,
     Home,
+    multiTab,
+    customTab,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -37,15 +36,14 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
   entryComponents: [
     MyApp,
     pantryList,
-    Snacks,
-    Drinks,
-    Frozen,
     RemoveItemModal,
     AddItemModal,
     Login,
     Signup,
     Menu,
     Home,
+    multiTab,
+    customTab,
   ],
   providers: [AuthData]
 })

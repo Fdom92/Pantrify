@@ -12,6 +12,10 @@
   .tabs-md{
     .tabbar {
       background-color: #3F51B5;
+
+      .tab-highlight {
+        background-color: #C5CAE9;
+      }
     }
     .tab-button[aria-selected=true]{
       color: #FFFFFF;

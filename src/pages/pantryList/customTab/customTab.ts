@@ -1,44 +1,19 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { ModalController, NavParams } from 'ionic-angular';
 
 import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
 import { Item } from '../items';
 
-const DrinksItems = [{
-  'title': '7up',
-  'units': 1
-},
-{
-  'title': 'Coke',
-  'units': 4
-},
-{
-  'title': 'Pepsi',
-  'units': 2
-}];
-
 @Component({
-  template: `
-  <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <h2>{{item.title}}</h2>
-      <p>Quantity: {{item.units}}</p>
-      <ion-icon name="trash" item-right color="indigo100" (click)="onDelete(item)"></ion-icon>
-    </ion-item>
-  </ion-list>
-  <ion-fab center bottom>
-     <button ion-fab mini color="pink200" (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
-  </ion-content>`
+  templateUrl: 'customTab.html'
 })
-export class Drinks {
+export class customTab {
 
   items : Array<Item>;
 
-  constructor(public modalCtrl: ModalController) {
-    this.items = DrinksItems;
+  constructor(public modalCtrl: ModalController, navParams: NavParams) {
+    this.items = navParams.data;
   }
 
   onDelete(item) {
