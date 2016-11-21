@@ -3,18 +3,13 @@ import { NavController } from 'ionic-angular';
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { Menu } from '../menu/menu';
-import { AuthData } from '../../providers/auth';
-
-import firebase from 'firebase';
 
 @Component({
   templateUrl: 'home.html',
 })
 export class Home {
 
-  googleProvider = new firebase.auth.GoogleAuthProvider();
-
-  constructor(public navCtrl: NavController, public authData: AuthData) {
+  constructor(public navCtrl: NavController) {
 
   }
 
@@ -25,7 +20,7 @@ export class Home {
 
   registerUserWithGoogle() {
     console.log('Google');
-    this.authData.googleSignin();
+    this.navCtrl.setRoot(Menu);
   }
 
   openSignUpPage(){

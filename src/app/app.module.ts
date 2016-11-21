@@ -11,8 +11,6 @@ import { Signup } from '../pages/signup/signup';
 import { multiTab } from '../pages/pantryList/multitab/multitab';
 import { customTab } from '../pages/pantryList/customTab/customTab';
 
-import { AuthData } from '../providers/auth';
-
 import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemModal';
 
@@ -45,6 +43,6 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     multiTab,
     customTab,
   ],
-  providers: [AuthData]
+  providers: []
 })
 export class AppModule {}

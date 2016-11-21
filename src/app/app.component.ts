@@ -1,12 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
-
 import { Home } from '../pages/home/home';
-import { Menu } from '../pages/menu/menu';
-
-import {FirebaseConfig} from '../../config/firebase.config';
-import firebase from 'firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,19 +9,12 @@ import firebase from 'firebase';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Menu;
+  rootPage: any = Home;
   constructor(public platform: Platform) {
     this.initializeApp();
   }
 
   initializeApp() {
-    firebase.initializeApp(FirebaseConfig);
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-        this.nav.setRoot(Home);
-      }
-    });
 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

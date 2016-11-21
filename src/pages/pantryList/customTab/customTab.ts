@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from 'ionic-angular';
-
 import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
 import { Item } from '../items';

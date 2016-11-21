@@ -1,10 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-
 import { pantryList } from '../pantryList/pantryList';
-
-import firebase from 'firebase';
-
 
 @Component({
   templateUrl: 'menu.html'
@@ -33,6 +29,6 @@ export class Menu {
   }
 
   logout() {
-    firebase.auth().signOut();
+    console.log('logout');
   }
 }
