@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { pantryList } from '../pantryList/pantryList';
+import { PantryList } from '../pantryList/pantryList';
+import { Settings } from '../settings/settings';
 
 @Component({
   templateUrl: 'menu.html'
@@ -8,27 +9,20 @@ import { pantryList } from '../pantryList/pantryList';
 export class Menu {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = pantryList;
+  rootPage: any = PantryList;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform) {
-
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'List', component: pantryList, icon: 'list' },
-      { title: 'Settings', component: pantryList, icon: 'settings' }
+      { title: 'Pantry', component: PantryList, icon: 'list' },
+      { title: 'Settings', component: Settings, icon: 'settings' },
+      { title: 'Send feedback', component: Settings, icon: 'text' },
+      { title: 'Help', component: Settings, icon: 'help-circle' }
     ];
-
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
-  }
-
-  logout() {
-    console.log('logout');
   }
 }
