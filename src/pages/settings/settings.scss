@@ -1,0 +1,22 @@
+.settings {
+    .item-divider-md {
+        border-bottom: none;
+
+        .label {
+            color: #3F51B5;
+        }
+    }
+
+    .item-md.item-block .item-inner {
+        border-bottom: none;
+    }
+
+    ion-item-group {
+        border-top: 1px solid #e0e0e0;
+        margin-bottom: 8px;
+
+        &:first-child() {
+            border-bottom: none;
+        }
+    }
+}
