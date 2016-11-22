@@ -1,6 +1,27 @@
 .sidemenu {
-    ion-list:nth-child(1) {
+    ion-list:nth-child(2) {
         padding-bottom: 8px;
         border-bottom: 1px solid #e0e0e0;
+    }
+
+    .sidemenu-avatar {
+        height: 200px;
+        background-image: url('../assets/img/material-design.png');
+        background-size: cover;
+
+        ion-avatar {
+            img {
+                max-width: 6rem;
+                max-height: 6rem;
+            }
+        }
+
+        h2 {
+            color: white;
+        }
+
+        .item-inner {
+            border-bottom: none !important;
+        }
     }
 }
