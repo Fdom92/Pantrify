@@ -19,11 +19,7 @@
     }
   }
 
-  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner{
-    box-shadow: none;
-  }
-
-  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child{
+  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
     box-shadow: none;
   }
 }
