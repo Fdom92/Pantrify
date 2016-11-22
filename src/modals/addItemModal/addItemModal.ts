@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { Item } from '../../items';
+import { Item } from '../../pages/pantryList/items';
 
 @Component({
   templateUrl: "addItemModal.html",

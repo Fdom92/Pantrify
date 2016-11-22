@@ -14,8 +14,8 @@ import { Feedback } from '../pages/feedback/feedback';
 import { multiTab } from '../pages/pantryList/multitab/multitab';
 import { customTab } from '../pages/pantryList/customTab/customTab';
 
-import { RemoveItemModal } from '../pages/pantryList/modals/removeItemModal/removeItemModal';
-import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemModal';
+import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
+import { AddItemModal } from '../modals/addItemModal/addItemModal';
 
 @NgModule({
   declarations: [
