@@ -9,4 +9,7 @@ export class Feedback {
     constructor(public navCtrl: NavController) {
     }
 
+    send() {
+        
+    }
 }
