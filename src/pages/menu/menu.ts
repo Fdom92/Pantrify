@@ -20,24 +20,11 @@ export class Menu {
     this.pages = [{ title: 'Pantry', component: PantryList, icon: 'home' }];
 
     this.pages2 = [{ title: 'Settings', component: Settings, icon: 'settings' },
-      { title: 'Send feedback', component: Settings, icon: 'text' },
+      { title: 'Send feedback', component: Feedback, icon: 'text' },
       { title: 'Help', component: Help, icon: 'help-circle' }];
   }
 
   openPage(page) {
-
-    if (page.title === 'Help') {
-      let helpModal = this.modalCtrl.create(Help);
-      helpModal.onDidDismiss(data => {});
-      helpModal.present();
-    }
-
-    if (page.title === 'Send feedback') {
-      let helpModal = this.modalCtrl.create(Feedback);
-      helpModal.onDidDismiss(data => {});
-      helpModal.present();
-    }
-
     this.nav.setRoot(page.component);
   }
 }
