@@ -3,6 +3,7 @@ import { Nav, Platform, ModalController } from 'ionic-angular';
 import { PantryList } from '../pantryList/pantryList';
 import { Settings } from '../settings/settings';
 import { Help } from '../help/help';
+import { Feedback } from '../feedback/feedback';
 
 @Component({
   templateUrl: 'menu.html'
@@ -30,6 +31,13 @@ export class Menu {
       helpModal.onDidDismiss(data => {});
       helpModal.present();
     }
+
+    if (page.title === 'Send feedback') {
+      let helpModal = this.modalCtrl.create(Feedback);
+      helpModal.onDidDismiss(data => {});
+      helpModal.present();
+    }
+
     this.nav.setRoot(page.component);
   }
 }
