@@ -8,6 +8,7 @@ import { Menu } from '../pages/menu/menu';
 import { Home } from '../pages/home/home';
 import { Signup } from '../pages/signup/signup';
 import { Settings } from '../pages/settings/settings';
+import { Help } from '../pages/help/help';
 
 import { multiTab } from '../pages/pantryList/multitab/multitab';
 import { customTab } from '../pages/pantryList/customTab/customTab';
@@ -28,6 +29,7 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     multiTab,
     customTab,
     Settings,
+    Help,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -45,6 +47,7 @@ import { AddItemModal } from '../pages/pantryList/modals/addItemModal/addItemMod
     multiTab,
     customTab,
     Settings,
+    Help,
   ],
   providers: []
 })
