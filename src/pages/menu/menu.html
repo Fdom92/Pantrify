@@ -1,11 +1,16 @@
 <ion-menu [content]="content" class="sidemenu">
   <ion-content>
-    <ion-item class="sidemenu-avatar">
-      <ion-avatar item-left>
-        <img src="assets/img/user.png">
-      </ion-avatar>
-      <h2>Username</h2>
-    </ion-item>
+    <ion-list no-lines class="sidemenu-avatar">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/img/user.png">
+        </ion-avatar>
+      </ion-item>
+      <ion-item>
+        <h2>Username</h2>
+        <p>user.email.test@gamil.com</p>
+      </ion-item>
+    </ion-list>
     <ion-list no-lines>
       <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon color="gray" name="{{p.icon}}" item-left></ion-icon>

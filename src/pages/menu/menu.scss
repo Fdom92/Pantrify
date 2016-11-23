@@ -10,19 +10,23 @@
         background-image: url('../assets/img/material-design.png');
         background-size: cover;
 
-        ion-avatar {
-            img {
-                max-width: 6rem;
-                max-height: 6rem;
+        .item-md {
+            background-color: transparent;
+
+            ion-avatar {
+                margin-top: 40px;
+                margin-bottom: 10px;
+
+                img {
+                    max-width: 7rem;
+                    max-height: 7rem;
+                }
             }
-        }
 
-        h2 {
-            color: white;
-        }
-
-        .item-inner {
-            border-bottom: none !important;
+            h2, p {
+                color: white;
+                font-size: 14px;
+            }
         }
     }
 }
