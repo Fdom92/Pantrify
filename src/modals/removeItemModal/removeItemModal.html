@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar color="indigo500">
     <ion-title text-center>Remove Item</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,5 +20,4 @@
     </button>
   </div>
   <button ion-button color="indigo500" block (click)="accept()">Accept</button>
-  <button ion-button clear block (click)="dismiss()">Cancel</button>
 </ion-content>
