@@ -15,9 +15,9 @@ export class customTab {
     this.items = navParams.data;
   }
 
-  onDelete(item) {
-    let deleteModal = this.modalCtrl.create(RemoveItemModal, { product: item });
-    deleteModal.onDidDismiss(data => {
+  updateItem(item) {
+    let updateModal = this.modalCtrl.create(RemoveItemModal, { product: item });
+    updateModal.onDidDismiss(data => {
       if (data) {
         let index = this.items.findIndex(x => x.title === data.product.title);
         let result = this.items[index].units - data.units;
@@ -28,7 +28,7 @@ export class customTab {
         }
       }
     });
-    deleteModal.present();
+    updateModal.present();
   }
 
   onAdd() {
