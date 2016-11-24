@@ -11,11 +11,11 @@
 
 <ion-content class="remove-item" padding>
   <div class="number-selector">
-    <button color="indigo500" ion-button class="minus-button" (click)="onMinus()">
+    <button color="indigo500" ion-button class="minus-button" (click)="onMinus()" round>
       <ion-icon name="remove"></ion-icon>
     </button>
     <span class="number-selctor-number">{{counter}}</span>
-    <button color="indigo500" ion-button class="add-button" (click)="onAdd()">
+    <button color="indigo500" ion-button class="add-button" (click)="onAdd()" round>
       <ion-icon name="add"></ion-icon>
     </button>
   </div>
