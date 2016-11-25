@@ -14,14 +14,14 @@ import { Feedback } from '../pages/feedback/feedback';
 import { multiTab } from '../pages/pantryList/multitab/multitab';
 import { customTab } from '../pages/pantryList/customTab/customTab';
 
-import { RemoveItemModal } from '../modals/removeItemModal/removeItemModal';
+import { UpdateItemModal } from '../modals/updateItemModal/updateItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
 
 @NgModule({
   declarations: [
     MyApp,
     PantryList,
-    RemoveItemModal,
+    UpdateItemModal,
     AddItemModal,
     Login,
     Signup,
@@ -40,7 +40,7 @@ import { AddItemModal } from '../modals/addItemModal/addItemModal';
   entryComponents: [
     MyApp,
     PantryList,
-    RemoveItemModal,
+    UpdateItemModal,
     AddItemModal,
     Login,
     Signup,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from 'ionic-angular';
-import { RemoveItemModal } from '../../../modals/removeItemModal/removeItemModal';
+import { UpdateItemModal } from '../../../modals/updateItemModal/updateItemModal';
 import { AddItemModal } from '../../../modals/addItemModal/addItemModal';
 import { Item } from '../items';
 
@@ -16,14 +16,12 @@ export class customTab {
   }
 
   updateItem(item) {
-    let updateModal = this.modalCtrl.create(RemoveItemModal, { product: item });
+    let updateModal = this.modalCtrl.create(UpdateItemModal, { product: item });
     updateModal.onDidDismiss(data => {
       if (data) {
         let index = this.items.findIndex(x => x.title === data.product.title);
-        let result = this.items[index].units - data.units;
-        if (result > 0) {
-          this.items[index].units = result;
-        } else {
+        this.items[index].units = data.units;
+        if (this.items[index].units < 1) {
           this.items.splice(index, 1);
         }
       }

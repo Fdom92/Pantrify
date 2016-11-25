@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="indigo500">
+    <ion-title text-center>Update Item</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="update-item" padding>
+  <ion-list>
+    <ion-item *ngFor="let number of numbers" (click)="selectNumber(number)">
+      {{number}}
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <button ion-button color="indigo500" block (click)="accept()">Accept</button>
+</ion-footer>
