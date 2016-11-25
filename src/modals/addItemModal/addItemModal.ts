@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { Item } from '../../pages/pantryList/items';
+import { Item } from '../../classes/items';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { QuantityValidator } from  '../../validators/quantity';
 

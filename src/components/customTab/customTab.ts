@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from 'ionic-angular';
-import { UpdateItemModal } from '../../../modals/updateItemModal/updateItemModal';
-import { AddItemModal } from '../../../modals/addItemModal/addItemModal';
-import { Item } from '../items';
+import { UpdateItemModal } from '../../modals/updateItemModal/updateItemModal';
+import { AddItemModal } from '../../modals/addItemModal/addItemModal';
+import { Item } from '../../classes/items';
 
 @Component({
   templateUrl: 'customTab.html'

@@ -11,8 +11,8 @@ import { Settings } from '../pages/settings/settings';
 import { Help } from '../pages/help/help';
 import { Feedback } from '../pages/feedback/feedback';
 
-import { multiTab } from '../pages/pantryList/multitab/multitab';
-import { customTab } from '../pages/pantryList/customTab/customTab';
+import { multiTab } from '../components/multitab/multitab';
+import { customTab } from '../components/customTab/customTab';
 
 import { UpdateItemModal } from '../modals/updateItemModal/updateItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';

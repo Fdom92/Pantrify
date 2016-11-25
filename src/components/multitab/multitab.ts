@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { customTab } from '../customTab/customTab';
 import { ModalController } from 'ionic-angular';
-import { HomeItems, DrinkItems, FoodItems} from './data';
-import { Item } from '../items';
+import { HomeItems, DrinkItems, FoodItems} from '../../providers/data';
+import { Item } from '../../classes/items';
 
 export class Tab {
     title: string;
