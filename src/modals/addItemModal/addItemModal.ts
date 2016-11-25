@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import { Item } from '../../pages/pantryList/items';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { QuantityValidator } from  '../../validators/quantity';
 
 @Component({
@@ -12,11 +12,17 @@ export class AddItemModal {
   itemQuantity: number;
   addItemForm: FormGroup;
 
-  constructor(public viewCtrl: ViewController, public formBuilder: FormBuilder) {
-    this.addItemForm = formBuilder.group({
-        name: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-        quantity: ['', Validators.compose([Validators.required]), QuantityValidator.isValid]
-        
+  constructor(public viewCtrl: ViewController) {
+    this.addItemForm = new FormGroup({
+        quantity: new FormControl('', [
+            Validators.required,
+            QuantityValidator.isValid
+        ]),
+        name: new FormControl('', [
+            Validators.required,
+            Validators.maxLength(10),
+            Validators.pattern('[a-zA-Z ]*')
+       ])
     });
   }
 
