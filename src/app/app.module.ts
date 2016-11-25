@@ -17,6 +17,9 @@ import { customTab } from '../pages/pantryList/customTab/customTab';
 import { UpdateItemModal } from '../modals/updateItemModal/updateItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
 
+
+import { MultiPickerModule } from 'ion-multi-picker';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +37,8 @@ import { AddItemModal } from '../modals/addItemModal/addItemModal';
     Feedback,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MultiPickerModule //Import MultiPickerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

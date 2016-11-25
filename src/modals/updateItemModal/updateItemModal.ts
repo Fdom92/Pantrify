@@ -6,28 +6,28 @@ import { NavParams, ViewController } from 'ionic-angular';
 })
 export class UpdateItemModal {
 
+  simpleColumns: any;
   counter: number;
-  max: number;
   product: any;
-  numbers: Array<number>;
 
  constructor(public viewCtrl: ViewController, params: NavParams) {
    this.product = params.get('product');
-   this.max = params.get('product').units;
-   this.counter = 1;
-   this.numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
- }
-
- onAdd() {
-   if (this.counter < this.max) {
-       this.counter++;
-   }
- }
-
- onMinus() {
-   if (this.counter > 1) {
-       this.counter--;
-   }
+   this.counter = params.get('product').units;
+   this.simpleColumns = [{
+      name: 'col1',
+      options: [
+        { text: '0', value: '0' },
+        { text: '1', value: '1' },
+        { text: '2', value: '2' },
+        { text: '3', value: '3' },
+        { text: '4', value: '4' },
+        { text: '5', value: '5' },
+        { text: '6', value: '6' },
+        { text: '7', value: '7' },
+        { text: '8', value: '8' },
+        { text: '9', value: '9' },
+        { text: '10', value: '10' }]
+  }];
  }
 
  dismiss() {
@@ -35,10 +35,7 @@ export class UpdateItemModal {
  }
 
  accept() {
-   this.viewCtrl.dismiss({'product': this.product, 'units': this.counter});
+   this.viewCtrl.dismiss({ product: this.product, units: this.counter});
  }
 
-  selectNumber(number) {
-    this.counter = number;
-  }
 }

@@ -7,20 +7,12 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-toolbar>
-    <ion-title>How many do you have?</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content class="update-item" padding>
-  <ion-list>
-    <ion-item *ngFor="let number of numbers" (click)="selectNumber(number)">
-      <ion-label>
-        {{number}}
-      </ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content>
-<ion-footer>
+  <ion-item>
+        <ion-label>How many do you have?</ion-label>
+        <ion-multi-picker item-content [(ngModel)]="counter" [multiPickerColumns]="simpleColumns">{{counter}}</ion-multi-picker>
+  </ion-item>
   <button ion-button color="indigo500" block (click)="accept()">Accept</button>
-</ion-footer>
+</ion-content>

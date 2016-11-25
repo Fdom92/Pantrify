@@ -1,14 +1,10 @@
 .update-item {
 
-  .list-md {
-    .item-block {
-      .item-inner{
-         border-bottom: none;
-      }
-    }
-
-    .label {
-      text-align: center;
-    }
+  ion-item {
+    margin-bottom: 16px;
+  }
+  
+  .item-multi-picker ion-label{
+    color: #FF4081;
   }
 }
