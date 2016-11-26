@@ -5,6 +5,12 @@
     }
   }
 
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+    .label {
+      color: #f53d3d;
+    }
+  }
+
   .list-md{
     .item-input.input-has-focus:last-child{
       border-bottom-color: #FF4081;
@@ -15,7 +21,7 @@
   .item-md.item-input.input-has-focus {
     .item-inner {
       border-bottom-color: #FF4081;
-      box-shadow: inset 0 -1px 0 0 #FF4081;      
+      box-shadow: inset 0 -1px 0 0 #FF4081;
     }
   }
 

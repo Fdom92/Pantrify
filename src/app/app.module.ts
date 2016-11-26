@@ -10,6 +10,7 @@ import { Signup } from '../pages/signup/signup';
 import { Settings } from '../pages/settings/settings';
 import { Help } from '../pages/help/help';
 import { Feedback } from '../pages/feedback/feedback';
+import { Inventory } from '../pages/inventory/inventory';
 
 import { multiTab } from '../components/multitab/multitab';
 import { customTab } from '../components/customTab/customTab';
@@ -35,6 +36,7 @@ import { MultiPickerModule } from 'ion-multi-picker';
     Settings,
     Help,
     Feedback,
+    Inventory,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -55,6 +57,7 @@ import { MultiPickerModule } from 'ion-multi-picker';
     Settings,
     Help,
     Feedback,
+    Inventory,
   ],
   providers: []
 })

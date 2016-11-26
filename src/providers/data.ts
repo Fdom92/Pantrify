@@ -1,4 +1,6 @@
-export const DrinkItems = [{
+import { Item } from '../classes/items';
+
+export const DrinkItems: Array<Item> = [{
   'title': 'drink 1',
   'units': 1
 },
@@ -11,7 +13,7 @@ export const DrinkItems = [{
   'units': 2
 }];
 
-export const HomeItems = [{
+export const HomeItems: Array<Item> = [{
   'title': 'home 1',
   'units': 1
 },
@@ -24,7 +26,7 @@ export const HomeItems = [{
   'units': 1
 }];
 
-export const FoodItems = [{
+export const FoodItems: Array<Item> = [{
   'title': 'food 1',
   'units': 1
 },

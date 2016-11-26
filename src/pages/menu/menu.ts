@@ -4,6 +4,7 @@ import { PantryList } from '../pantryList/pantryList';
 import { Settings } from '../settings/settings';
 import { Help } from '../help/help';
 import { Feedback } from '../feedback/feedback';
+import { Inventory } from '../inventory/inventory';
 
 @Component({
   templateUrl: 'menu.html'
@@ -17,7 +18,8 @@ export class Menu {
   pages2: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public modalCtrl: ModalController) {
-    this.pages = [{ title: 'Pantry', component: PantryList, icon: 'home' }];
+    this.pages = [{ title: 'Pantry', component: PantryList, icon: 'home' },
+                  { title: 'Inventory', component: Inventory, icon: 'clipboard' }];
 
     this.pages2 = [{ title: 'Settings', component: Settings, icon: 'settings' },
       { title: 'Send feedback', component: Feedback, icon: 'text' },
