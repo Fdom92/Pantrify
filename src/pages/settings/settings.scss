@@ -1,10 +1,19 @@
 .settings {
-    .item-divider-md {
-        border-bottom: none;
 
-        .label {
-            color: #F50057;
-        }
+    .hint-text-color {
+        color: #000000;
+        opacity: 0.38;
+        border-bottom: none;
+    }
+
+    .primary-text-color {
+        color: #000000;
+        opacity: 0.87;
+    }
+
+    .secondary-text-color {
+        color: #000000;
+        opacity: 0.54;
     }
 
     .item-md.item-block .item-inner {
