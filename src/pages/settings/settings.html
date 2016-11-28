@@ -9,25 +9,32 @@
 
 <ion-content class="settings">
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">Basics</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'basics' | translate }}</ion-item-divider>
     <ion-item>
       <ion-label class="primary-text-color">
-        Notifications
+        {{ 'notifications' | translate }}
       </ion-label>
       <ion-toggle color="pink200" checked="true"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label class="primary-text-color">
-        Vibration
+        {{ 'vibration' | translate }}
       </ion-label>
       <ion-toggle color="pink200" checked="false"></ion-toggle>
     </ion-item>
+    <ion-item>
+      <ion-label class="primary-text-color">{{ 'language' | translate }}</ion-label>
+      <ion-select (ionChange)="onChange($event)">
+        <ion-option value="es">Español</ion-option>
+        <ion-option value="en" selected="true">English</ion-option>
+      </ion-select>
+    </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">Advanced</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'advanced' | translate }}</ion-item-divider>
     <ion-item>
-      <h2 class="primary-text-color">New tab</h2>
-      <p class="secondary-text-color">Add another tab for products you want to handle</p>
+      <h2 class="primary-text-color">{{ 'new-tab' | translate }}</h2>
+      <p class="secondary-text-color">{{ 'new-tab-text' | translate }}</p>
       </ion-item>
   </ion-item-group>
 </ion-content>
