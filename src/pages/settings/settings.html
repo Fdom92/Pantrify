@@ -3,27 +3,27 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Settings</ion-title>
+    <ion-title>{{ 'Settings.view-header' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="settings">
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">{{ 'basics' | translate }}</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-one' | translate }}</ion-item-divider>
     <ion-item>
       <ion-label class="primary-text-color">
-        {{ 'notifications' | translate }}
+        {{ 'Settings.notifications' | translate }}
       </ion-label>
       <ion-toggle color="pink200" checked="true"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label class="primary-text-color">
-        {{ 'vibration' | translate }}
+        {{ 'Settings.vibration' | translate }}
       </ion-label>
       <ion-toggle color="pink200" checked="false"></ion-toggle>
     </ion-item>
     <ion-item>
-      <ion-label class="primary-text-color">{{ 'language' | translate }}</ion-label>
+      <ion-label class="primary-text-color">{{ 'Settings.language' | translate }}</ion-label>
       <ion-select (ionChange)="onChange($event)">
         <ion-option value="es">Español</ion-option>
         <ion-option value="en" selected="true">English</ion-option>
@@ -31,10 +31,10 @@
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">{{ 'advanced' | translate }}</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-two' | translate }}</ion-item-divider>
     <ion-item>
-      <h2 class="primary-text-color">{{ 'new-tab' | translate }}</h2>
-      <p class="secondary-text-color">{{ 'new-tab-text' | translate }}</p>
+      <h2 class="primary-text-color">{{ 'Settings.new-tab' | translate }}</h2>
+      <p class="secondary-text-color">{{ 'Settings.new-tab-text' | translate }}</p>
       </ion-item>
   </ion-item-group>
 </ion-content>

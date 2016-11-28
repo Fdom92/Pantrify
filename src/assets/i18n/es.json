@@ -1,9 +1,12 @@
 {
-    "basics": "Básicas",
-    "advanced": "Avanzadas",
-    "notifications": "Notificaciones",
-    "vibration": "Vibración",
-    "language": "Idioma",
-    "new-tab": "Nueva pestaña",
-    "new-tab-text": "Añade una para los productos que quieras manejar"
+    "Settings": {
+        "view-header": "Ajustes",
+        "divider-one": "Básicas",
+        "notifications": "Notificaciones",
+        "vibration": "Vibración",
+        "language": "Idioma",
+        "divider-two": "Avanzadas",
+        "new-tab": "Nueva pestaña",
+        "new-tab-text": "Añade una para los nuevos productos que quieras controlar"
+    }
 }
