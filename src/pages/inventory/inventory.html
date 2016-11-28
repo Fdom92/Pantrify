@@ -7,23 +7,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="inventory">
   <ion-item-group>
-    <ion-item-divider color="light">Food</ion-item-divider>
+    <ion-item-divider color="white">Food</ion-item-divider>
     <ion-item *ngFor="let f of food">
           <ion-label>{{f.title}}</ion-label>
           <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider color="light">Home</ion-item-divider>
+    <ion-item-divider color="white">Home</ion-item-divider>
     <ion-item *ngFor="let f of home">
           <ion-label>{{f.title}}</ion-label>
           <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider color="light">Drink</ion-item-divider>
+    <ion-item-divider color="white">Drink</ion-item-divider>
     <ion-item *ngFor="let f of drink">
           <ion-label>{{f.title}}</ion-label>
           <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>

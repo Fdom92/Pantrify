@@ -1,0 +1,17 @@
+.inventory {
+    .item-divider-md {
+        border-bottom: none;
+    }
+
+    .label-md {
+        color: #000000;
+        opacity: 0.38;
+    }
+
+    .item-multi-picker {
+        ion-label {
+            color: #000000;
+            opacity: 0.87;
+        }
+    } 
+}
