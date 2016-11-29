@@ -8,5 +8,12 @@
         "divider-two": "Avanzadas",
         "new-tab": "Nueva pestaña",
         "new-tab-text": "Añade una para los nuevos productos que quieras controlar"
+    },
+    "Help": {
+        "view-header": "Ayuda",
+        "divider-one": "Equipo de desarrollo",
+        "divider-two": "Información de la app",
+        "version": "Versión",
+        "copyright": "Copyright"
     }
 }

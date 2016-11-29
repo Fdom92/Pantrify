@@ -8,5 +8,12 @@
         "divider-two": "Advanced",
         "new-tab": "New tab",
         "new-tab-text": "Add another tab for products you want to handle"
+    },
+    "Help": {
+        "view-header": "Help",
+        "divider-one": "Developer Team",
+        "divider-two": "App Information",
+        "version": "Version",
+        "copyright": "Copyright"
     }
 }
