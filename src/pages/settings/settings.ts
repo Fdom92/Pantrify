@@ -6,8 +6,10 @@ import {TranslateService} from 'ng2-translate';
 })
 export class Settings {
 
-    constructor(public translate: TranslateService) {
+    language: string;
 
+    constructor(public translate: TranslateService) {
+        this.language = translate.currentLang;
     }
 
     onChange(e) {

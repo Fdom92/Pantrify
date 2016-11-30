@@ -24,9 +24,9 @@
     </ion-item>
     <ion-item>
       <ion-label class="primary-text-color">{{ 'Settings.language' | translate }}</ion-label>
-      <ion-select (ionChange)="onChange($event)">
+      <ion-select [(ngModel)]="language" (ionChange)="onChange($event)">
         <ion-option value="es">Español</ion-option>
-        <ion-option value="en" selected="true">English</ion-option>
+        <ion-option value="en">English</ion-option>
       </ion-select>
     </ion-item>
   </ion-item-group>
