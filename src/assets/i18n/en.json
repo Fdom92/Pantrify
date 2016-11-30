@@ -24,7 +24,10 @@
         "help": "Help"
     },
     "Inventory": {
-        "view-header": "Inventory"
+        "view-header": "Inventory",
+        "divider-one": "Food",
+        "divider-two": "Drinks",
+        "divider-three": "Home"
     },
     "Pantry": {
         "view-header": "Pantry"
@@ -38,6 +41,9 @@
         "view-header": "Update item"
     },
     "Common": {
-        "accept": "Accept"
+        "accept": "Accept",
+        "tab-food": "FOOD",
+        "tab-drinks": "DRINKS",
+        "tab-home": "HOME"
     }
 }

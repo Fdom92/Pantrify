@@ -24,7 +24,10 @@
         "help": "Ayuda"
     },
     "Inventory": {
-        "view-header": "Inventario"
+        "view-header": "Inventario",
+        "divider-one": "Comida",
+        "divider-two": "Bebidas",
+        "divider-three": "Hogar"
     },
     "Pantry": {
         "view-header": "Despensa"
@@ -38,6 +41,9 @@
         "view-header": "Actualizar item"
     },
     "Common": {
-        "accept": "Aceptar"
+        "accept": "Aceptar",
+        "tab-food": "COMIDA",
+        "tab-drinks": "BEBIDAS",
+        "tab-home": "HOGAR"
     }
 }
