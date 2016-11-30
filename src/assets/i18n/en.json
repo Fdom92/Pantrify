@@ -15,5 +15,12 @@
         "divider-two": "App Information",
         "version": "Version",
         "copyright": "Copyright"
+    },
+    "Menu": {
+        "pantry": "Pantry",
+        "inventory": "Inventory",
+        "settings": "Settings",
+        "sendFeedback": "Send feedback",
+        "help": "Help"
     }
 }
