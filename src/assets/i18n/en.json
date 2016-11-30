@@ -22,5 +22,11 @@
         "settings": "Settings",
         "sendFeedback": "Send feedback",
         "help": "Help"
+    },
+    "Inventory": {
+        "view-header": "Inventory"
+    },
+    "Pantry": {
+        "view-header": "Pantry"
     }
 }
