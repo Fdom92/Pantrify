@@ -28,5 +28,16 @@
     },
     "Pantry": {
         "view-header": "Pantry"
+    },
+    "AddItem": {
+        "view-header": "Add item",
+        "name-label": "Name",
+        "quantity-label": "Quantity"
+    },
+    "UpdateItem": {
+        "view-header": "Update item"
+    },
+    "Common": {
+        "accept": "Accept"
     }
 }

@@ -28,5 +28,16 @@
     },
     "Pantry": {
         "view-header": "Despensa"
+    },
+    "AddItem": {
+        "view-header": "Añadir item",
+        "name-label": "Nombre",
+        "quantity-label": "Cantidad"
+    },
+    "UpdateItem": {
+        "view-header": "Actualizar item"
+    },
+    "Common": {
+        "accept": "Aceptar"
     }
 }

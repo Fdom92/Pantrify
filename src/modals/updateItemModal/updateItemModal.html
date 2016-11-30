@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="indigo500">
-    <ion-title text-center>Update Item</ion-title>
+    <ion-title text-center>{{ 'UpdateItem.view-header' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
@@ -14,5 +14,5 @@
         <ion-label>How many do you have?</ion-label>
         <ion-multi-picker item-content [(ngModel)]="counter" [multiPickerColumns]="simpleColumns">{{counter}}</ion-multi-picker>
   </ion-item>
-  <button ion-button color="indigo500" block (click)="accept()">Accept</button>
+  <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>
 </ion-content>
