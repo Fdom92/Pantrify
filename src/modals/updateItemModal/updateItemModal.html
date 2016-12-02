@@ -11,7 +11,7 @@
 
 <ion-content class="update-item" padding>
   <ion-item>
-        <ion-label>How many do you have?</ion-label>
+        <ion-label>{{ 'UpdateItem.label-text' | translate }}</ion-label>
         <ion-multi-picker item-content [(ngModel)]="counter" [multiPickerColumns]="simpleColumns">{{counter}}</ion-multi-picker>
   </ion-item>
   <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>

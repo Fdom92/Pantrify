@@ -38,10 +38,12 @@
         "quantity-label": "Cantidad"
     },
     "UpdateItem": {
-        "view-header": "Actualizar item"
+        "view-header": "Actualizar item",
+        "label-text": "¿Cuántos tienes?"
     },
     "Common": {
         "accept": "Aceptar",
+        "quantity": "Cantidad",
         "tab-food": "COMIDA",
         "tab-drinks": "BEBIDAS",
         "tab-home": "HOGAR"

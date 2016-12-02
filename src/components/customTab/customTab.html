@@ -2,7 +2,7 @@
   <ion-list>
     <ion-item *ngFor="let item of items" (click)="updateItem(item)">
       <h2>{{item.title}}</h2>
-      <p>Quantity: {{item.units}}</p>
+      <p>{{ 'Common.quantity' | translate }}: {{item.units}}</p>
     </ion-item>
   </ion-list>
   <ion-fab right bottom>

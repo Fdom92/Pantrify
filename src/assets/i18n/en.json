@@ -38,10 +38,12 @@
         "quantity-label": "Quantity"
     },
     "UpdateItem": {
-        "view-header": "Update item"
+        "view-header": "Update item",
+        "label-text": "How many do you have?"
     },
     "Common": {
         "accept": "Accept",
+        "quantity": "Quantity",
         "tab-food": "FOOD",
         "tab-drinks": "DRINKS",
         "tab-home": "HOME"
