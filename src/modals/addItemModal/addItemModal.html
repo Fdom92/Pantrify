@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="indigo500">
-    <ion-title text-center>Add Item</ion-title>
+    <ion-title text-center>{{ 'AddItem.view-header' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
@@ -13,14 +13,14 @@
   <form [formGroup]="addItemForm">
     <ion-list>
       <ion-item>
-        <ion-label color="pink500" floating>Nombre</ion-label>
+        <ion-label color="pink500" floating>{{ 'AddItem.name-label' | translate }}</ion-label>
         <ion-input formControlName="name" type="text" [(ngModel)]="itemName"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label  floating>Cantidad</ion-label>
+        <ion-label  floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number" [(ngModel)]="itemQuantity"></ion-input>
       </ion-item>
     </ion-list>
   </form>
-  <button ion-button color="indigo500" block (click)="accept()">Accept</button>
+  <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>
 </ion-content>

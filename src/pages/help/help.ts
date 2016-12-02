@@ -1,12 +1,12 @@
 import {Component} from "@angular/core";
-import { NavController } from 'ionic-angular';
+import {TranslateService} from 'ng2-translate';
 
 @Component({
     templateUrl: "help.html"
 })
 export class Help {
 
-    constructor(public navCtrl: NavController) {
+    constructor(public translate: TranslateService) {
     }
 
 }

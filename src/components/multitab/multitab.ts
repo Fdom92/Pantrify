@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService, LangChangeEvent } from 'ng2-translate';
 import { customTab } from '../customTab/customTab';
 import { ModalController } from 'ionic-angular';
 import { HomeItems, DrinkItems, FoodItems} from '../../providers/data';
@@ -11,8 +12,8 @@ export class Tab {
 };
 
 const tabs = [{title: 'FOOD',  component: customTab, items: FoodItems},
-              {title: 'HOME',  component: customTab, items: HomeItems},
-              {title: 'DRINKS',  component: customTab, items: DrinkItems}];
+              {title: 'DRINKS',  component: customTab, items: DrinkItems},
+              {title: 'HOME',  component: customTab, items: HomeItems}];
 
 @Component({
   selector: 'multi-tab',
@@ -21,7 +22,13 @@ const tabs = [{title: 'FOOD',  component: customTab, items: FoodItems},
 export class multiTab {
   
   tabs : Array<Tab>;
-  constructor(public modalCtrl: ModalController) {
+  constructor(public modalCtrl: ModalController, public translate: TranslateService) {
       this.tabs = tabs;
+
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        this.tabs[0].title = event.translations.Common['tab-food'];
+        this.tabs[1].title = event.translations.Common['tab-drinks'];
+        this.tabs[2].title = event.translations.Common['tab-home'];
+      });
   }
 }

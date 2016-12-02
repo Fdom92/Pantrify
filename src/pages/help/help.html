@@ -3,14 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Help</ion-title>
+    <ion-title>{{ 'Help.view-header' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="help">
   <ion-list>
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">Developer Team</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Help.divider-one' | translate }}</ion-item-divider>
     <ion-item>
       <ion-avatar item-left>
         <img src="assets/img/user.png">
@@ -20,13 +20,13 @@
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">App Information</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Help.divider-two' | translate }}</ion-item-divider>
     <ion-item>
-      <h2 class="primary-text-color">Version</h2>
+      <h2 class="primary-text-color">{{ 'Help.version' | translate }}</h2>
       <p class="secondary-text-color">0.0.1</p>
     </ion-item>
     <ion-item>
-      <h2 class="primary-text-color">Copyright</h2>
+      <h2 class="primary-text-color">{{ 'Help.copyright' | translate }}</h2>
       <p class="secondary-text-color">©2016 Fernando del olmo</p>
     </ion-item>
   </ion-item-group>

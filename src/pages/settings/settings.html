@@ -3,31 +3,38 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Settings</ion-title>
+    <ion-title>{{ 'Settings.view-header' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="settings">
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">Basics</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-one' | translate }}</ion-item-divider>
     <ion-item>
       <ion-label class="primary-text-color">
-        Notifications
+        {{ 'Settings.notifications' | translate }}
       </ion-label>
       <ion-toggle color="pink200" checked="true"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label class="primary-text-color">
-        Vibration
+        {{ 'Settings.vibration' | translate }}
       </ion-label>
       <ion-toggle color="pink200" checked="false"></ion-toggle>
     </ion-item>
+    <ion-item>
+      <ion-label class="primary-text-color">{{ 'Settings.language' | translate }}</ion-label>
+      <ion-select [(ngModel)]="language" (ionChange)="onChange($event)">
+        <ion-option value="es">Español</ion-option>
+        <ion-option value="en">English</ion-option>
+      </ion-select>
+    </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">Advanced</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-two' | translate }}</ion-item-divider>
     <ion-item>
-      <h2 class="primary-text-color">New tab</h2>
-      <p class="secondary-text-color">Add another tab for products you want to handle</p>
+      <h2 class="primary-text-color">{{ 'Settings.new-tab' | translate }}</h2>
+      <p class="secondary-text-color">{{ 'Settings.new-tab-text' | translate }}</p>
       </ion-item>
   </ion-item-group>
 </ion-content>

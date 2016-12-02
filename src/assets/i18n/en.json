@@ -1,0 +1,51 @@
+{
+    "Settings": {
+        "view-header": "Settings",
+        "divider-one": "Basics",
+        "notifications": "Notifications",
+        "vibration": "Vibration",
+        "language": "Language",
+        "divider-two": "Advanced",
+        "new-tab": "New tab",
+        "new-tab-text": "Add another tab for products you want to handle"
+    },
+    "Help": {
+        "view-header": "Help",
+        "divider-one": "Developer Team",
+        "divider-two": "App Information",
+        "version": "Version",
+        "copyright": "Copyright"
+    },
+    "Menu": {
+        "pantry": "Pantry",
+        "inventory": "Inventory",
+        "settings": "Settings",
+        "sendFeedback": "Send feedback",
+        "help": "Help"
+    },
+    "Inventory": {
+        "view-header": "Inventory",
+        "divider-one": "Food",
+        "divider-two": "Drinks",
+        "divider-three": "Home"
+    },
+    "Pantry": {
+        "view-header": "Pantry"
+    },
+    "AddItem": {
+        "view-header": "Add item",
+        "name-label": "Name",
+        "quantity-label": "Quantity"
+    },
+    "UpdateItem": {
+        "view-header": "Update item",
+        "label-text": "How many do you have?"
+    },
+    "Common": {
+        "accept": "Accept",
+        "quantity": "Quantity",
+        "tab-food": "FOOD",
+        "tab-drinks": "DRINKS",
+        "tab-home": "HOME"
+    }
+}

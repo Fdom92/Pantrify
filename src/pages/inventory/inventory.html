@@ -3,30 +3,30 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Inventory</ion-title>
+    <ion-title>{{ 'Inventory.view-header' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="inventory">
   <ion-item-group>
-    <ion-item-divider color="white">Food</ion-item-divider>
+    <ion-item-divider color="white">{{ 'Inventory.divider-one' | translate }}</ion-item-divider>
     <ion-item *ngFor="let f of food">
           <ion-label>{{f.title}}</ion-label>
           <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider color="white">Home</ion-item-divider>
-    <ion-item *ngFor="let f of home">
-          <ion-label>{{f.title}}</ion-label>
-          <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
+    <ion-item-divider color="white">{{ 'Inventory.divider-two' | translate }}</ion-item-divider>
+    <ion-item *ngFor="let d of drink">
+          <ion-label>{{d.title}}</ion-label>
+          <ion-multi-picker item-content [(ngModel)]="d.units" [multiPickerColumns]="simpleColumns">{{d.units}}</ion-multi-picker>
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider color="white">Drink</ion-item-divider>
-    <ion-item *ngFor="let f of drink">
-          <ion-label>{{f.title}}</ion-label>
-          <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
+    <ion-item-divider color="white">{{ 'Inventory.divider-three' | translate }}</ion-item-divider>
+    <ion-item *ngFor="let h of home">
+          <ion-label>{{h.title}}</ion-label>
+          <ion-multi-picker item-content [(ngModel)]="h.units" [multiPickerColumns]="simpleColumns">{{h.units}}</ion-multi-picker>
     </ion-item>
   </ion-item-group>
 </ion-content>

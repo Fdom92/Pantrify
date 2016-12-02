@@ -1,0 +1,51 @@
+{
+    "Settings": {
+        "view-header": "Ajustes",
+        "divider-one": "Básicas",
+        "notifications": "Notificaciones",
+        "vibration": "Vibración",
+        "language": "Idioma",
+        "divider-two": "Avanzadas",
+        "new-tab": "Nueva pestaña",
+        "new-tab-text": "Añade una para los nuevos productos que quieras controlar"
+    },
+    "Help": {
+        "view-header": "Ayuda",
+        "divider-one": "Equipo de desarrollo",
+        "divider-two": "Información de la app",
+        "version": "Versión",
+        "copyright": "Copyright"
+    },
+    "Menu": {
+        "pantry": "Despensa",
+        "inventory": "Inventario",
+        "settings": "Ajustes",
+        "sendFeedback": "Enviar comentario",
+        "help": "Ayuda"
+    },
+    "Inventory": {
+        "view-header": "Inventario",
+        "divider-one": "Comida",
+        "divider-two": "Bebidas",
+        "divider-three": "Hogar"
+    },
+    "Pantry": {
+        "view-header": "Despensa"
+    },
+    "AddItem": {
+        "view-header": "Añadir item",
+        "name-label": "Nombre",
+        "quantity-label": "Cantidad"
+    },
+    "UpdateItem": {
+        "view-header": "Actualizar item",
+        "label-text": "¿Cuántos tienes?"
+    },
+    "Common": {
+        "accept": "Aceptar",
+        "quantity": "Cantidad",
+        "tab-food": "COMIDA",
+        "tab-drinks": "BEBIDAS",
+        "tab-home": "HOGAR"
+    }
+}
