@@ -30,4 +30,8 @@ export class Menu {
   openPage(page) {
     this.nav.setRoot(page.component);
   }
+
+  openAsModal(page) {
+    this.nav.push(page.component);
+  }
 }
