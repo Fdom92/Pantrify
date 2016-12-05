@@ -10,9 +10,15 @@
 </ion-header>
 
 <ion-content class="update-item" padding>
+  <ion-label>{{ 'UpdateItem.label-text' | translate }}</ion-label>
   <ion-item>
-        <ion-label>{{ 'UpdateItem.label-text' | translate }}</ion-label>
-        <ion-multi-picker item-content [(ngModel)]="counter" [multiPickerColumns]="simpleColumns">{{counter}}</ion-multi-picker>
+    <button ion-button item-left outline round color="pink200" (click)="onAdd()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-label text-center>{{counter}}</ion-label>
+    <button ion-button item-right outline round color="pink200" (click)="onRemove()">
+      <ion-icon name="remove"></ion-icon>
+    </button>
   </ion-item>
   <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>
 </ion-content>
