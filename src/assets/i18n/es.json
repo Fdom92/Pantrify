@@ -1,20 +1,20 @@
 {
     "Settings": {
         "view-header": "Ajustes",
-        "divider-one": "Básicas",
-        "notifications": "Notificaciones",
-        "vibration": "Vibración",
-        "language": "Idioma",
-        "divider-two": "Avanzadas",
-        "new-tab": "Nueva pestaña",
-        "new-tab-text": "Añade una para los nuevos productos que quieras controlar"
-    },
-    "Help": {
-        "view-header": "Ayuda",
-        "divider-one": "Equipo de desarrollo",
-        "divider-two": "Información de la app",
-        "version": "Versión",
-        "copyright": "Copyright"
+        "divider-info": "Información",
+        "info": {
+          "mail": "Correo",
+          "username": "Alias"
+        },
+        "divider-settings": "Ajustes",
+        "settings": {
+          "notifications": "Notificaciones",
+          "vibration": "Vibración",
+          "language": "Idioma"
+        },
+        "divider-support": "Soporte",
+        "support": {
+        }
     },
     "Menu": {
         "pantry": "Despensa",

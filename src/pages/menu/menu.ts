@@ -2,8 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { PantryList } from '../pantryList/pantryList';
 import { Settings } from '../settings/settings';
-import { Help } from '../help/help';
-import { Feedback } from '../feedback/feedback';
 import { Inventory } from '../inventory/inventory';
 
 @Component({
@@ -21,9 +19,7 @@ export class Menu {
     this.pages = [{ title: 'pantry', component: PantryList, icon: 'home' },
                   { title: 'inventory', component: Inventory, icon: 'clipboard' }];
 
-    this.pages2 = [{ title: 'settings', component: Settings, icon: 'settings' },
-      { title: 'sendFeedback', component: Feedback, icon: 'text' },
-      { title: 'help', component: Help, icon: 'help-circle' }];
+    this.pages2 = [{ title: 'settings', component: Settings, icon: 'settings' }];
 
   }
 

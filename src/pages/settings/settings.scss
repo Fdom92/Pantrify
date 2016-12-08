@@ -1,8 +1,13 @@
 .settings {
 
+    .label-md{
+        margin-bottom: 0;
+    }
+
     .hint-text-color {
         color: #000000;
         opacity: 0.38;
+        font-weight: bolder;
         border-bottom: none;
     }
 

@@ -1,20 +1,20 @@
 {
     "Settings": {
         "view-header": "Settings",
-        "divider-one": "Basics",
-        "notifications": "Notifications",
-        "vibration": "Vibration",
-        "language": "Language",
-        "divider-two": "Advanced",
-        "new-tab": "New tab",
-        "new-tab-text": "Add another tab for products you want to handle"
-    },
-    "Help": {
-        "view-header": "Help",
-        "divider-one": "Developer Team",
-        "divider-two": "App Information",
-        "version": "Version",
-        "copyright": "Copyright"
+        "divider-info": "Info",
+        "info": {
+          "mail": "Email",
+          "username": "Username"
+        },
+        "divider-settings": "Settings",
+        "settings": {
+          "notifications": "Notifications",
+          "vibration": "Vibration",
+          "language": "Language"
+        },
+        "divider-support": "Support",
+        "support": {
+        }
     },
     "Menu": {
         "pantry": "Pantry",

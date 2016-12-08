@@ -9,21 +9,32 @@
 
 <ion-content class="settings">
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-one' | translate }}</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-info' | translate }}</ion-item-divider>
+    <ion-item>
+      <h2 class="primary-text-color">user.email.test@gmail.com</h2>
+      <p class="secondary-text-color">{{ 'Settings.info.mail' | translate }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 class="primary-text-color">Fernando del olmo</h2>
+      <p class="secondary-text-color">{{ 'Settings.info.username' | translate }}</p>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-settings' | translate }}</ion-item-divider>
     <ion-item>
       <ion-label class="primary-text-color">
-        {{ 'Settings.notifications' | translate }}
+        {{ 'Settings.settings.notifications' | translate }}
       </ion-label>
-      <ion-toggle color="pink200" checked="true"></ion-toggle>
+      <ion-toggle color="indigoA400" checked="true"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label class="primary-text-color">
-        {{ 'Settings.vibration' | translate }}
+        {{ 'Settings.settings.vibration' | translate }}
       </ion-label>
-      <ion-toggle color="pink200" checked="false"></ion-toggle>
+      <ion-toggle color="indigoA400" checked="false"></ion-toggle>
     </ion-item>
     <ion-item>
-      <ion-label class="primary-text-color">{{ 'Settings.language' | translate }}</ion-label>
+      <ion-label class="primary-text-color">{{ 'Settings.settings.language' | translate }}</ion-label>
       <ion-select [(ngModel)]="language" (ionChange)="onChange($event)">
         <ion-option value="es">Español</ion-option>
         <ion-option value="en">English</ion-option>
@@ -31,10 +42,9 @@
     </ion-item>
   </ion-item-group>
   <ion-item-group>
-    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-two' | translate }}</ion-item-divider>
+    <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-support' | translate }}</ion-item-divider>
     <ion-item>
-      <h2 class="primary-text-color">{{ 'Settings.new-tab' | translate }}</h2>
-      <p class="secondary-text-color">{{ 'Settings.new-tab-text' | translate }}</p>
-      </ion-item>
+      <p text-center class="secondary-text-color"> Pantrify for Android v0.0.1</p>
+    </ion-item>
   </ion-item-group>
 </ion-content>
