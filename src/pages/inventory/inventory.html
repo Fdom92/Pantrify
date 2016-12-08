@@ -8,25 +8,37 @@
 </ion-header>
 
 <ion-content class="inventory">
-  <ion-item-group>
-    <ion-item-divider color="white">{{ 'Inventory.divider-one' | translate }}</ion-item-divider>
-    <ion-item *ngFor="let f of food">
-          <ion-label>{{f.title}}</ion-label>
-          <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
-    </ion-item>
-  </ion-item-group>
-  <ion-item-group>
-    <ion-item-divider color="white">{{ 'Inventory.divider-two' | translate }}</ion-item-divider>
-    <ion-item *ngFor="let d of drink">
-          <ion-label>{{d.title}}</ion-label>
-          <ion-multi-picker item-content [(ngModel)]="d.units" [multiPickerColumns]="simpleColumns">{{d.units}}</ion-multi-picker>
-    </ion-item>
-  </ion-item-group>
-  <ion-item-group>
-    <ion-item-divider color="white">{{ 'Inventory.divider-three' | translate }}</ion-item-divider>
-    <ion-item *ngFor="let h of home">
-          <ion-label>{{h.title}}</ion-label>
-          <ion-multi-picker item-content [(ngModel)]="h.units" [multiPickerColumns]="simpleColumns">{{h.units}}</ion-multi-picker>
-    </ion-item>
-  </ion-item-group>
+  <ion-card>
+    <ion-card-header>
+      {{ 'Inventory.divider-one' | translate }}
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let f of food">
+            <ion-label>{{f.title}}</ion-label>
+            <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      {{ 'Inventory.divider-two' | translate }}
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let d of drink">
+            <ion-label>{{d.title}}</ion-label>
+            <ion-multi-picker item-content [(ngModel)]="d.units" [multiPickerColumns]="simpleColumns">{{d.units}}</ion-multi-picker>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      {{ 'Inventory.divider-three' | translate }}
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let h of home">
+            <ion-label>{{h.title}}</ion-label>
+            <ion-multi-picker item-content [(ngModel)]="h.units" [multiPickerColumns]="simpleColumns">{{h.units}}</ion-multi-picker>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>

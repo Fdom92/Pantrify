@@ -1,11 +1,23 @@
 .inventory {
-    .item-divider-md {
-        border-bottom: none;
+    background-color: #F2F2F2;
+
+    .card-header-md {
+        color: #000000;
+        opacity: 0.34;
+        font-weight: bolder;
+        font-size: 1.5rem;
     }
 
-    .label-md {
-        color: #000000;
-        opacity: 0.38;
+    .card-md {
+      margin-top: 0;
+      margin-left: 0;
+      width: 100%;
+
+      .item-md.item-block {
+        .item-inner {
+          border-bottom: 1px solid #dedede;
+        }
+      }
     }
 
     .item-multi-picker {
@@ -13,5 +25,5 @@
             color: #000000;
             opacity: 0.87;
         }
-    } 
+    }
 }
