@@ -1,6 +1,6 @@
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items" (click)="updateItem(item)">
+    <ion-item *ngFor="let item of items | async" (click)="updateItem(item, item.$key)">
       <h2>{{item.title}}</h2>
       <p>{{ 'Common.quantity' | translate }}: {{item.units}}</p>
     </ion-item>

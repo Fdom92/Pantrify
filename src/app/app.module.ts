@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
 import { Http } from '@angular/http';
+import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
+import { AngularFireModule } from 'angularfire2';
+import { MultiPickerModule } from 'ion-multi-picker';
+
+import { MyApp } from './app.component';
 import { PantryList } from '../pages/pantryList/pantryList';
 import { Login } from '../pages/login/login';
 import { Menu } from '../pages/menu/menu';
@@ -10,12 +14,14 @@ import { Signup } from '../pages/signup/signup';
 import { Settings } from '../pages/settings/settings';
 import { SettingsPopOver } from '../pages/settings/popover/settings.popover';
 import { Inventory } from '../pages/inventory/inventory';
+
 import { multiTab } from '../components/multitab/multitab';
 import { customTab } from '../components/customTab/customTab';
+
 import { UpdateItemModal } from '../modals/updateItemModal/updateItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
-import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
-import { MultiPickerModule } from 'ion-multi-picker';
+
+import { FirebaseConfig } from '../../config/firebase.config';
 
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -39,6 +45,7 @@ export function createTranslateLoader(http: Http) {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FirebaseConfig),
     MultiPickerModule, //Import MultiPickerModule
     TranslateModule.forRoot({
       provide: TranslateLoader,

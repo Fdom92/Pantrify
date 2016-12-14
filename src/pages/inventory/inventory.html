@@ -13,7 +13,7 @@
       {{ 'Inventory.divider-one' | translate }}
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor="let f of food">
+      <ion-item *ngFor="let f of food | async">
             <ion-label>{{f.title}}</ion-label>
             <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
       </ion-item>
@@ -24,7 +24,7 @@
       {{ 'Inventory.divider-two' | translate }}
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor="let d of drink">
+      <ion-item *ngFor="let d of drink | async">
             <ion-label>{{d.title}}</ion-label>
             <ion-multi-picker item-content [(ngModel)]="d.units" [multiPickerColumns]="simpleColumns">{{d.units}}</ion-multi-picker>
       </ion-item>
@@ -35,7 +35,7 @@
       {{ 'Inventory.divider-three' | translate }}
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor="let h of home">
+      <ion-item *ngFor="let h of home | async">
             <ion-label>{{h.title}}</ion-label>
             <ion-multi-picker item-content [(ngModel)]="h.units" [multiPickerColumns]="simpleColumns">{{h.units}}</ion-multi-picker>
       </ion-item>

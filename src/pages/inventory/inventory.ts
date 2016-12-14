@@ -1,22 +1,21 @@
 import {Component} from "@angular/core";
 import { NavController } from 'ionic-angular';
-import { HomeItems, DrinkItems, FoodItems} from '../../providers/data';
-import { Item } from '../../classes/items';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
     templateUrl: "inventory.html"
 })
 export class Inventory {
 
-    food: Array<Item>;
-    home: Array<Item>;
-    drink: Array<Item>;
+    food: FirebaseListObservable<any[]>;
+    home:FirebaseListObservable<any[]>;
+    drink: FirebaseListObservable<any[]>;
     simpleColumns: any;
 
-    constructor(public navCtrl: NavController) {
-      this.food = FoodItems;
-      this.home = HomeItems;
-      this.drink = DrinkItems;
+    constructor(public navCtrl: NavController, af: AngularFire) {
+      this.food = af.database.list('/food');
+      this.home = af.database.list('/home');
+      this.drink = af.database.list('/drinks');
       this.simpleColumns = [{
          name: 'col1',
          options: [
