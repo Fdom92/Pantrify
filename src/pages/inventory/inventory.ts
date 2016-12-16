@@ -30,6 +30,7 @@ export class Inventory {
     onAdd() {
         let addModal = this.modalCtrl.create(AddItemModal);
         addModal.onDidDismiss(data => {
+            console.log(data);
             if (data) {
                 switch(data.category) {
                     case 'food':

@@ -14,12 +14,12 @@ export class customTab {
   }
 
   onAdd(item, key) {
-    let data = { title:item.title, units:item.units + 1 };
+    let data = { title:item.title, units:parseInt(item.units) + 1 };
     this.items.update(key, data);
   }
 
   onRemove(item, key) {
-    let data = { title:item.title, units:item.units - 1 };
+    let data = { title:item.title, units:parseInt(item.units) - 1 };
     if (data.units === 0) {
       this.items.remove(key);
     } else {
