@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from 'ionic-angular';
-import { UpdateItemModal } from '../../modals/updateItemModal/updateItemModal';
-import { AddItemModal } from '../../modals/addItemModal/addItemModal';
 import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
@@ -15,28 +13,17 @@ export class customTab {
     this.items = navParams.data;
   }
 
-  updateItem(item, key) {
-    let updateModal = this.modalCtrl.create(UpdateItemModal, { product: item });
-    updateModal.onDidDismiss(data => {
-      if (data) {
-        if (data.units === 0) {
-          this.items.remove(key); 
-        } else {
-          let newItem = {title: data.product.title, units: data.units};
-          this.items.update(key, newItem);
-        }
-      }
-    });
-    updateModal.present();
+  onAdd(item, key) {
+    let data = { title:item.title, units:item.units + 1 };
+    this.items.update(key, data);
   }
 
-  onAdd() {
-    let addModal = this.modalCtrl.create(AddItemModal);
-    addModal.onDidDismiss(data => {
-      if (data) {
-        this.items.push(data);
-      }
-    });
-    addModal.present();
+  onRemove(item, key) {
+    let data = { title:item.title, units:item.units - 1 };
+    if (data.units === 0) {
+      this.items.remove(key);
+    } else {
+      this.items.update(key, data);
+    }
   }
 }

@@ -3,7 +3,6 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
 import { AngularFireModule } from 'angularfire2';
-import { MultiPickerModule } from 'ion-multi-picker';
 
 import { MyApp } from './app.component';
 import { PantryList } from '../pages/pantryList/pantryList';
@@ -18,7 +17,6 @@ import { Inventory } from '../pages/inventory/inventory';
 import { multiTab } from '../components/multitab/multitab';
 import { customTab } from '../components/customTab/customTab';
 
-import { UpdateItemModal } from '../modals/updateItemModal/updateItemModal';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
 
 import { FirebaseConfig } from '../../config/firebase.config';
@@ -31,7 +29,6 @@ export function createTranslateLoader(http: Http) {
   declarations: [
     MyApp,
     PantryList,
-    UpdateItemModal,
     AddItemModal,
     Login,
     Signup,
@@ -46,7 +43,6 @@ export function createTranslateLoader(http: Http) {
   imports: [
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FirebaseConfig),
-    MultiPickerModule, //Import MultiPickerModule
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
@@ -57,7 +53,6 @@ export function createTranslateLoader(http: Http) {
   entryComponents: [
     MyApp,
     PantryList,
-    UpdateItemModal,
     AddItemModal,
     Login,
     Signup,

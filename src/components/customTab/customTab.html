@@ -1,11 +1,14 @@
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items | async" (click)="updateItem(item, item.$key)">
+    <ion-item *ngFor="let item of items | async">
       <h2>{{item.title}}</h2>
       <p>{{ 'Common.quantity' | translate }}: {{item.units}}</p>
+      <button ion-button outline item-right (click)="onAdd(item, item.$key)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button outline item-right (click)="onRemove(item, item.$key)">
+        <ion-icon name="remove"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
-  <ion-fab right bottom>
-     <button ion-fab color="pink200" (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
 </ion-content>

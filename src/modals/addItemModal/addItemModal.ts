@@ -10,6 +10,7 @@ import { QuantityValidator } from  '../../validators/quantity';
 export class AddItemModal {
   itemName: string;
   itemQuantity: number;
+  itemCategory: string;
   addItemForm: FormGroup;
 
   constructor(public viewCtrl: ViewController) {
@@ -19,6 +20,11 @@ export class AddItemModal {
             QuantityValidator.isValid
         ]),
         name: new FormControl('', [
+            Validators.required,
+            Validators.maxLength(10),
+            Validators.pattern('[a-zA-Z ]*')
+       ]),
+       category: new FormControl('', [
             Validators.required,
             Validators.maxLength(10),
             Validators.pattern('[a-zA-Z ]*')
@@ -32,7 +38,7 @@ export class AddItemModal {
 
   accept() {
     if(this.addItemForm.valid){
-        let item = new Item(this.itemName, this.itemQuantity);
+        let item = new Item(this.itemName, this.itemQuantity, this.itemCategory);
         this.viewCtrl.dismiss(item);
     }
   }
