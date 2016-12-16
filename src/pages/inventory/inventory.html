@@ -13,9 +13,9 @@
       {{ 'Inventory.divider-one' | translate }}
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor="let f of food">
+      <ion-item *ngFor="let f of food | async">
             <ion-label>{{f.title}}</ion-label>
-            <ion-multi-picker item-content [(ngModel)]="f.units" [multiPickerColumns]="simpleColumns">{{f.units}}</ion-multi-picker>
+            <ion-label text-right>{{f.units}}</ion-label>            
       </ion-item>
     </ion-list>
   </ion-card>
@@ -24,9 +24,9 @@
       {{ 'Inventory.divider-two' | translate }}
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor="let d of drink">
+      <ion-item *ngFor="let d of drink | async">
             <ion-label>{{d.title}}</ion-label>
-            <ion-multi-picker item-content [(ngModel)]="d.units" [multiPickerColumns]="simpleColumns">{{d.units}}</ion-multi-picker>
+            <ion-label text-right>{{d.units}}</ion-label>
       </ion-item>
     </ion-list>
   </ion-card>
@@ -35,10 +35,13 @@
       {{ 'Inventory.divider-three' | translate }}
     </ion-card-header>
     <ion-list>
-      <ion-item *ngFor="let h of home">
+      <ion-item *ngFor="let h of home | async">
             <ion-label>{{h.title}}</ion-label>
-            <ion-multi-picker item-content [(ngModel)]="h.units" [multiPickerColumns]="simpleColumns">{{h.units}}</ion-multi-picker>
+            <ion-label text-right>{{h.units}}</ion-label>
       </ion-item>
     </ion-list>
   </ion-card>
+  <ion-fab right bottom>
+     <button ion-fab color="indigo500" (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

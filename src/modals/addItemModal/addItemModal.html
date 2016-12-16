@@ -20,6 +20,10 @@
         <ion-label  floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number" [(ngModel)]="itemQuantity"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label  floating>Categoria</ion-label>
+        <ion-input formControlName="category" type="text" [(ngModel)]="itemCategory"></ion-input>
+      </ion-item>
     </ion-list>
   </form>
   <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>

@@ -1,41 +1,29 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from 'ionic-angular';
-import { UpdateItemModal } from '../../modals/updateItemModal/updateItemModal';
-import { AddItemModal } from '../../modals/addItemModal/addItemModal';
-import { Item } from '../../classes/items';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
   templateUrl: 'customTab.html'
 })
 export class customTab {
 
-  items : Array<Item>;
+  items : FirebaseListObservable<any[]>;
 
   constructor(public modalCtrl: ModalController, navParams: NavParams) {
     this.items = navParams.data;
   }
 
-  updateItem(item) {
-    let updateModal = this.modalCtrl.create(UpdateItemModal, { product: item });
-    updateModal.onDidDismiss(data => {
-      if (data) {
-        let index = this.items.findIndex(x => x.title === data.product.title);
-        this.items[index].units = data.units;
-        if (this.items[index].units < 1) {
-          this.items.splice(index, 1);
-        }
-      }
-    });
-    updateModal.present();
+  onAdd(item, key) {
+    let data = { title:item.title, units:parseInt(item.units) + 1 };
+    this.items.update(key, data);
   }
 
-  onAdd() {
-    let addModal = this.modalCtrl.create(AddItemModal);
-    addModal.onDidDismiss(data => {
-      if (data) {
-        this.items.push(data);
-      }
-    });
-    addModal.present();
+  onRemove(item, key) {
+    let data = { title:item.title, units:parseInt(item.units) - 1 };
+    if (data.units === 0) {
+      this.items.remove(key);
+    } else {
+      this.items.update(key, data);
+    }
   }
 }
