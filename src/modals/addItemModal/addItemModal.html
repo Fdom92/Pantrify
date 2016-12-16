@@ -23,21 +23,21 @@
     </ion-list>
     <ion-list radio-group formControlName="category" [(ngModel)]="itemCategory">
       <ion-list-header no-margin padding-top>
-        Category
+        {{ 'AddItem.category-label' | translate }}
       </ion-list-header>
 
       <ion-item>
-        <ion-label>Food</ion-label>
+        <ion-label>{{ 'AddItem.food-label' | translate }}</ion-label>
         <ion-radio value="food"></ion-radio>
       </ion-item>
 
       <ion-item>
-        <ion-label>Drink</ion-label>
+        <ion-label>{{ 'AddItem.drink-label' | translate }}</ion-label>
         <ion-radio value="drink"></ion-radio>
       </ion-item>
 
       <ion-item>
-        <ion-label>Home</ion-label>
+        <ion-label>{{ 'AddItem.home-label' | translate }}</ion-label>
         <ion-radio value="home"></ion-radio>
       </ion-item>
     </ion-list>

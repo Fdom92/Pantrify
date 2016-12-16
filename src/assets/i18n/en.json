@@ -35,7 +35,11 @@
     "AddItem": {
         "view-header": "Add item",
         "name-label": "Name",
-        "quantity-label": "Quantity"
+        "quantity-label": "Quantity",
+        "category-label": "Category",
+        "food-label": "Food",
+        "drink-label": "Drink",
+        "home-label": "Home"           
     },
     "UpdateItem": {
         "view-header": "Update item",
