@@ -25,9 +25,7 @@ export class AddItemModal {
             Validators.pattern('[a-zA-Z ]*')
        ]),
        category: new FormControl('', [
-            Validators.required,
-            Validators.maxLength(10),
-            Validators.pattern('[a-zA-Z ]*')
+            Validators.required
        ])
     });
   }

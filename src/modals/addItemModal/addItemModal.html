@@ -20,9 +20,25 @@
         <ion-label  floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number" [(ngModel)]="itemQuantity"></ion-input>
       </ion-item>
+    </ion-list>
+    <ion-list radio-group formControlName="category" [(ngModel)]="itemCategory">
+      <ion-list-header no-margin padding-top>
+        Category
+      </ion-list-header>
+
       <ion-item>
-        <ion-label  floating>Categoria</ion-label>
-        <ion-input formControlName="category" type="text" [(ngModel)]="itemCategory"></ion-input>
+        <ion-label>Food</ion-label>
+        <ion-radio value="food"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Drink</ion-label>
+        <ion-radio value="drink"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Home</ion-label>
+        <ion-radio value="home"></ion-radio>
       </ion-item>
     </ion-list>
   </form>
