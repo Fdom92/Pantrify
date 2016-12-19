@@ -1,15 +1,18 @@
 .sidemenu {
-    ion-list:nth-child(2) {
-        padding-bottom: 8px;
-        padding-top: 8px;
-        border-bottom: 1px solid #e0e0e0;
-    }
 
-    .sidemenu-avatar {
-        height: 200px;
-        margin-bottom: 0;
-        background-image: url('../assets/img/material-design.png');
-        background-size: cover;
+    .list-md {
+        &:first-child() {
+            height: 200px;
+            margin-bottom: 0;
+            background-image: url('../assets/img/material-design.png');
+            background-size: cover;
+        }
+
+        &:nth-child(2) {
+            padding-bottom: 8px;
+            padding-top: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
 
         .item-md {
             background-color: transparent;
@@ -19,8 +22,8 @@
                     margin-bottom: 20px;
 
                 img {
-                    max-width: 7rem;
-                    max-height: 7rem;
+                    width: 7rem;
+                    height: 7rem;
                 }
             }
 
