@@ -30,7 +30,7 @@
     "ng2-translate": "4.2.0"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "0.0.47",
+    "@ionic/app-scripts": "0.0.48",
     "typescript": "2.0.9"
   }
 }
