@@ -6,11 +6,6 @@
       </button>
     </ion-buttons>
     <ion-title>{{ 'Settings.view-header' | translate }}</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -50,6 +45,9 @@
   </ion-item-group>
   <ion-item-group>
     <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-support' | translate }}</ion-item-divider>
+     <ion-item (click)="presentAlert()">
+      <ion-label class="primary-text-color">Contact us</ion-label>
+    </ion-item>
     <ion-item>
       <p text-center class="secondary-text-color"> Pantrify for Android v0.0.1</p>
     </ion-item>

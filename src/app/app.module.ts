@@ -11,7 +11,6 @@ import { Menu } from '../pages/menu/menu';
 import { Home } from '../pages/home/home';
 import { Signup } from '../pages/signup/signup';
 import { Settings } from '../pages/settings/settings';
-import { SettingsPopOver } from '../pages/settings/popover/settings.popover';
 import { Inventory } from '../pages/inventory/inventory';
 
 import { multiTab } from '../components/multitab/multitab';
@@ -37,7 +36,6 @@ export function createTranslateLoader(http: Http) {
     multiTab,
     customTab,
     Settings,
-    SettingsPopOver,
     Inventory,
   ],
   imports: [
@@ -61,7 +59,6 @@ export function createTranslateLoader(http: Http) {
     multiTab,
     customTab,
     Settings,
-    SettingsPopOver,
     Inventory,
   ],
   providers: []
