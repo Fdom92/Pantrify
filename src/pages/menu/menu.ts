@@ -12,14 +12,14 @@ export class Menu {
 
   rootPage: any = PantryList;
 
-  pages: Array<{title: string, component: any, icon: string}>;
-  pages2: Array<{title: string, component: any, icon: string}>;
+  pages: Array<{title: string, component: any, iconMD: string, iconOS: string}>;
+  pages2: Array<{title: string, component: any, iconMD: string, iconOS: string}>;
 
   constructor(public platform: Platform) {
-    this.pages = [{ title: 'pantry', component: PantryList, icon: 'home' },
-                  { title: 'inventory', component: Inventory, icon: 'clipboard' }];
+    this.pages = [{ title: 'pantry', component: PantryList, iconMD: 'md-home', iconOS: 'ios-home-outline' },
+                  { title: 'inventory', component: Inventory, iconMD: 'md-clipboard', iconOS: 'ios-clipboard-outline' }];
 
-    this.pages2 = [{ title: 'settings', component: Settings, icon: 'settings' }];
+    this.pages2 = [{ title: 'settings', component: Settings, iconMD: 'md-settings', iconOS: 'ios-settings-outline' }];
 
   }
 

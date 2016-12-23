@@ -17,6 +17,10 @@
         .item-md {
             background-color: transparent;
 
+            .item-inner {
+                border-bottom: none;
+            }
+
             ion-avatar {
                     margin-top: 50px;
                     margin-bottom: 20px;
@@ -30,6 +34,32 @@
             h2, p {
                 color: white;
                 font-size: 14px;
+            }
+        }
+    }
+
+    .list-ios {
+        &:nth-child(2) {
+            margin-bottom: 0;
+            border-bottom: none;
+
+            .item-ios {
+                &:last-child() {
+                    .item-inner {
+                        border-bottom: 0.55px solid #c8c7cc;
+                    }
+                }
+            }
+        }
+
+        &:last-child() {
+            margin-bottom: 0;
+            border-top: none;
+
+            .item-ios {
+                &:first-child() {
+                    border-top: none;
+                }
             }
         }
     }

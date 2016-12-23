@@ -11,15 +11,15 @@
         <p>user.email.test@gamil.com</p>
       </ion-item>
     </ion-list>
-    <ion-list no-lines>
+    <ion-list>
       <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon color="gray" name="{{p.icon}}" item-left></ion-icon>
+        <ion-icon color="gray" ios="{{p.iconOS}}" md="{{p.iconMD}}" item-left></ion-icon>
           {{ 'Menu.' + p.title | translate }}
       </ion-item>
     </ion-list>
-    <ion-list no-lines>
+    <ion-list>
       <ion-item menuClose *ngFor="let p2 of pages2" (click)="openAsModal(p2)">
-        <ion-icon color="gray" name="{{p2.icon}}" item-left></ion-icon>
+        <ion-icon color="gray" ios="{{p2.iconOS}}" md="{{p2.iconMD}}" item-left></ion-icon>
           {{ 'Menu.' + p2.title | translate }}
       </ion-item>
     </ion-list>
