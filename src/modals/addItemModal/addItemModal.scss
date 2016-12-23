@@ -1,39 +1,44 @@
 .addItemModal {
-  .input-has-focus{
-    .label-md[floating]{
-      color: #FF4081;
-    }
-  }
-
-  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
-    .label {
-      color: #f53d3d;
-    }
-  }
 
   .list-md{
-    .item-input.input-has-focus:last-child{
-      border-bottom-color: #FF4081;
-      box-shadow: inset 0 -1px 0 0 #FF4081;
+    .item-md {
+      &.item-select {
+        margin-top: 10px;
+        
+        ion-select {
+          .select-text {
+            color: color($colors, black);
+          }
+
+          .select-icon {
+            display: none;
+          }
+        }
+      }
+
+      &.input-has-focus{
+        .label-md {
+          color: color($colors, indigo500);
+        }
+
+        .item-inner {
+          border-bottom-color: color($colors, indigo500);
+          box-shadow: inset 0 -1px 0 0 color($colors, indigo500);
+        }
+        
+        &:last-child {
+          border-bottom-color: color($colors, indigo500);
+          box-shadow: inset 0 -1px 0 0 color($colors, indigo500);
+        }
+      }
+
+      &.item-input {
+        &.ng-invalid.ng-touched:not(.input-has-focus) {
+          .label {
+            color: color($colors, error);
+          }
+        }
+      }
     }
-  }
-
-  .item-md.item-input.input-has-focus {
-    .item-inner {
-      border-bottom-color: #FF4081;
-      box-shadow: inset 0 -1px 0 0 #FF4081;
-    }
-  }
-
-  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
-    box-shadow: none;
-  }
-
-  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
-    box-shadow: none;
-  }
-
-  .item-md.item-input.input-has-focus .item-inner {
-    box-shadow: none;
   }
 }

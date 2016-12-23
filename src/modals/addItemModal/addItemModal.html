@@ -8,37 +8,24 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding class="addItemModal">
   <form [formGroup]="addItemForm">
     <ion-list>
       <ion-item>
-        <ion-label color="pink500" floating>{{ 'AddItem.name-label' | translate }}</ion-label>
+        <ion-label floating>{{ 'AddItem.name-label' | translate }}</ion-label>
         <ion-input formControlName="name" type="text" [(ngModel)]="itemName"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label  floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
+        <ion-label floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number" [(ngModel)]="itemQuantity"></ion-input>
       </ion-item>
-    </ion-list>
-    <ion-list radio-group formControlName="category" [(ngModel)]="itemCategory">
-      <ion-list-header no-margin padding-top>
-        {{ 'AddItem.category-label' | translate }}
-      </ion-list-header>
-
       <ion-item>
-        <ion-label>{{ 'AddItem.food-label' | translate }}</ion-label>
-        <ion-radio value="food"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>{{ 'AddItem.drink-label' | translate }}</ion-label>
-        <ion-radio value="drink"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>{{ 'AddItem.home-label' | translate }}</ion-label>
-        <ion-radio value="home"></ion-radio>
+        <ion-label>{{ 'AddItem.category-label' | translate }}</ion-label>
+        <ion-select formControlName="category" [(ngModel)]="itemCategory">
+          <ion-option value="food">{{ 'AddItem.food-label' | translate }}</ion-option>
+          <ion-option value="drink">{{ 'AddItem.drink-label' | translate }}</ion-option>
+          <ion-option value="home">{{ 'AddItem.home-label' | translate }}</ion-option>
+        </ion-select>
       </ion-item>
     </ion-list>
   </form>
