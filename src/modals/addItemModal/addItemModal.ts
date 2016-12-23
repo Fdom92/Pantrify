@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { Item } from '../../classes/items';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { QuantityValidator } from  '../../validators/quantity';
 
@@ -36,7 +35,7 @@ export class AddItemModal {
 
   accept() {
     if(this.addItemForm.valid){
-        let item = new Item(this.itemName, this.itemQuantity, this.itemCategory);
+        let item = {title: this.itemName, units: this.itemQuantity, category: this.itemCategory};
         this.viewCtrl.dismiss(item);
     }
   }
