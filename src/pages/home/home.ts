@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
+
 import { NavController, MenuController } from 'ionic-angular';
 
-import { Login } from '../login/login';
-import { Signup } from '../signup/signup';
-import { Menu } from '../menu/menu';
+import { LoginPage }  from '../login/login';
+import { SignupPage } from '../signup/signup';
+import { Menu }       from '../menu/menu';
 
 @Component({
   templateUrl: 'home.html',
 })
-export class Home {
+export class HomePage {
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
-
-  }
+  constructor(public navCtrl: NavController, public menu: MenuController) {}
 
   registerUserWithFacebook(){
     this.navCtrl.setRoot(Menu);
@@ -23,11 +22,11 @@ export class Home {
   }
 
   openSignUpPage(){
-    this.navCtrl.setRoot(Signup);
+    this.navCtrl.setRoot(SignupPage);
   }
 
   openLoginPage(){
-    this.navCtrl.setRoot(Login);
+    this.navCtrl.setRoot(LoginPage);
   }
 
   openTermsOfService(){

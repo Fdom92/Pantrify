@@ -1,43 +1,50 @@
 import { NgModule } from '@angular/core';
+import { Http }     from '@angular/http';
+
 import { IonicApp, IonicModule } from 'ionic-angular';
-import { Http } from '@angular/http';
+
+import { MyApp }          from './app.component';
+import { PantryPage }     from '../pages/pantry/pantry';
+import { LoginPage }      from '../pages/login/login';
+import { Menu }           from '../pages/menu/menu';
+import { HomePage }       from '../pages/home/home';
+import { SignupPage }     from '../pages/signup/signup';
+import { SettingsPage }   from '../pages/settings/settings';
+import { InventoryPage }  from '../pages/inventory/inventory';
+import { CustomTabPage }      from '../pages/customTab/customTab';
+import { AddItemModal }   from '../modals/addItemModal/addItemModal';
+import { FirebaseConfig } from '../../config/firebase.config';
+
 import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
 import { AngularFireModule } from 'angularfire2';
-
-import { MyApp } from './app.component';
-import { PantryList } from '../pages/pantryList/pantryList';
-import { Login } from '../pages/login/login';
-import { Menu } from '../pages/menu/menu';
-import { Home } from '../pages/home/home';
-import { Signup } from '../pages/signup/signup';
-import { Settings } from '../pages/settings/settings';
-import { Inventory } from '../pages/inventory/inventory';
-
-import { multiTab } from '../components/multitab/multitab';
-import { customTab } from '../components/customTab/customTab';
-
-import { AddItemModal } from '../modals/addItemModal/addItemModal';
-
-import { FirebaseConfig } from '../../config/firebase.config';
 
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
 
+let pages = [
+  MyApp,
+  PantryPage,
+  LoginPage,
+  SignupPage,
+  HomePage,
+  SettingsPage,
+  InventoryPage,
+  CustomTabPage,
+  Menu,
+  AddItemModal
+];
+
+export function declarations() {
+  return pages;
+}
+
+export function entryComponents() {
+  return pages;
+}
+
 @NgModule({
-  declarations: [
-    MyApp,
-    PantryList,
-    AddItemModal,
-    Login,
-    Signup,
-    Menu,
-    Home,
-    multiTab,
-    customTab,
-    Settings,
-    Inventory,
-  ],
+  declarations: declarations(),
   imports: [
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FirebaseConfig),
@@ -48,19 +55,7 @@ export function createTranslateLoader(http: Http) {
     })
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    PantryList,
-    AddItemModal,
-    Login,
-    Signup,
-    Menu,
-    Home,
-    multiTab,
-    customTab,
-    Settings,
-    Inventory,
-  ],
+  entryComponents: entryComponents(),
   providers: []
 })
 export class AppModule {}

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+
 import { ModalController, NavParams } from 'ionic-angular';
+
 import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
   templateUrl: 'customTab.html'
 })
-export class customTab {
+export class CustomTabPage {
 
   items : FirebaseListObservable<any[]>;
 

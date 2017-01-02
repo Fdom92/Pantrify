@@ -2,7 +2,7 @@ import { Component, ViewChild }    from '@angular/core';
 import { Nav, Platform }           from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { Home }       from '../pages/home/home';
+import { HomePage }       from '../pages/home/home';
 
 import {TranslateService} from 'ng2-translate';
 
@@ -12,7 +12,7 @@ import {TranslateService} from 'ng2-translate';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Home;
+  rootPage: any = HomePage;
   constructor(translate: TranslateService, platform: Platform) {
     // Set the default language for translation strings, and the current language.
     translate.setDefaultLang('en');

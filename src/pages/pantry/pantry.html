@@ -8,6 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <multi-tab></multi-tab>
+  <ion-tabs tabsPlacement="top" color="indigo500" tabsHighlight="true">
+    <ion-tab *ngFor="let tab of tabs"  [tabTitle]="tab.title" [root]="tab.component" [rootParams]="tab.items"></ion-tab>
+  </ion-tabs>
 </ion-content>
 

@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+
 import { NavController, MenuController } from 'ionic-angular';
 
 import { Menu } from '../menu/menu';
@@ -6,7 +7,7 @@ import { Menu } from '../menu/menu';
 @Component({
     templateUrl: "signup.html"
 })
-export class Signup {
+export class SignupPage {
 
     constructor(public navCtrl: NavController, public menu: MenuController) {
     }

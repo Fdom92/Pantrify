@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { TranslateService } from 'ng2-translate';
+
 import { AlertController } from 'ionic-angular';
+
+import { TranslateService } from 'ng2-translate';
 
 @Component({
     templateUrl: "settings.html"
 })
-export class Settings {
+export class SettingsPage {
     language: string;
 
     constructor(public translate: TranslateService, private alertCtrl: AlertController) {
@@ -15,7 +17,6 @@ export class Settings {
     onChange(e) {
         this.translate.use(e);
     }
-
 
     presentAlert() {
     let alert = this.alertCtrl.create({
