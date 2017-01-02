@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
+
 import { Menu } from '../menu/menu';
 
 @Component({
@@ -7,7 +8,7 @@ import { Menu } from '../menu/menu';
 })
 export class Signup {
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, public menu: MenuController) {
     }
 
     registerUser() {
@@ -16,5 +17,15 @@ export class Signup {
 
     openTermsOfService(){
         console.log('Terms of service');
+    }
+
+    ionViewDidEnter() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(false);
+    }
+
+    ionViewWillLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
     }
 }

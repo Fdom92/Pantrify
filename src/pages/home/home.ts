@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
+
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { Menu } from '../menu/menu';
@@ -9,31 +10,37 @@ import { Menu } from '../menu/menu';
 })
 export class Home {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public menu: MenuController) {
 
   }
 
   registerUserWithFacebook(){
-    console.log('Facebook');
     this.navCtrl.setRoot(Menu);
   }
 
   registerUserWithGoogle() {
-    console.log('Google');
     this.navCtrl.setRoot(Menu);
   }
 
   openSignUpPage(){
-    console.log('Signup');
     this.navCtrl.setRoot(Signup);
   }
 
   openLoginPage(){
-    console.log('Login');
     this.navCtrl.setRoot(Login);
   }
 
   openTermsOfService(){
     console.log('Terms of service');
+  }
+
+  ionViewDidEnter() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
   }
 }
