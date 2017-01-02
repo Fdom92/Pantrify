@@ -1,7 +1,6 @@
 {
-  "name": "ionic-app-base",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "Pantrify",
+  "author": "Fernando del olmo",
   "private": true,
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
