@@ -18,8 +18,8 @@ export class LoginPage {
     }
 
     onLogin() {
-        this.af.auth.login({ email: this.email, password: this.password },
-        { provider: AuthProviders.Password, method: AuthMethods.Password,})
+        this.af.auth.login({ email: 'fer.olmo92@gmail.com', password: 'fersanse' },
+        { provider: AuthProviders.Password, method: AuthMethods.Password })
         .then((response: any) => {
             console.log('RESPONSE', response);
             this.navCtrl.setRoot(Menu);
