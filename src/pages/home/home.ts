@@ -4,7 +4,7 @@ import { NavController, MenuController } from 'ionic-angular';
 
 import { LoginPage }  from '../login/login';
 import { SignupPage } from '../signup/signup';
-import { Menu }       from '../menu/menu';
+import { Menu } from './../menu/menu';
 
 @Component({
   templateUrl: 'home.html',
@@ -13,11 +13,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public menu: MenuController) {}
 
-  registerUserWithFacebook(){
-    this.navCtrl.setRoot(Menu);
-  }
-
-  registerUserWithGoogle() {
+  goIn() {
     this.navCtrl.setRoot(Menu);
   }
 

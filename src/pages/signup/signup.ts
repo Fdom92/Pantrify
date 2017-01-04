@@ -4,16 +4,25 @@ import { NavController, MenuController } from 'ionic-angular';
 
 import { Menu } from '../menu/menu';
 
+import { AngularFire } from 'angularfire2';
+
 @Component({
     templateUrl: "signup.html"
 })
 export class SignupPage {
 
-    constructor(public navCtrl: NavController, public menu: MenuController) {
+    email: string;
+    password: string;
+
+    constructor(public navCtrl: NavController, public menu: MenuController, public af: AngularFire) {
     }
 
     registerUser() {
-        this.navCtrl.setRoot(Menu);
+        this.af.auth.createUser({ email: this.email, password: this.password })
+        .then((response: any) => {
+             console.log('RESPONSE', response);
+             this.navCtrl.setRoot(Menu);
+        });
     }
 
     openTermsOfService(){

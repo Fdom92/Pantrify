@@ -4,6 +4,8 @@ import { NavController, MenuController } from 'ionic-angular';
 
 import { Menu } from '../menu/menu';
 
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+
 @Component({
     templateUrl: "login.html"
 })
@@ -12,11 +14,16 @@ export class LoginPage {
     email: string;
     password: string;
 
-    constructor(public navCtrl: NavController, public menu: MenuController) {
+    constructor(public navCtrl: NavController, public menu: MenuController, public af: AngularFire) {
     }
 
     onLogin() {
-        this.navCtrl.setRoot(Menu);
+        this.af.auth.login({ email: this.email, password: this.password },
+        { provider: AuthProviders.Password, method: AuthMethods.Password,})
+        .then((response: any) => {
+            console.log('RESPONSE', response);
+            this.navCtrl.setRoot(Menu);
+        });
     }
 
     openTermsOfService(){
