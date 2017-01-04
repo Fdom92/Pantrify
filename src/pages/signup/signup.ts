@@ -18,7 +18,7 @@ export class SignupPage {
     }
 
     registerUser() {
-        this.af.auth.createUser({ email: this.email, password: this.password })
+        this.af.auth.createUser({ email: 'fer.olmo92@gmail.com', password: 'fersanse' })
         .then((response: any) => {
              console.log('RESPONSE', response);
              this.navCtrl.setRoot(Menu);
