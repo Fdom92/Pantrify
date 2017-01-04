@@ -34,5 +34,9 @@
       -webkit-box-shadow: inset 0px 0px 150px 6px rgba(255,255,255,1);
       -moz-box-shadow: inset 0px 0px 150px 6px rgba(255,255,255,1);
       box-shadow: inset 0px 0px 150px 6px rgba(255,255,255,1);
+
+      .input-cover {
+        position: static;
+      }
     }
 }
