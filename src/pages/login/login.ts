@@ -53,4 +53,8 @@ export class LoginPage {
 
     toast.present();
     }
+
+    goBack() {
+        this.navCtrl.pop({animate: false});
+    }
 }

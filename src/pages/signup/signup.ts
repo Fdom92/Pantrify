@@ -52,4 +52,8 @@ export class SignupPage {
 
     toast.present();
     }
+
+    goBack() {
+        this.navCtrl.pop({animate: false});
+    }
 }

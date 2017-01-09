@@ -18,11 +18,11 @@ export class HomePage {
   }
 
   openSignUpPage(){
-    this.navCtrl.setRoot(SignupPage);
+    this.navCtrl.push(SignupPage, {}, {animate: false});
   }
 
   openLoginPage(){
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.push(LoginPage, {}, {animate: false});
   }
 
   openTermsOfService(){
