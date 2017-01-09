@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, ToastController } from 'ionic-angular';
 
 import { Menu } from '../menu/menu';
 
@@ -14,7 +14,7 @@ export class SignupPage {
     email: string;
     password: string;
 
-    constructor(public navCtrl: NavController, public menu: MenuController, public af: AngularFire) {
+    constructor(public navCtrl: NavController, public menu: MenuController, public af: AngularFire, private toastCtrl: ToastController) {
     }
 
     registerUser() {
@@ -22,6 +22,10 @@ export class SignupPage {
         .then((response: any) => {
              console.log('RESPONSE', response);
              this.navCtrl.setRoot(Menu);
+        })
+        .catch((error: any) => { 
+            console.log('ERROR', error); 
+            this.presentToast(error.message);
         });
     }
 
@@ -37,5 +41,15 @@ export class SignupPage {
     ionViewWillLeave() {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
+    }
+
+    presentToast(errMessage) {
+    let toast = this.toastCtrl.create({
+        message: errMessage,
+        duration: 3000,
+        position: 'bottom'
+    });
+
+    toast.present();
     }
 }
