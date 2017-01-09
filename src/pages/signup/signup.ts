@@ -21,6 +21,7 @@ export class SignupPage {
         this.af.auth.createUser({ email: 'fer.olmo92@gmail.com', password: 'fersanse' })
         .then((response: any) => {
              console.log('RESPONSE', response);
+             this.navCtrl.pop({animate: false});
              this.navCtrl.setRoot(Menu);
         })
         .catch((error: any) => { 

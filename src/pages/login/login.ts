@@ -22,6 +22,7 @@ export class LoginPage {
         { provider: AuthProviders.Password, method: AuthMethods.Password })
         .then((response: any) => {
             console.log('RESPONSE', response);
+            this.navCtrl.pop({animate: false});
             this.navCtrl.setRoot(Menu);
         })
         .catch((error: any) => { 
