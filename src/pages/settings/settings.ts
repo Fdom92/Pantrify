@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-import { AlertController } from 'ionic-angular';
+import { AlertController, PopoverController } from 'ionic-angular';
+
+import { SettingsPopOver } from './popover/popover';
 
 import { TranslateService } from 'ng2-translate';
 
@@ -10,7 +12,7 @@ import { TranslateService } from 'ng2-translate';
 export class SettingsPage {
     language: string;
 
-    constructor(public translate: TranslateService, private alertCtrl: AlertController) {
+    constructor(public translate: TranslateService, private alertCtrl: AlertController, public popoverCtrl: PopoverController) {
         this.language = translate.currentLang;
     }
 
@@ -25,5 +27,13 @@ export class SettingsPage {
         buttons: ['Dismiss']
     });
     alert.present();
+    }
+
+    presentPopover(ev) { 
+      let popover = this.popoverCtrl.create(SettingsPopOver, {}); 
+ 
+      popover.present({ 
+        ev: ev 
+      }); 
     }
 }

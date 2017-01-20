@@ -1,13 +1,19 @@
+<ion-header no-border>
+    <ion-buttons start>
+      <button ion-button clear icon-only (click)="goBack()">
+        <ion-icon color="black" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+</ion-header>
 <ion-content class="signup">
   <div class="logo">
     <div class="logo-icon">
       <img src="assets/img/logotipo.png" alt="">
     </div>
   </div>
-  <ion-input type="text" placeholder="Email" value=""></ion-input>
-  <ion-input type="password" placeholder="Password" value=""></ion-input>
+  <ion-input [(ngModel)]="email" type="text" placeholder="Email" value="{{email}}"></ion-input>
+  <ion-input [(ngModel)]="password" type="password" placeholder="Password" value="{{password}}"></ion-input>
   <button ion-button color="default" block (click)="registerUser()">Sign up</button>
-
   <div class="terms-of-use-txt">
     By Signing up you agree to the
     <b (click)="openTermsOfService()">Terms of Service</b>
