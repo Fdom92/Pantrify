@@ -19,14 +19,6 @@
         <ion-label floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number" [(ngModel)]="itemQuantity"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label>{{ 'AddItem.category-label' | translate }}</ion-label>
-        <ion-select formControlName="category" [(ngModel)]="itemCategory">
-          <ion-option value="food">{{ 'AddItem.food-label' | translate }}</ion-option>
-          <ion-option value="drink">{{ 'AddItem.drink-label' | translate }}</ion-option>
-          <ion-option value="home">{{ 'AddItem.home-label' | translate }}</ion-option>
-        </ion-select>
-      </ion-item>
     </ion-list>
   </form>
   <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>

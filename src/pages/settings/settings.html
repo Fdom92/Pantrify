@@ -1,11 +1,9 @@
 <ion-header>
   <ion-navbar color="indigo500">
-    <ion-buttons start>
       <button ion-button menuToggle>
-        <ion-icon name="back"></ion-icon>
+        <ion-icon name="menu"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-title>{{ 'Settings.view-header' | translate }}</ion-title>
+    <ion-title text-center>{{ 'Settings.view-header' | translate }}</ion-title>
     <ion-buttons end> 
       <button ion-button icon-only (click)="presentPopover($event)"> 
         <ion-icon name="more"></ion-icon> 
@@ -18,28 +16,12 @@
   <ion-item-group>
     <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-info' | translate }}</ion-item-divider>
     <ion-item>
-      <h2 class="primary-text-color">user.email.test@gmail.com</h2>
+      <h2 class="primary-text-color">{{ usermail }}</h2>
       <p class="secondary-text-color">{{ 'Settings.info.mail' | translate }}</p>
-    </ion-item>
-    <ion-item>
-      <h2 class="primary-text-color">Fernando del olmo</h2>
-      <p class="secondary-text-color">{{ 'Settings.info.username' | translate }}</p>
     </ion-item>
   </ion-item-group>
   <ion-item-group>
     <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-settings' | translate }}</ion-item-divider>
-    <ion-item>
-      <ion-label class="primary-text-color">
-        {{ 'Settings.settings.notifications' | translate }}
-      </ion-label>
-      <ion-toggle color="indigoA400" checked="true"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label class="primary-text-color">
-        {{ 'Settings.settings.vibration' | translate }}
-      </ion-label>
-      <ion-toggle color="indigoA400" checked="false"></ion-toggle>
-    </ion-item>
     <ion-item>
       <ion-label class="primary-text-color">{{ 'Settings.settings.language' | translate }}</ion-label>
       <ion-select [(ngModel)]="language" (ionChange)="onChange($event)">
@@ -51,10 +33,10 @@
   <ion-item-group>
     <ion-item-divider class="hint-text-color" color="white">{{ 'Settings.divider-support' | translate }}</ion-item-divider>
      <ion-item (click)="presentAlert()">
-      <ion-label class="primary-text-color">Contact us</ion-label>
+      <ion-label class="primary-text-color">{{ 'Settings.support.contact' | translate }}</ion-label>
     </ion-item>
     <ion-item>
-      <p text-center class="secondary-text-color"> Pantrify for Android v0.0.1</p>
+      <p text-center class="secondary-text-color"> Pantrify {{ 'Common.for' | translate }} Android v0.0.1</p>
     </ion-item>
   </ion-item-group>
 </ion-content>

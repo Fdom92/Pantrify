@@ -1,26 +1,9 @@
 <ion-menu [content]="content" class="sidemenu">
   <ion-content>
-    <ion-list no-lines>
-      <ion-item>
-        <ion-avatar item-left>
-          <img src="assets/img/user.png">
-        </ion-avatar>
-      </ion-item>
-      <ion-item>
-        <h2>Username</h2>
-        <p>user.email.test@gamil.com</p>
-      </ion-item>
-    </ion-list>
     <ion-list>
       <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon color="gray" ios="{{p.iconOS}}" md="{{p.iconMD}}" item-left></ion-icon>
           {{ 'Menu.' + p.title | translate }}
-      </ion-item>
-    </ion-list>
-    <ion-list>
-      <ion-item menuClose *ngFor="let p2 of pages2" (click)="openAsModal(p2)">
-        <ion-icon color="gray" ios="{{p2.iconOS}}" md="{{p2.iconMD}}" item-left></ion-icon>
-          {{ 'Menu.' + p2.title | translate }}
       </ion-item>
     </ion-list>
   </ion-content>

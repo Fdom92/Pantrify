@@ -4,7 +4,6 @@ import { NavController, MenuController } from 'ionic-angular';
 
 import { LoginPage }  from '../login/login';
 import { SignupPage } from '../signup/signup';
-import { Menu } from './../menu/menu';
 
 @Component({
   templateUrl: 'home.html',
@@ -12,10 +11,6 @@ import { Menu } from './../menu/menu';
 export class HomePage {
 
   constructor(public navCtrl: NavController, public menu: MenuController) {}
-
-  goIn() {
-    this.navCtrl.setRoot(Menu);
-  }
 
   openSignUpPage(){
     this.navCtrl.push(SignupPage, {}, {animate: false});

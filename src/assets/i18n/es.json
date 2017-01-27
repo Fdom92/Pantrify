@@ -14,20 +14,12 @@
         },
         "divider-support": "Soporte",
         "support": {
+            "contact": "Contacta con nosotros"
         }
     },
     "Menu": {
         "pantry": "Despensa",
-        "inventory": "Inventario",
-        "settings": "Ajustes",
-        "sendFeedback": "Enviar comentario",
-        "help": "Ayuda"
-    },
-    "Inventory": {
-        "view-header": "Inventario",
-        "divider-one": "Comida",
-        "divider-two": "Bebidas",
-        "divider-three": "Hogar"
+        "settings": "Ajustes"
     },
     "Pantry": {
         "view-header": "Despensa"
@@ -35,21 +27,11 @@
     "AddItem": {
         "view-header": "Añadir item",
         "name-label": "Nombre",
-        "quantity-label": "Cantidad",
-        "category-label": "Categoría",
-        "food-label": "Comida",
-        "drink-label": "Bebida",
-        "home-label": "Hogar"
-    },
-    "UpdateItem": {
-        "view-header": "Actualizar item",
-        "label-text": "¿Cuántos tienes?"
+        "quantity-label": "Cantidad"
     },
     "Common": {
         "accept": "Aceptar",
         "quantity": "Cantidad",
-        "tab-food": "COMIDA",
-        "tab-drinks": "BEBIDAS",
-        "tab-home": "HOGAR"
+        "for": "para"
     }
 }

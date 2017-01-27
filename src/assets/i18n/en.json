@@ -14,20 +14,12 @@
         },
         "divider-support": "Support",
         "support": {
+            "contact": "Contact us"
         }
     },
     "Menu": {
         "pantry": "Pantry",
-        "inventory": "Inventory",
-        "settings": "Settings",
-        "sendFeedback": "Send feedback",
-        "help": "Help"
-    },
-    "Inventory": {
-        "view-header": "Inventory",
-        "divider-one": "Food",
-        "divider-two": "Drinks",
-        "divider-three": "Home"
+        "settings": "Settings"
     },
     "Pantry": {
         "view-header": "Pantry"
@@ -35,21 +27,11 @@
     "AddItem": {
         "view-header": "Add item",
         "name-label": "Name",
-        "quantity-label": "Quantity",
-        "category-label": "Category",
-        "food-label": "Food",
-        "drink-label": "Drink",
-        "home-label": "Home"           
-    },
-    "UpdateItem": {
-        "view-header": "Update item",
-        "label-text": "How many do you have?"
+        "quantity-label": "Quantity"          
     },
     "Common": {
         "accept": "Accept",
         "quantity": "Quantity",
-        "tab-food": "FOOD",
-        "tab-drinks": "DRINKS",
-        "tab-home": "HOME"
+        "for": "for"
     }
 }

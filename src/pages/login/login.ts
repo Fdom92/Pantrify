@@ -1,3 +1,4 @@
+import { UserData } from '../../providers/user.provider';
 import {Component} from "@angular/core";
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
@@ -14,7 +15,7 @@ export class LoginPage {
     email: string;
     password: string;
 
-    constructor(public navCtrl: NavController, public menu: MenuController, public af: AngularFire, private toastCtrl: ToastController) {
+    constructor(public userdata: UserData, public navCtrl: NavController, public menu: MenuController, public af: AngularFire, private toastCtrl: ToastController) {
     }
 
     onLogin() {
@@ -23,6 +24,7 @@ export class LoginPage {
         .then((response: any) => {
             console.log('RESPONSE', response);
             this.navCtrl.pop({animate: false});
+            this.userdata.setUserData(response.auth);
             this.navCtrl.setRoot(Menu);
         })
         .catch((error: any) => { 

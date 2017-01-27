@@ -11,10 +11,10 @@ import { HomePage }        from '../pages/home/home';
 import { SignupPage }      from '../pages/signup/signup';
 import { SettingsPage }    from '../pages/settings/settings';
 import { SettingsPopOver } from './../pages/settings/popover/popover';
-import { InventoryPage }   from '../pages/inventory/inventory';
 import { CustomTabPage }   from '../pages/customTab/customTab';
 import { AddItemModal }    from '../modals/addItemModal/addItemModal';
 import { FirebaseConfig }  from '../../config/firebase.config';
+import { UserData }        from '../providers/user.provider';
 
 import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
 import { AngularFireModule } from 'angularfire2';
@@ -30,7 +30,6 @@ let pages = [
   SignupPage,
   HomePage,
   SettingsPage,
-  InventoryPage,
   CustomTabPage,
   Menu,
   AddItemModal,
@@ -58,6 +57,6 @@ export function entryComponents() {
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
-  providers: []
+  providers: [UserData]
 })
 export class AppModule {}

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+
+import { ViewController } from 'ionic-angular';
+
 import { QuantityValidator } from  '../../validators/quantity';
 
 @Component({
@@ -9,7 +11,6 @@ import { QuantityValidator } from  '../../validators/quantity';
 export class AddItemModal {
   itemName: string;
   itemQuantity: number;
-  itemCategory: string;
   addItemForm: FormGroup;
 
   constructor(public viewCtrl: ViewController) {
@@ -22,9 +23,6 @@ export class AddItemModal {
             Validators.required,
             Validators.maxLength(20),
             Validators.pattern('[a-zA-Z ]*')
-       ]),
-       category: new FormControl('', [
-            Validators.required
        ])
     });
   }
@@ -35,7 +33,7 @@ export class AddItemModal {
 
   accept() {
     if(this.addItemForm.valid){
-        let item = {title: this.itemName, units: this.itemQuantity, category: this.itemCategory};
+        let item = {title: this.itemName, units: this.itemQuantity};
         this.viewCtrl.dismiss(item);
     }
   }

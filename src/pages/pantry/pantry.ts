@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { UserData } from '../../providers/user.provider';
+import { Component, ViewChild } from '@angular/core';
 
-import { ModalController } from 'ionic-angular';
+import { ModalController, Tabs } from 'ionic-angular';
 
 import { CustomTabPage } from './../customTab/customTab';
+import { AddItemModal } from '../../modals/addItemModal/addItemModal';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { TranslateService, LangChangeEvent } from 'ng2-translate';
+import { TranslateService } from 'ng2-translate';
 
 class Tab {
-    title: string;
+    icon: string;
     component: any;
     items: FirebaseListObservable<any[]>;
 };
@@ -17,17 +19,31 @@ class Tab {
   templateUrl: 'pantry.html'
 })
 export class PantryPage {
-
+  @ViewChild('pantryTabs') tabRef: Tabs;
   tabs : Array<Tab>;
-  constructor(public modalCtrl: ModalController, public translate: TranslateService, af: AngularFire) {
-      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-        this.tabs[0].title = event.translations.Common['tab-food'];
-        this.tabs[1].title = event.translations.Common['tab-drinks'];
-        this.tabs[2].title = event.translations.Common['tab-home'];
-      });
 
-      this.tabs = [{title: 'FOOD',  component: CustomTabPage, items:  af.database.list('/food')},
-              {title: 'DRINKS',  component: CustomTabPage, items:  af.database.list('/drinks')},
-              {title: 'HOME',  component: CustomTabPage, items:  af.database.list('/home')}];
+  constructor(public userdata: UserData, public modalCtrl: ModalController, public translate: TranslateService, af: AngularFire) {
+
+      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  af.database.list('/' + this.userdata.getUid() + '/food')},
+              {icon: 'beer',  component: CustomTabPage, items:  af.database.list('/' + this.userdata.getUid() + '/drinks')},
+              {icon: 'home',  component: CustomTabPage, items:  af.database.list('/' + this.userdata.getUid() + '/home')}];
   }
+
+    onAdd() {
+        let addModal = this.modalCtrl.create(AddItemModal);
+        addModal.onDidDismiss(data => {
+          switch (this.tabRef.getSelected().id) {
+            case 't0-0':
+              this.tabs[0].items.push(data);
+              break;
+            case 't0-1':
+              this.tabs[1].items.push(data);
+              break;
+            case 't0-2':
+              this.tabs[2].items.push(data);
+              break;
+          }
+        });
+        addModal.present();
+    }
 }

@@ -1,3 +1,4 @@
+import { UserData } from '../../providers/user.provider';
 import { Component } from '@angular/core';
 
 import { AlertController, PopoverController } from 'ionic-angular';
@@ -10,10 +11,12 @@ import { TranslateService } from 'ng2-translate';
     templateUrl: "settings.html"
 })
 export class SettingsPage {
-    language: string;
+    language: String;
+    usermail: String;
 
-    constructor(public translate: TranslateService, private alertCtrl: AlertController, public popoverCtrl: PopoverController) {
+    constructor(public userdata: UserData, public translate: TranslateService, private alertCtrl: AlertController, public popoverCtrl: PopoverController) {
         this.language = translate.currentLang;
+        this.usermail = this.userdata.getEmail();
     }
 
     onChange(e) {
