@@ -24,12 +24,16 @@ export class SettingsPage {
     }
 
     presentAlert() {
-    let alert = this.alertCtrl.create({
-        title: 'Thank you',
-        subTitle: 'Contact us at fer.olmo92@gmail.com ',
-        buttons: ['Dismiss']
+    this.translate.get('Settings.support.dialog').subscribe( value => {
+        let alert = this.alertCtrl.create({
+            title: value.title,
+            subTitle: value.text + ' fer.olmo92@gmail.com',
+            buttons: [value.button]
+        });
+        alert.present();
     });
-    alert.present();
+
+
     }
 
     presentPopover(ev) { 

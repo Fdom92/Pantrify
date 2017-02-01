@@ -14,7 +14,12 @@
         },
         "divider-support": "Support",
         "support": {
-            "contact": "Contact us"
+            "contact": "Contact us",
+            "dialog": {
+                "title": "Thank you",
+                "text": "Contact us at",
+                "button": "Dismiss"
+            }
         }
     },
     "Menu": {

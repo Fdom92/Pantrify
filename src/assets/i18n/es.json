@@ -14,7 +14,12 @@
         },
         "divider-support": "Soporte",
         "support": {
-            "contact": "Contacta con nosotros"
+            "contact": "Contacta con nosotros",
+            "dialog": {
+                "title": "Gracias",
+                "text": "Contacta con nosotros en",
+                "button": "Cerrar"
+            }
         }
     },
     "Menu": {
