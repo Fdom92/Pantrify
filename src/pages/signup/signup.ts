@@ -18,14 +18,12 @@ export class SignupPage {
     }
 
     registerUser() {
-        this.af.auth.createUser({ email: 'fer.olmo92@gmail.com', password: 'fersanse' })
+        this.af.auth.createUser({ email: this.email, password: this.password })
         .then((response: any) => {
-             console.log('RESPONSE', response);
              this.navCtrl.pop({animate: false});
              this.navCtrl.setRoot(Menu);
         })
         .catch((error: any) => { 
-            console.log('ERROR', error); 
             this.presentToast(error.message);
         });
     }

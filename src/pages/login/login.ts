@@ -22,13 +22,11 @@ export class LoginPage {
         this.af.auth.login({ email: 'fer.olmo92@gmail.com', password: 'fersanse' },
         { provider: AuthProviders.Password, method: AuthMethods.Password })
         .then((response: any) => {
-            console.log('RESPONSE', response);
             this.navCtrl.pop({animate: false});
             this.userdata.setUserData(response.auth);
             this.navCtrl.setRoot(Menu);
         })
         .catch((error: any) => { 
-            console.log('ERROR', error); 
             this.presentToast(error.message);
         });
     }

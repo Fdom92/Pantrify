@@ -1,8 +1,8 @@
-import { UserData } from '../../providers/user.provider';
 import { Component } from '@angular/core';
 
 import { AlertController, PopoverController } from 'ionic-angular';
 
+import { UserData } from '../../providers/user.provider';
 import { SettingsPopOver } from './popover/popover';
 
 import { TranslateService } from 'ng2-translate';
