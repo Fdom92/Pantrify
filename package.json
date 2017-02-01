@@ -22,7 +22,7 @@
     "angularfire2": "^2.0.0-beta.6",
     "firebase": "^3.6.3",
     "ion-multi-picker": "1.1.1",
-    "ionic-angular": "2.0.0-rc.5",
+    "ionic-angular": "2.0.0",
     "ionic-native": "2.2.11",
     "ionicons": "3.0.0",
     "ng2-translate": "4.2.0",
