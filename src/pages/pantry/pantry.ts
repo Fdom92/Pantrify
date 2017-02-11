@@ -32,15 +32,19 @@ export class PantryPage {
     onAdd() {
         let addModal = this.modalCtrl.create(AddItemModal);
         addModal.onDidDismiss(data => {
-          switch (this.tabRef.getSelected().id) {
-            case 't0-0':
+          let id = this.tabRef.getSelected().id.split('-')[1];
+          switch (id) {
+            case '0':
               this.tabs[0].items.push(data);
               break;
-            case 't0-1':
+            case '1':
               this.tabs[1].items.push(data);
               break;
-            case 't0-2':
+            case '2':
               this.tabs[2].items.push(data);
+              break;
+            default:
+              console.log('Error');            
               break;
           }
         });

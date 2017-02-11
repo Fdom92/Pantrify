@@ -1,9 +1,9 @@
-import { UserData } from '../../providers/user.provider';
 import {Component} from "@angular/core";
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 
 import { Menu } from '../menu/menu';
+import { UserData } from '../../providers/user.provider';
 
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
@@ -19,7 +19,7 @@ export class LoginPage {
     }
 
     onLogin() {
-        this.af.auth.login({ email: 'fer.olmo92@gmail.com', password: 'fersanse' },
+        this.af.auth.login({ email: this.email, password: this.password },
         { provider: AuthProviders.Password, method: AuthMethods.Password })
         .then((response: any) => {
             this.navCtrl.pop({animate: false});
@@ -36,23 +36,23 @@ export class LoginPage {
     }
 
     ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
-    this.menu.enable(false);
+        // the root left menu should be disabled on the tutorial page
+        this.menu.enable(false);
     }
 
     ionViewWillLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.menu.enable(true);
+        // enable the root left menu when leaving the tutorial page
+        this.menu.enable(true);
     }
 
     presentToast(errMessage) {
-    let toast = this.toastCtrl.create({
-        message: errMessage,
-        duration: 3000,
-        position: 'bottom'
-    });
+        let toast = this.toastCtrl.create({
+            message: errMessage,
+            duration: 3000,
+            position: 'bottom'
+        });
 
-    toast.present();
+        toast.present();
     }
 
     goBack() {
