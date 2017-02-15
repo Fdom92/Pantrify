@@ -38,5 +38,11 @@
         "accept": "Aceptar",
         "quantity": "Cantidad",
         "for": "para"
+    },
+    "CustomTab": {
+        "no-items": {
+            "text1": "No tienes nada guardado aún,",
+            "text2": "prueba añadiendo algo"
+        }
     }
 }

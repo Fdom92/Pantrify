@@ -38,5 +38,11 @@
         "accept": "Accept",
         "quantity": "Quantity",
         "for": "for"
+    },
+    "CustomTab": {
+        "no-items": {
+            "text1": "You don't have anything stored yet,",
+            "text2": "try adding something"
+        }
     }
 }

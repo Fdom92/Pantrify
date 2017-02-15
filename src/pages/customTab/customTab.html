@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="customTab">
   <ion-list>
     <ion-item *ngFor="let item of items | async">
       <h2>{{item.title}}</h2>
@@ -11,4 +11,8 @@
       </button>
     </ion-item>
   </ion-list>
+  <div class="no-items" *ngIf="(items | async)?.length === 0">
+    <p class="no-items-text" text-center>{{ 'CustomTab.no-items.text1' | translate }}</p>
+    <p class="no-items-text" text-center>{{ 'CustomTab.no-items.text2' | translate }}</p>
+  </div>
 </ion-content>
