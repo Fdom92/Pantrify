@@ -37,6 +37,12 @@
           .label {
             color: color($colors, error);
           }
+          .item-inner {
+            box-shadow: none;
+          }
+          &:last-child {
+            box-shadow: none;
+          }
         }
       }
     }

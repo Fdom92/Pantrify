@@ -9,7 +9,7 @@ import { QuantityValidator } from  '../../validators/quantity';
   templateUrl: "addItemModal.html",
 })
 export class AddItemModal {
-  itemName: string;
+  itemName: string = '';
   itemQuantity: number;
   addItemForm: FormGroup;
 
