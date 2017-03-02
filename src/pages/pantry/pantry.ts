@@ -1,7 +1,8 @@
+import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 import { UserData } from '../../providers/user.provider';
 import { Component, ViewChild } from '@angular/core';
 
-import { ModalController, Tabs } from 'ionic-angular';
+import { ModalController, Tabs, NavController } from 'ionic-angular';
 
 import { CustomTabPage } from './../customTab/customTab';
 import { AddItemModal } from '../../modals/addItemModal/addItemModal';
@@ -22,11 +23,16 @@ export class PantryPage {
   @ViewChild('pantryTabs') tabRef: Tabs;
   tabs : Array<Tab>;
 
-  constructor(public userdata: UserData, public modalCtrl: ModalController, public translate: TranslateService, af: AngularFire) {
+  constructor(private _backBtn: HardwareBackButtonService, 
+              public userdata: UserData, 
+              public modalCtrl: ModalController, 
+              public translate: TranslateService,
+              public navCtrl: NavController,
+              private _af: AngularFire) {
 
-      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  af.database.list('/' + this.userdata.getUid() + '/food')},
-              {icon: 'beer',  component: CustomTabPage, items:  af.database.list('/' + this.userdata.getUid() + '/drinks')},
-              {icon: 'home',  component: CustomTabPage, items:  af.database.list('/' + this.userdata.getUid() + '/home')}];
+      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  _af.database.list('/' + this.userdata.getUid() + '/food')},
+              {icon: 'beer',  component: CustomTabPage, items:  _af.database.list('/' + this.userdata.getUid() + '/drinks')},
+              {icon: 'home',  component: CustomTabPage, items:  _af.database.list('/' + this.userdata.getUid() + '/home')}];
   }
 
     onAdd() {
@@ -49,5 +55,17 @@ export class PantryPage {
           }
         });
         addModal.present();
+    }
+
+    ionViewDidEnter() {
+        this._backBtn.callbackOnBack(() => {
+          this._backBtn.doubleBackToExit();
+        });
+    }
+
+    ionViewWillLeave() {
+        this._backBtn.callbackOnBack(() => {
+          this.navCtrl.pop();
+        });
     }
 }

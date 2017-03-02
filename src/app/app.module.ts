@@ -15,6 +15,7 @@ import { CustomTabPage }   from '../pages/customTab/customTab';
 import { AddItemModal }    from '../modals/addItemModal/addItemModal';
 import { FirebaseConfig }  from '../../config/firebase.config';
 import { UserData }        from '../providers/user.provider';
+import { HardwareBackButtonService } from '../providers/backbutton.provider';
 
 import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
 import { AngularFireModule } from 'angularfire2';
@@ -57,6 +58,6 @@ export function entryComponents() {
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
-  providers: [UserData]
+  providers: [UserData, HardwareBackButtonService]
 })
 export class AppModule {}
