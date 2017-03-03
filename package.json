@@ -21,17 +21,16 @@
     "@types/jasmine": "2.5.38",
     "angularfire2": "2.0.0-beta.6",
     "firebase": "3.6.9",
-    "ion-multi-picker": "1.1.1",
-    "ionic-angular": "2.0.1",
+    "ionic-angular": "2.1.0",
     "ionic-native": "2.2.11",
     "ionicons": "3.0.0",
-    "ng2-translate": "4.2.0",
+    "ng2-translate": "5.0.0",
     "rxjs": "5.0.0-beta.12",
     "sw-toolbox": "3.4.0",
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.1.0",
+    "@ionic/app-scripts": "1.1.4",
     "typescript": "2.0.9"
   }
 }
