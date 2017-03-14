@@ -58,14 +58,12 @@ export class PantryPage {
     }
 
     ionViewDidEnter() {
-        this._backBtn.callbackOnBack(() => {
+        this._backBtn.registerAction(() => {
           this._backBtn.doubleBackToExit();
-        });
+        }, 101);
     }
 
     ionViewWillLeave() {
-        this._backBtn.callbackOnBack(() => {
-          this.navCtrl.pop();
-        });
+        this._backBtn.deregisterAction();
     }
 }
