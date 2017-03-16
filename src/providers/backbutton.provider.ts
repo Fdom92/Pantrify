@@ -1,7 +1,6 @@
-import {AngularFireAuth} from 'angularfire2/auth';
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {Platform, Events, ToastController, MenuController} from 'ionic-angular';
+import { MenuController, Platform, ToastController } from 'ionic-angular';
 
 @Injectable()
 export class HardwareBackButtonService {
@@ -9,12 +8,14 @@ export class HardwareBackButtonService {
     private _didBackAlready = false;
     private _deregisterFn = null;
 
-    constructor(private _platform : Platform, private _events : Events, private _menuCtrl : MenuController, private _toastCtrl : ToastController, private _af : AngularFireAuth) {}
+    constructor(private _plt : Platform, private _menuCtrl : MenuController, private _toastCtrl : ToastController) {}
 
     registerAction(fn, p) {
-        this._deregisterFn = this._platform.registerBackButtonAction(() => {
+        this._deregisterFn = this
+            ._plt
+            .registerBackButtonAction(() => {
                 fn();
-        });
+            }, p);
     }
 
     deregisterAction() {
@@ -23,13 +24,23 @@ export class HardwareBackButtonService {
 
     doubleBackToExit() {
 
+        // If sidemenu is open we close it instead of show the toast
+        if (this._menuCtrl && this._menuCtrl.isOpen()) {
+            return this
+                ._menuCtrl
+                .close();
+        }
+
+        // No sidemenu open lets handle double back to exit
         if (!this._didBackAlready) {
             this._didBackAlready = true;
             this._presentToast("Press back button again to exit");
             setTimeout(() => this._didBackAlready = false, 2000);
             return;
         }
-        this._platform.exitApp();
+        this
+            ._plt
+            .exitApp();
     }
 
     private _presentToast(content : string) {
@@ -39,4 +50,5 @@ export class HardwareBackButtonService {
 
         toast.present();
     }
+
 }
