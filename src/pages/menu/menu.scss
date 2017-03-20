@@ -1,0 +1,29 @@
+#menu-material {
+  .menu-header {
+    padding: 5px 15px;
+    background-image: url('../assets/img/material-design.png');
+    background-size: cover;
+    color: white;
+    .name {
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .e-mail {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+  .user-avatar {
+    padding: .5em;
+    height: 12vh;
+  }
+  h3,
+  .label,
+  {
+    color: #999;
+    font-weight: 400;
+  }
+  ion-icon {
+    color: #777;
+  }
+}
