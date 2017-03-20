@@ -4,6 +4,7 @@ import { AlertController, PopoverController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user.provider';
 import { SettingsPopOver } from './popover/popover';
+import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 
 import { TranslateService } from 'ng2-translate';
 
@@ -14,7 +15,7 @@ export class SettingsPage {
     language: String;
     usermail: String;
 
-    constructor(public userdata: UserData, public translate: TranslateService, private alertCtrl: AlertController, public popoverCtrl: PopoverController) {
+    constructor(private _backBtn: HardwareBackButtonService, public userdata: UserData, public translate: TranslateService, private alertCtrl: AlertController, public popoverCtrl: PopoverController) {
         this.language = translate.currentLang;
         this.usermail = this.userdata.getEmail();
     }
@@ -42,5 +43,15 @@ export class SettingsPage {
       popover.present({ 
         ev: ev 
       }); 
+    }
+
+    ionViewDidEnter() {
+        this._backBtn.registerAction(() => {
+          this._backBtn.doubleBackToExit();
+        });
+    }
+
+    ionViewWillLeave() {
+        this._backBtn.deregisterAction();
     }
 }

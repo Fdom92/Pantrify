@@ -10,12 +10,12 @@ export class HardwareBackButtonService {
 
     constructor(private _plt : Platform, private _menuCtrl : MenuController, private _toastCtrl : ToastController) {}
 
-    registerAction(fn, p) {
+    registerAction(fn) {
         this._deregisterFn = this
             ._plt
             .registerBackButtonAction(() => {
                 fn();
-            }, p);
+            });
     }
 
     deregisterAction() {

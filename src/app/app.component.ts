@@ -1,5 +1,5 @@
 import { Component, ViewChild }    from '@angular/core';
-import { Nav, Platform }           from 'ionic-angular';
+import { Platform }                from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage }       from '../pages/home/home';
@@ -10,7 +10,6 @@ import {TranslateService} from 'ng2-translate';
   templateUrl: '../pages/menu/menu.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
   constructor(translate: TranslateService, platform: Platform) {
