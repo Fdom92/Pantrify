@@ -17,7 +17,9 @@ export class CustomTabPage {
 
   onAdd(item, key) {
     let data = { title:item.title, units:parseInt(item.units) + 1 };
-    this.items.update(key, data);
+    if (data.units < 999) {
+      this.items.update(key, data);
+    }
   }
 
   onRemove(item, key) {

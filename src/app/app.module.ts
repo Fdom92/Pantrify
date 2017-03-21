@@ -13,7 +13,7 @@ import { SettingsPage }    from '../pages/settings/settings';
 import { SettingsPopOver } from './../pages/settings/popover/popover';
 import { CustomTabPage }   from '../pages/customTab/customTab';
 import { AddItemModal }    from '../modals/addItemModal/addItemModal';
-import { FirebaseConfig }  from '../../config/firebase.config';
+import { FirebaseConfig }  from '../config/firebase.config';
 import { UserData }        from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
 

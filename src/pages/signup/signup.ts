@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 
@@ -14,8 +15,17 @@ export class SignupPage {
 
     email: string;
     password: string;
+    registerForm: FormGroup;
 
     constructor(public userdata: UserData, public navCtrl: NavController, public menu: MenuController, public af: AngularFire, private toastCtrl: ToastController) {
+        this.registerForm = new FormGroup({
+            email: new FormControl('', [
+                Validators.required
+            ]),
+            password: new FormControl('', [
+                Validators.required
+            ])
+        });
     }
 
     registerUser() {
@@ -28,10 +38,6 @@ export class SignupPage {
         .catch((error: any) => { 
             this.presentToast(error.message);
         });
-    }
-
-    openTermsOfService(){
-        console.log('Terms of service');
     }
 
     ionViewDidEnter() {

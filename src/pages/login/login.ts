@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 
@@ -14,8 +15,17 @@ export class LoginPage {
 
     email: string;
     password: string;
+    loginForm: FormGroup;
 
     constructor(public userdata: UserData, public navCtrl: NavController, public menu: MenuController, public af: AngularFire, private toastCtrl: ToastController) {
+        this.loginForm = new FormGroup({
+            email: new FormControl('', [
+                Validators.required
+            ]),
+            password: new FormControl('', [
+                Validators.required
+            ])
+        });
     }
 
     onLogin() {
@@ -29,10 +39,6 @@ export class LoginPage {
         .catch((error: any) => { 
             this.presentToast(error.message);
         });
-    }
-
-    openTermsOfService(){
-        console.log('Terms of service');
     }
 
     ionViewDidEnter() {

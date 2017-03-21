@@ -4,6 +4,6 @@
 /plugins
 /www
 /platforms
-/config
+/src/config
 /.vscode
 .DS_Store

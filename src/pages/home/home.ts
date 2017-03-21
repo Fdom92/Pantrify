@@ -20,10 +20,6 @@ export class HomePage {
     this.navCtrl.push(LoginPage, {}, {animate: false});
   }
 
-  openTermsOfService(){
-    console.log('Terms of service');
-  }
-
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);

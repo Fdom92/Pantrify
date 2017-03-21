@@ -8,6 +8,10 @@ export class QuantityValidator {
             return {"invalid_quantity": true};
         }
 
+        if(control.value > 999){
+            return {"invalid_quantity": true};
+        }
+
         return null;
     }
  
