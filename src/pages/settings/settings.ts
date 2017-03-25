@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { AlertController, PopoverController } from 'ionic-angular';
 
-import { UserData } from '../../providers/user.provider';
-import { SettingsPopOver } from './popover/popover';
+import { SettingsPopOver }           from './popover/popover';
+import { UserData }                  from '../../providers/user.provider';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 
 import { TranslateService } from 'ng2-translate';
@@ -15,7 +15,12 @@ export class SettingsPage {
     language: String;
     usermail: String;
 
-    constructor(private _backBtn: HardwareBackButtonService, public userdata: UserData, public translate: TranslateService, private alertCtrl: AlertController, public popoverCtrl: PopoverController) {
+    constructor(private _backBtn: HardwareBackButtonService, 
+                public userdata: UserData, 
+                public translate: TranslateService, 
+                private alertCtrl: AlertController, 
+                public popoverCtrl: PopoverController) {
+
         this.language = translate.currentLang;
         this.usermail = this.userdata.getEmail();
     }
@@ -25,16 +30,14 @@ export class SettingsPage {
     }
 
     presentAlert() {
-    this.translate.get('Settings.support.dialog').subscribe( value => {
-        let alert = this.alertCtrl.create({
-            title: value.title,
-            subTitle: value.text + ' fer.olmo92@gmail.com',
-            buttons: [value.button]
+        this.translate.get('Settings.support.dialog').subscribe( value => {
+            let alert = this.alertCtrl.create({
+                title: value.title,
+                subTitle: value.text + ' fer.olmo92@gmail.com',
+                buttons: [value.button]
+            });
+            alert.present();
         });
-        alert.present();
-    });
-
-
     }
 
     presentPopover(ev) { 

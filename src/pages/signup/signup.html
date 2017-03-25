@@ -9,12 +9,14 @@
 <ion-content class="signup">
   <div class="logo">
     <div class="logo-icon">
-      <img src="assets/img/logotipo.png" alt="">
+      <img src="assets/img/logotipo.png" alt="Pantrify Logo">
     </div>
   </div>
   <form [formGroup]="registerForm">
     <ion-input formControlName="email" [(ngModel)]="email" type="text" placeholder="Email" value="{{email}}"></ion-input>
     <ion-input formControlName="password" [(ngModel)]="password" type="password" placeholder="Password" value="{{password}}"></ion-input>
-    <button type="submit" ion-button color="default" block (click)="registerUser()">Sign up</button>    
+    <button type="submit" ion-button color="default" block (click)="registerUser()">
+      {{ 'Home.signup' | translate }}
+    </button>    
   </form>
 </ion-content>

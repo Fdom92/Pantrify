@@ -1,15 +1,18 @@
 {
+    "Home": {
+        "login": "Log in",
+        "signup": "Sign up",
+        "loginLoading": "We are looking for your pantry, wait please...",
+        "signupLoading": "We are creating your pantry, wait please..."
+    },
     "Settings": {
         "view-header": "Settings",
         "divider-info": "Info",
         "info": {
-          "mail": "Email",
-          "username": "Username"
+          "mail": "Email"
         },
         "divider-settings": "Settings",
         "settings": {
-          "notifications": "Notifications",
-          "vibration": "Vibration",
           "language": "Language"
         },
         "divider-support": "Support",
@@ -35,14 +38,17 @@
         "quantity-label": "Quantity"          
     },
     "Common": {
-        "accept": "Accept",
         "quantity": "Quantity",
-        "for": "for"
+        "logout": "Log out",
+        "accept": "Accept"
     },
     "CustomTab": {
         "no-items": {
             "text1": "You don't have anything stored yet,",
             "text2": "try adding something"
         }
+    },
+    "Error": {
+        "addItemMax": "You have reached the limit of products"
     }
 }

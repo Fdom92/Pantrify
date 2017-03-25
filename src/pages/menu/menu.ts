@@ -2,9 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Nav, Platform } from 'ionic-angular';
 
-import { PantryPage }    from '../pantry/pantry';
-import { SettingsPage }  from '../settings/settings';
-import { UserData } from '../../providers/user.provider';
+import { PantryPage }   from '../pantry/pantry';
+import { SettingsPage } from '../settings/settings';
+import { UserData }     from '../../providers/user.provider';
 
 @Component({
   templateUrl: 'menu.html'
@@ -12,8 +12,8 @@ import { UserData } from '../../providers/user.provider';
 export class Menu {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PantryPage;
   usermail: String;
+  rootPage: any = PantryPage;
   pages: Array<{title: string, component: any, iconMD: string, iconOS: string}>;
 
   constructor(public platform: Platform, public userdata: UserData) {

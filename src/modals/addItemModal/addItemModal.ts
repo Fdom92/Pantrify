@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component }                          from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { ViewController } from 'ionic-angular';

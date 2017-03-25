@@ -1,12 +1,14 @@
-import {Component} from "@angular/core";
+import { Component }                          from "@angular/core";
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 
-import { Menu } from '../menu/menu';
-import { UserData } from '../../providers/user.provider';
+import { Menu }           from '../menu/menu';
+import { UserData }       from '../../providers/user.provider';
+import { LoadingService } from '../../providers/loading.provider';
 
-import { AngularFire } from 'angularfire2';
+import { AngularFire }      from 'angularfire2';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
     templateUrl: "signup.html"
@@ -17,7 +19,14 @@ export class SignupPage {
     password: string;
     registerForm: FormGroup;
 
-    constructor(public userdata: UserData, public navCtrl: NavController, public menu: MenuController, public af: AngularFire, private toastCtrl: ToastController) {
+    constructor(public userdata: UserData, 
+                public navCtrl: NavController, 
+                public menu: MenuController, 
+                public af: AngularFire, 
+                private toastCtrl: ToastController, 
+                private _loading: LoadingService, 
+                public translate: TranslateService) {
+                    
         this.registerForm = new FormGroup({
             email: new FormControl('', [
                 Validators.required
@@ -29,11 +38,12 @@ export class SignupPage {
     }
 
     registerUser() {
+        this.translate.get('Home').subscribe( value => {
+            this._loading.present({content: value.signupLoading});
+        });        
         this.af.auth.createUser({ email: this.email, password: this.password })
         .then((response: any) => {
-             this.navCtrl.pop({animate: false});
-             this.userdata.setUserData(response.auth);
-             this.navCtrl.setRoot(Menu);
+             this._loading.dismiss();
         })
         .catch((error: any) => { 
             this.presentToast(error.message);
