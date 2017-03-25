@@ -6,7 +6,6 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp }           from './app.component';
 import { PantryPage }      from '../pages/pantry/pantry';
 import { LoginPage }       from '../pages/login/login';
-import { Menu }            from '../pages/menu/menu';
 import { HomePage }        from '../pages/home/home';
 import { SignupPage }      from '../pages/signup/signup';
 import { SettingsPage }    from '../pages/settings/settings';
@@ -33,7 +32,6 @@ let pages = [
   HomePage,
   SettingsPage,
   CustomTabPage,
-  Menu,
   AddItemModal,
   SettingsPopOver
 ];

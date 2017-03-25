@@ -3,7 +3,6 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 
-import { Menu }           from '../menu/menu';
 import { UserData }       from '../../providers/user.provider';
 import { LoadingService } from '../../providers/loading.provider';
 
