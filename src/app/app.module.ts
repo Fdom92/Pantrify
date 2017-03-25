@@ -1,21 +1,21 @@
+import { AlertService } from '../providers/alert.provider';
 import { NgModule } from '@angular/core';
-import { Http }     from '@angular/http';
+import { Http } from '@angular/http';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
 
-import { MyApp }           from './app.component';
-import { PantryPage }      from '../pages/pantry/pantry';
-import { LoginPage }       from '../pages/login/login';
-import { HomePage }        from '../pages/home/home';
-import { SignupPage }      from '../pages/signup/signup';
-import { SettingsPage }    from '../pages/settings/settings';
-import { SettingsPopOver } from './../pages/settings/popover/popover';
-import { CustomTabPage }   from '../pages/customTab/customTab';
-import { AddItemModal }    from '../modals/addItemModal/addItemModal';
-import { FirebaseConfig }  from '../config/firebase.config';
-import { UserData }        from '../providers/user.provider';
+import { MyApp } from './app.component';
+import { PantryPage } from '../pages/pantry/pantry';
+import { LoginPage } from '../pages/login/login';
+import { HomePage } from '../pages/home/home';
+import { SignupPage } from '../pages/signup/signup';
+import { SettingsPage } from '../pages/settings/settings';
+import { CustomTabPage } from '../pages/customTab/customTab';
+import { AddItemModal } from '../modals/addItemModal/addItemModal';
+import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { LoadingService } from '../providers/loading.provider';
+import { FirebaseConfig } from '../config/firebase.config';
 
 import { TranslateStaticLoader, TranslateModule, TranslateLoader} from 'ng2-translate';
 import { AngularFireModule } from 'angularfire2';
@@ -32,8 +32,7 @@ let pages = [
   HomePage,
   SettingsPage,
   CustomTabPage,
-  AddItemModal,
-  SettingsPopOver
+  AddItemModal
 ];
 
 export function declarations() {
@@ -57,6 +56,6 @@ export function entryComponents() {
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
-  providers: [UserData, HardwareBackButtonService, LoadingService]
+  providers: [UserData, HardwareBackButtonService, LoadingService, AlertService]
 })
 export class AppModule {}

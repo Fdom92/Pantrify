@@ -1,12 +1,14 @@
+import { HomePage } from '../home/home';
+import { AlertService } from '../../providers/alert.provider';
 import { Component } from '@angular/core';
 
-import { AlertController, PopoverController } from 'ionic-angular';
+import { AlertController, NavController } from 'ionic-angular';
 
-import { SettingsPopOver }           from './popover/popover';
-import { UserData }                  from '../../providers/user.provider';
+import { UserData } from '../../providers/user.provider';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 
 import { TranslateService } from 'ng2-translate';
+import { AngularFire } from 'angularfire2';
 
 @Component({
     templateUrl: "settings.html"
@@ -15,11 +17,13 @@ export class SettingsPage {
     language: String;
     usermail: String;
 
-    constructor(private _backBtn: HardwareBackButtonService, 
-                public userdata: UserData, 
-                public translate: TranslateService, 
-                private alertCtrl: AlertController, 
-                public popoverCtrl: PopoverController) {
+    constructor(private _backBtn: HardwareBackButtonService,
+                public userdata: UserData,
+                public translate: TranslateService,
+                private alertCtrl: AlertController,
+                private alertProvider: AlertService,
+                public af: AngularFire,
+                public navCtrl: NavController) {
 
         this.language = translate.currentLang;
         this.usermail = this.userdata.getEmail();
@@ -40,14 +44,6 @@ export class SettingsPage {
         });
     }
 
-    presentPopover(ev) { 
-      let popover = this.popoverCtrl.create(SettingsPopOver, {}); 
- 
-      popover.present({ 
-        ev: ev 
-      }); 
-    }
-
     ionViewDidEnter() {
         this._backBtn.registerAction(() => {
           this._backBtn.doubleBackToExit();
@@ -56,5 +52,18 @@ export class SettingsPage {
 
     ionViewWillLeave() {
         this._backBtn.deregisterAction();
+    }
+
+    logout(){
+        this.alertProvider.createWithCallback("Are you sure?",
+            "This will log you out of this application.", true).then((yes) => {
+            if (yes) {
+                this.af.auth.logout().then( () => {
+                    this.navCtrl.setRoot(HomePage);
+                }, (error) => {
+                    console.log('auth logout error', error);
+                });
+            }
+        });
     }
 }

@@ -12,10 +12,18 @@ export class LoadingService {
 
     present(loadingOpt) {
         this.loading = this._loadingCtrl.create(loadingOpt);
-        this.loading.present();
+        return this.loading.present();
     }
 
     dismiss() {
-        this.loading.dismiss();
+        return new Promise((resolve, reject) => {
+            if (this.loading) {
+                return this.loading.dismiss(resolve(true)).catch(error => {
+                    console.log('loading error: ', error);
+                });
+            } else {
+                resolve(true);
+            }
+        });
     }
 }

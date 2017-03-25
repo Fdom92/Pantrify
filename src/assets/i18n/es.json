@@ -23,6 +23,10 @@
                 "text": "Contacta con nosotros en",
                 "button": "Cerrar"
             }
+        },
+        "divider-other": "Otros",
+        "other": {
+            "logout": "Cerrar sesión"
         }
     },
     "Menu": {

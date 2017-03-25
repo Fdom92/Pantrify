@@ -1,12 +1,13 @@
-import { Component }                          from "@angular/core";
+import { Component } from "@angular/core";
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 
-import { UserData }       from '../../providers/user.provider';
+import { PantryPage } from '../pantry/pantry';
+import { UserData } from '../../providers/user.provider';
 import { LoadingService } from '../../providers/loading.provider';
 
-import { AngularFire }      from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 import { TranslateService } from 'ng2-translate';
 
 @Component({
@@ -42,11 +43,14 @@ export class SignupPage {
         });        
         this.af.auth.createUser({ email: this.email, password: this.password })
         .then((response: any) => {
-             this._loading.dismiss();
+            this._loading.dismiss().then(() => {
+                this.navCtrl.setRoot(PantryPage);
+            });
         })
         .catch((error: any) => {
-            this._loading.dismiss(); 
-            this.presentToast(error.message);
+            this._loading.dismiss().then(()=> {
+                this.presentToast(error.message);
+            });
         });
     }
 

@@ -6,9 +6,11 @@
   <ion-content>
     <ion-list no-lines class="has-header">
       <button menuClose="left" ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
-      <ion-icon color="gray" ios="{{p.iconOS}}" md="{{p.iconMD}}" item-left></ion-icon>
-      {{ 'Menu.' + p.title | translate }}
-    </button>
+        <ion-icon color="gray"
+                  ios="{{p.iconOS}}"
+                  md="{{p.iconMD}}"
+                  item-left></ion-icon> {{ 'Menu.' + p.title | translate }}
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>

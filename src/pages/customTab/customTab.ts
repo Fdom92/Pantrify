@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavParams, ToastController } from 'ionic-angular';
 
 import { FirebaseListObservable } from 'angularfire2';
-import { TranslateService }       from 'ng2-translate';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   templateUrl: 'customTab.html'

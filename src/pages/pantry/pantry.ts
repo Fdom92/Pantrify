@@ -2,13 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 
 import { ModalController, Tabs, NavController } from 'ionic-angular';
 
-import { CustomTabPage }             from './../customTab/customTab';
-import { AddItemModal }              from '../../modals/addItemModal/addItemModal';
+import { CustomTabPage } from './../customTab/customTab';
+import { AddItemModal } from '../../modals/addItemModal/addItemModal';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
-import { UserData }                  from '../../providers/user.provider';
+import { UserData } from '../../providers/user.provider';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { TranslateService }                    from 'ng2-translate';
+import { TranslateService } from 'ng2-translate';
 
 class Tab {
     icon: string;
