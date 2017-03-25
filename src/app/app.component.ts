@@ -20,35 +20,39 @@ export class MyApp {
   usermail: String;
   pages: Array<{title: string, component: any, iconMD: string, iconOS: string}>;
 
-  constructor(translate: TranslateService,public platform: Platform, public af: AngularFire, public userdata: UserData) {
-    this.initializeApp();
+  constructor(platform: Platform, public translate: TranslateService,
+    public af: AngularFire, public userData: UserData) {
+    platform.ready().then(() => {
+      this.getInitialPageToLoad().then((page) => {
+        this.rootPage = page;
 
-    // Set the default language for translation strings, and the current language.
-    translate.setDefaultLang('en');
-    var userLang = navigator.language.split('-')[0];    
-    translate.use(userLang);
+        translate.setDefaultLang('en');
+        var userLang = navigator.language.split('-')[0];    
+        translate.use(userLang);
 
-    // Set sidemenu pages
-    this.pages = [{ title: 'pantry', component: PantryPage, iconMD: 'md-home', iconOS: 'ios-home-outline' },
-                  { title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline' }];
-    
-    // Subscribe to login/logout events
-    this.af.auth.subscribe(auth => {
-      if (auth) {
-        this.userdata.setUserData(auth.auth);
-        this.usermail = this.userdata.getEmail();
-        this.rootPage = PantryPage;
-      } else {
-        this.rootPage = HomePage;        
-      }
+        // Set sidemenu pages
+        this.pages = [{ title: 'pantry', component: PantryPage, iconMD: 'md-home', iconOS: 'ios-home-outline' },
+                      { title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline' }];
+
+        StatusBar.styleDefault();
+        Splashscreen.hide();
+      });
     });
-
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+getInitialPageToLoad() {
+    return new Promise((resolve, reject) => {
+      const unsubscribe = this.af.auth.subscribe(user => {
+        if (user) {
+          this.userData.setUserData(user.auth);
+          this.usermail = this.userData.getEmail();
+          resolve(PantryPage);
+          unsubscribe.unsubscribe();
+        } else {
+          resolve(HomePage);
+          unsubscribe.unsubscribe();
+        }
+      });
     });
   }
 
