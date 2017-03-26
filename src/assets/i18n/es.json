@@ -1,15 +1,18 @@
 {
+    "Home": {
+        "login": "Iniciar sesión",
+        "signup": "Registrarte",
+        "loginLoading": "Estamos buscando tu despensa, espera por favor...",
+        "signupLoading": "Estamos creando tu despensa, espera por favor..."
+    },
     "Settings": {
         "view-header": "Ajustes",
         "divider-info": "Información",
         "info": {
-          "mail": "Correo",
-          "username": "Alias"
+          "mail": "Correo"
         },
         "divider-settings": "Ajustes",
         "settings": {
-          "notifications": "Notificaciones",
-          "vibration": "Vibración",
           "language": "Idioma"
         },
         "divider-support": "Soporte",
@@ -20,6 +23,10 @@
                 "text": "Contacta con nosotros en",
                 "button": "Cerrar"
             }
+        },
+        "divider-other": "Otros",
+        "other": {
+            "logout": "Cerrar sesión"
         }
     },
     "Menu": {
@@ -35,14 +42,17 @@
         "quantity-label": "Cantidad"
     },
     "Common": {
-        "accept": "Aceptar",
         "quantity": "Cantidad",
-        "for": "para"
+        "logout": "Cerrar Sesión",
+        "accept": "Aceptar"
     },
     "CustomTab": {
         "no-items": {
             "text1": "No tienes nada guardado aún,",
             "text2": "prueba añadiendo algo"
         }
+    },
+    "Error": {
+        "addItemMax": "Has llegado al límite de productos"
     }
 }

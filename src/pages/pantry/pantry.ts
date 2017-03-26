@@ -1,4 +1,3 @@
-import { UserData } from '../../providers/user.provider';
 import { Component, ViewChild } from '@angular/core';
 
 import { ModalController, Tabs, NavController } from 'ionic-angular';
@@ -6,6 +5,7 @@ import { ModalController, Tabs, NavController } from 'ionic-angular';
 import { CustomTabPage } from './../customTab/customTab';
 import { AddItemModal } from '../../modals/addItemModal/addItemModal';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
+import { UserData } from '../../providers/user.provider';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { TranslateService } from 'ng2-translate';
@@ -21,6 +21,7 @@ class Tab {
 })
 export class PantryPage {
   @ViewChild('pantryTabs') tabRef: Tabs;
+  
   tabs : Array<Tab>;
 
   constructor(private _backBtn: HardwareBackButtonService, 

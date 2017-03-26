@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController, MenuController } from 'ionic-angular';
 
-import { LoginPage }  from '../login/login';
+import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
 
 @Component({

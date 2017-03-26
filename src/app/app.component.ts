@@ -1,30 +1,73 @@
-import { Component }    from '@angular/core';
-import { Platform }                from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { HomePage }       from '../pages/home/home';
+import { PantryPage } from '../pages/pantry/pantry';
+import { HomePage } from '../pages/home/home';
+import { SettingsPage } from '../pages/settings/settings';
+import { UserData } from '../providers/user.provider';
 
-import {TranslateService} from 'ng2-translate';
+import { TranslateService } from 'ng2-translate';
+import { AngularFire } from 'angularfire2';
 
 @Component({
-  templateUrl: '../pages/menu/menu.html'
+  templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
-  constructor(translate: TranslateService, platform: Platform) {
+  rootPage: any;
+  usermail: String;
+  pages: Array<{ title: string, component: any, iconMD: string, iconOS: string }>;
 
-    // Set the default language for translation strings, and the current language.
-    translate.setDefaultLang('en');
-    
-    var userLang = navigator.language.split('-')[0];    
-    translate.use(userLang);
+  constructor(public platform: Platform, public translate: TranslateService,
+    public af: AngularFire, public userData: UserData) {
+    this.initialize();
+  }
 
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+  initialize() {
+    this.platform.ready().then(() => {
+      this.getInitialPageToLoad().then((page) => {
+        this.rootPage = page;
+
+        this.translate.setDefaultLang('en');
+        var userLang = navigator.language.split('-')[0];
+        this.translate.use(userLang);
+
+        // Set sidemenu pages
+        this.pages = [
+          {
+            title: 'pantry', component: PantryPage, iconMD: 'md-home', iconOS: 'ios-home-outline'
+          },
+          {
+            title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline'
+          }
+        ];
+
+        StatusBar.styleDefault();
+        Splashscreen.hide();
+      });
     });
+  }
+
+
+  getInitialPageToLoad() {
+    return new Promise((resolve, reject) => {
+      const unsubscribe = this.af.auth.subscribe(user => {
+        if (user) {
+          this.userData.setUserData(user.auth);
+          this.usermail = this.userData.getEmail();
+          resolve(PantryPage);
+          unsubscribe.unsubscribe();
+        } else {
+          resolve(HomePage);
+          unsubscribe.unsubscribe();
+        }
+      });
+    });
+  }
+
+  openPage(page) {
+    this.nav.setRoot(page.component);
   }
 }
