@@ -15,9 +15,15 @@
         <ion-label floating>{{ 'AddItem.name-label' | translate }}</ion-label>
         <ion-input formControlName="name" type="text" [(ngModel)]="itemName"></ion-input>
       </ion-item>
+      <ion-item *ngIf="!addItemForm.controls.name.valid  && addItemForm.controls.name.touched">
+          <p>{{ 'Validations.validName' | translate }}</p>
+      </ion-item>
       <ion-item>
         <ion-label floating>{{ 'AddItem.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number" [(ngModel)]="itemQuantity"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!addItemForm.controls.quantity.valid  && addItemForm.controls.quantity.touched">
+          <p>{{ 'Validations.validQuantity' | translate }}</p>
       </ion-item>
     </ion-list>
   </form>

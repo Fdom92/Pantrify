@@ -26,7 +26,11 @@
         },
         "divider-other": "Other",
         "other": {
-            "logout": "Logout"
+            "logout": "Logout",
+            "dialog": {
+                "title": "Are you sure?",
+                "text": "This will log you out of this application."           
+            }
         }
     },
     "Menu": {
@@ -54,5 +58,9 @@
     },
     "Error": {
         "addItemMax": "You have reached the limit of products"
+    },
+    "Validations": {
+        "validName": "Please enter a valid name",
+        "validQuantity": "Please enter a valid quantity between 0 to 999"
     }
 }

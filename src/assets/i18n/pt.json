@@ -26,7 +26,11 @@
         },
         "divider-other": "Outros",
         "other": {
-            "logout": "Encerrar sessão"
+            "logout": "Encerrar sessão",
+            "dialog": {
+                "title": "Tem certeza?",
+                "text": "Você está prestes a terminar a sessão."           
+            }
         }
     },
     "Menu": {
@@ -54,5 +58,9 @@
     },
     "Error": {
         "addItemMax": "Você chegou ao limite de produtos"
+    },
+    "Validations": {
+        "validName": "O nome é inválido",
+        "validQuantity": "Insira um número entre 0 e 999"
     }
 }
