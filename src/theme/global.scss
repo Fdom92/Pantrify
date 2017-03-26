@@ -2,3 +2,12 @@
     outline: none !important;
     outline-style: none !important;
 }
+
+ion-header {
+    ion-navbar {
+        .toolbar-content {
+            width: 100%;
+            position: absolute;
+        }
+    }
+}
