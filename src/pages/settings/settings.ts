@@ -33,17 +33,6 @@ export class SettingsPage {
         this.translate.use(e);
     }
 
-    presentAlert() {
-        this.translate.get('Settings.support.dialog').subscribe( value => {
-            let alert = this.alertCtrl.create({
-                title: value.title,
-                subTitle: value.text + ' fer.olmo92@gmail.com',
-                buttons: [value.button]
-            });
-            alert.present();
-        });
-    }
-
     ionViewDidEnter() {
         this._backBtn.registerAction(() => {
           this._backBtn.doubleBackToExit();
@@ -55,15 +44,17 @@ export class SettingsPage {
     }
 
     logout(){
-        this.alertProvider.createWithCallback("Are you sure?",
-            "This will log you out of this application.", true).then((yes) => {
-            if (yes) {
-                this.af.auth.logout().then( () => {
-                    this.navCtrl.setRoot(HomePage);
-                }, (error) => {
-                    console.log('auth logout error', error);
-                });
-            }
+        this.translate.get('Settings.other.dialog').subscribe( value => {
+            this.alertProvider.createWithCallback(value.title,
+                value.text, true).then((yes) => {
+                if (yes) {
+                    this.af.auth.logout().then( () => {
+                        this.navCtrl.setRoot(HomePage);
+                    }, (error) => {
+                        console.log('auth logout error', error);
+                    });
+                }
+            });
         });
     }
 }

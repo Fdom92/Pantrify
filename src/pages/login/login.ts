@@ -46,6 +46,7 @@ export class LoginPage {
         { provider: AuthProviders.Password, method: AuthMethods.Password })
         .then((response: any) => {
             this._loading.dismiss().then(() => {
+                this.userdata.setUserData(response.auth);
                 this.navCtrl.setRoot(PantryPage);
             });
         })
