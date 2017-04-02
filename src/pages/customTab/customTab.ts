@@ -31,9 +31,7 @@ export class CustomTabPage {
 
   onRemove(item, key) {
     let data = { title:item.title, units:parseInt(item.units) - 1 };
-    if (data.units === 0) {
-      this.items.remove(key);
-    } else {
+    if (data.units >= 0) {
       this.items.update(key, data);
     }
   }

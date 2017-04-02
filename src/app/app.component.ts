@@ -5,6 +5,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { PantryPage } from '../pages/pantry/pantry';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
+import { ShopListPage } from '../pages/shopList/shopList';
 import { UserData } from '../providers/user.provider';
 
 import { TranslateService } from 'ng2-translate';
@@ -41,6 +42,9 @@ export class MyApp {
           },
           {
             title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline'
+          },
+          {
+            title: 'shop', component: ShopListPage, iconMD: 'md-cart', iconOS: 'ios-cart-outline'
           }
         ];
 
