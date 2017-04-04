@@ -76,14 +76,14 @@ export class ShopListPage {
   }
 
   onAdd(item) {
-    if (item.quantity < 999) {
-      item.quantity += 1;
+    if (item.units < 999) {
+      item.units += 1;
     }
   }
 
   onRemove(item) {
-    if (item.quantity > 1) {
-      item.quantity -= 1;
+    if (item.units > 1) {
+      item.units -= 1;
     }
   }
 }
