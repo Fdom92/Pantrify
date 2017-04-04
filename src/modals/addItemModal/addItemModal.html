@@ -26,6 +26,23 @@
           <p>{{ 'Validations.validQuantity' | translate }}</p>
       </ion-item>
     </ion-list>
+      <ion-list [hidden]="!showType" radio-group formControlName="category">
+        <ion-list-header>
+          Categoría
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Comida</ion-label>
+          <ion-radio value="food" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Bebidas</ion-label>
+          <ion-radio value="drinks"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Hogar</ion-label>
+          <ion-radio value="home"></ion-radio>
+        </ion-item>
+      </ion-list>
   </form>
   <button ion-button color="indigo500" block (click)="accept()">{{ 'Common.accept' | translate }}</button>
 </ion-content>

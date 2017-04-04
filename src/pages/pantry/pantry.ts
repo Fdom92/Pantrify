@@ -37,7 +37,7 @@ export class PantryPage {
   }
 
     onAdd() {
-        let addModal = this.modalCtrl.create(AddItemModal);
+        let addModal = this.modalCtrl.create(AddItemModal, { shop: false });
         addModal.onDidDismiss(data => {
           let id = this.tabRef.getSelected().id.split('-')[1];
           switch (id) {

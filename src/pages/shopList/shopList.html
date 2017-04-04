@@ -3,10 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title text-center>Shop List</ion-title>
+    <ion-title text-center>Lista Compra</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="generateList()">
-        <ion-icon name="refresh"></ion-icon>
+      <button ion-button icon-only (click)="addSingleItem()">
+        <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -17,32 +17,35 @@
     <ion-row *ngFor="let item of items">
       <ion-col col-7>
           <ion-item>
-            <ion-label>{{item.name}}</ion-label>
+            <ion-label>{{item.title}}</ion-label>
             <ion-checkbox [(ngModel)]="item.done"></ion-checkbox>
           </ion-item>
       </ion-col>
       <ion-col col-5>
           <ion-item>
-            <p>{{item.quantity}} uds</p>
-            <button ion-button outline item-right>
+            <p>{{item.units}} uds</p>
+            <button ion-button outline item-right (click)="onAdd(item)">
               <ion-icon name="add"></ion-icon>
             </button>
-            <button ion-button outline item-right>
+            <button ion-button outline item-right (click)="onRemove(item)">
               <ion-icon name="remove"></ion-icon>
             </button>
           </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div [hidden]="items.length !== 0">
-    <p text-center>No tienes nada que comprar,</p>
-    <p text-center>prueba a generar una lista de la compra</p>
+  <div class="no-items" [hidden]="items.length !== 0">
+    <p class="no-items-text" text-center>No tienes nada que comprar,</p>
+    <p class="no-items-text" text-center>prueba a generar una lista de la compra</p>
+    <p class="no-items-text" text-center>o a añadir productos</p>
+    <button ion-button color="indigo500" (click)="generateList()">
+      Generar Lista
+    </button>
   </div>
 </ion-content>
 
 <ion-footer>
-  <button ion-button block color="indigo500" [hidden]="items.length === 0"
-          [disabled]="!isAllDone()" (click)="finished()">
-    Finished
+  <button ion-button block color="indigo500" [hidden]="!isAllDone() || items.length === 0" (click)="finished()">
+    Terminado
   </button>
 </ion-footer>

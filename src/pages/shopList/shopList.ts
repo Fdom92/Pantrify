@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
 
+import { ModalController } from 'ionic-angular';
+
 import { LoadingService } from '../../providers/loading.provider';
+import { UserData } from '../../providers/user.provider';
+import { AddItemModal } from '../../modals/addItemModal/addItemModal';
+
+import { AngularFire } from 'angularfire2';
 
 class ShopItem {
-  name: String;
-  quantity: Number;
+  $key: string;
+  title: string;
+  units: Number;
   done: boolean;
+  type: string;
 }
 
 @Component({
@@ -15,26 +23,67 @@ export class ShopListPage {
 
   items: Array<ShopItem> = [];
 
-  constructor(private _loading: LoadingService) {
+  constructor(private _loading: LoadingService,
+              private _af: AngularFire,
+              private userdata: UserData,
+              public modalCtrl: ModalController) {
   }
 
   isAllDone() {
     return this.items.every((element, index, array) => {return element.done});
   }
 
+  addItemsToList(observer, type) {
+    observer
+      .subscribe(snapshots => {
+        snapshots.forEach(snapshot => {
+          snapshot.val().units === 0 && this.items.push({$key: snapshot.key, title: snapshot.val().title, units: 1, done: false, type: type});
+        });
+    });
+  }
+
   generateList() {
     this._loading.present({content: 'Generando tu lista de la compra...', duration: 2000});
-    this.items = [
-      {name: 'Producto 1', quantity: 1, done: false},
-      {name: 'Producto 2', quantity: 2, done: false},
-      {name: 'Producto 3', quantity: 3, done: false},
-      {name: 'Producto 4', quantity: 4, done: false},
-      {name: 'Producto 5', quantity: 5, done: false}    
-    ];
+    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
+    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
+    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home');
+  }
+
+  updateItemsOnPantry(observable, type) {
+    this.items.filter((value) => value.type === type).forEach((value) => {
+      if (value.$key === '') {
+        observable.push({title: value.title, units: value.units});
+      } else {
+        observable.update(value.$key, { units: value.units });
+      }
+    });
   }
 
   finished() {
     this._loading.present({content: 'Añadiendo los productos en la despensa...', duration: 2000});
+    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/food'), 'food');    
+    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
+    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/home'), 'home');
     this.items = [];
+  }
+
+  addSingleItem() {
+      let addModal = this.modalCtrl.create(AddItemModal, { shop: true });
+      addModal.onDidDismiss(data => {
+        this.items.push({$key: '', title: data.title, units: data.units, done: false, type: data.category});
+      });
+      addModal.present();
+  }
+
+  onAdd(item) {
+    if (item.quantity < 999) {
+      item.quantity += 1;
+    }
+  }
+
+  onRemove(item) {
+    if (item.quantity > 1) {
+      item.quantity -= 1;
+    }
   }
 }
