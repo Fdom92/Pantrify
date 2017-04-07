@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title text-center>Lista Compra</ion-title>
+    <ion-title text-center>{{ 'ShopList.view-header' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addSingleItem()">
         <ion-icon name="add"></ion-icon>
@@ -23,7 +23,7 @@
       </ion-col>
       <ion-col col-5>
           <ion-item>
-            <p>{{item.units}} uds</p>
+            <p>{{item.units}}</p>
             <button ion-button outline item-right (click)="onAdd(item)">
               <ion-icon name="add"></ion-icon>
             </button>
@@ -35,17 +35,17 @@
     </ion-row>
   </ion-grid>
   <div class="no-items" [hidden]="items.length !== 0">
-    <p class="no-items-text" text-center>No tienes nada que comprar,</p>
-    <p class="no-items-text" text-center>prueba a generar una lista de la compra</p>
-    <p class="no-items-text" text-center>o a añadir productos</p>
+    <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-1' | translate }}</p>
+    <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-2' | translate }}</p>
+    <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-3' | translate }}</p>
     <button ion-button color="indigo500" (click)="generateList()">
-      Generar Lista
+      {{ 'ShopList.list-button' | translate }}
     </button>
   </div>
 </ion-content>
 
 <ion-footer>
   <button ion-button block color="indigo500" [hidden]="!isAllDone() || items.length === 0" (click)="finished()">
-    Terminado
+    {{ 'ShopList.finish-button' | translate }}
   </button>
 </ion-footer>

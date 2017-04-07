@@ -70,7 +70,9 @@ export class ShopListPage {
   addSingleItem() {
       let addModal = this.modalCtrl.create(AddItemModal, { shop: true });
       addModal.onDidDismiss(data => {
-        this.items.push({$key: '', title: data.title, units: data.units, done: false, type: data.category});
+        if (data) {
+          this.items.push({$key: '', title: data.title, units: data.units, done: false, type: data.category});
+        }
       });
       addModal.present();
   }

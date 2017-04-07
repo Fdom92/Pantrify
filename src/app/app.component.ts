@@ -41,10 +41,10 @@ export class MyApp {
             title: 'pantry', component: PantryPage, iconMD: 'md-home', iconOS: 'ios-home-outline'
           },
           {
-            title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline'
+            title: 'shop', component: ShopListPage, iconMD: 'md-cart', iconOS: 'ios-cart-outline'
           },
           {
-            title: 'shop', component: ShopListPage, iconMD: 'md-cart', iconOS: 'ios-cart-outline'
+            title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline'
           }
         ];
 

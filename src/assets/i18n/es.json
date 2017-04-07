@@ -35,15 +35,28 @@
     },
     "Menu": {
         "pantry": "Despensa",
-        "settings": "Ajustes"
+        "settings": "Ajustes",
+        "shop": "Lista de la compra"
     },
     "Pantry": {
         "view-header": "Despensa"
     },
+    "ShopList": {
+        "view-header": "Lista de la compra",
+        "list-button": "Generar Lista",
+        "finish-button": "Terminado",
+        "nothing-text-1": "No tienes nada que comprar,",
+        "nothing-text-2": "prueba a generar una lista de la compra",
+        "nothing-text-3": "o añadir nuevos productos"
+    },
     "AddItem": {
-        "view-header": "Añadir item",
+        "view-header": "Añadir Producto",
         "name-label": "Nombre",
-        "quantity-label": "Cantidad"
+        "quantity-label": "Cantidad",
+        "category-label": "Categoría",
+        "category-1": "Comida",
+        "category-2": "Bebidas",
+        "category-3": "Hogar"        
     },
     "Common": {
         "quantity": "Cantidad",
