@@ -9,6 +9,9 @@
       <button ion-button outline item-right (click)="onRemove(item, item.$key)">
         <ion-icon name="remove"></ion-icon>
       </button>
+      <button ion-button outline item-right (click)="onDelete(item.$key)" color="red">
+        <ion-icon name="trash"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
   <div class="no-items" *ngIf="(items | async)?.length === 0">

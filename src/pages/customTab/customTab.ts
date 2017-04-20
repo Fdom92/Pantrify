@@ -36,6 +36,10 @@ export class CustomTabPage {
     }
   }
 
+  onDelete(key) {
+    this.items.remove(key);
+  }
+
   presentToast() {
       this.translate.get('Error').subscribe( value => {
         let toast = this.toastCtrl.create({
