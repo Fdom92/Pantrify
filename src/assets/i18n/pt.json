@@ -47,7 +47,9 @@
         "finish-button": "Acabado",
         "nothing-text-1": "Você não tem nada para comprar",
         "nothing-text-2": "Tente gerar uma lista de lojas",
-        "nothing-text-3": "ou adicionar novos produtos"
+        "nothing-text-3": "ou adicionar novos produtos",
+        "generatingLoading": "Gerando sua lista de compras...",
+        "addLoading": "Adicionando os produtos na despensa..."
     },
     "AddItem": {
         "view-header": "Adicionar produto",

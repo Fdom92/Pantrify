@@ -7,6 +7,7 @@ import { UserData } from '../../providers/user.provider';
 import { AddItemModal } from '../../modals/addItemModal/addItemModal';
 
 import { AngularFire } from 'angularfire2';
+import { TranslateService } from 'ng2-translate';
 
 class ShopItem {
   $key: string;
@@ -26,7 +27,8 @@ export class ShopListPage {
   constructor(private _loading: LoadingService,
               private _af: AngularFire,
               private userdata: UserData,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public translate: TranslateService) {
   }
 
   isAllDone() {
@@ -43,7 +45,9 @@ export class ShopListPage {
   }
 
   generateList() {
-    this._loading.present({content: 'Generando tu lista de la compra...', duration: 2000});
+    this.translate.get('ShopList').subscribe( value => {
+        this._loading.present({content: value.generatingLoading, duration: 2000});
+    });
     this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
     this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
     this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home');
@@ -60,7 +64,9 @@ export class ShopListPage {
   }
 
   finished() {
-    this._loading.present({content: 'Añadiendo los productos en la despensa...', duration: 2000});
+    this.translate.get('ShopList').subscribe( value => {
+        this._loading.present({content: value.addLoading, duration: 2000});
+    });
     this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/food'), 'food');    
     this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
     this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/home'), 'home');

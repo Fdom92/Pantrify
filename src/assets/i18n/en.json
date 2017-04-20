@@ -47,7 +47,9 @@
         "finish-button": "Finished",
         "nothing-text-1": "You have nothing to buy",
         "nothing-text-2": "try generating a shop list",
-        "nothing-text-3": "or adding new products"
+        "nothing-text-3": "or adding new products",
+        "generatingLoading": "Generating your shopping list...",
+        "addLoading": "Adding the products in the pantry..."
     },
     "AddItem": {
         "view-header": "Add item",
