@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { ModalController, NavParams, ToastController } from 'ionic-angular';
 
+import { EditItemModal } from '../../modals/editItemModal/editItemModal';
+
 import { FirebaseListObservable } from 'angularfire2';
 import { TranslateService } from 'ng2-translate';
 
@@ -15,7 +17,7 @@ export class CustomTabPage {
   constructor(public modalCtrl: ModalController, 
               public navParams: NavParams, 
               private toastCtrl: ToastController, 
-              public translate: TranslateService,) {
+              public translate: TranslateService) {
 
     this.items = navParams.data;
   }
@@ -36,15 +38,29 @@ export class CustomTabPage {
     }
   }
 
-  presentToast() {
-      this.translate.get('Error').subscribe( value => {
-        let toast = this.toastCtrl.create({
-            message: value.addItemMax,
-            duration: 3000,
-            position: 'bottom'
-        });
+  onEdit(item, key) {
+    let editItemModal = this.modalCtrl.create(EditItemModal, { item: item });
+    editItemModal.onDidDismiss(data => {
+      if (data) {
+        if (data.type === 'remove') {
+          this.items.remove(key);
+        } else {
+          this.items.update(key, {title: data.title, units: data.units});
+        }
+      }
+    });
+    editItemModal.present();
+  }
 
-        toast.present();
+  presentToast() {
+    this.translate.get('Error').subscribe( value => {
+      let toast = this.toastCtrl.create({
+          message: value.addItemMax,
+          duration: 3000,
+          position: 'bottom'
       });
+
+      toast.present();
+    });
   }
 }

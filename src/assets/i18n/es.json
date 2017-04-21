@@ -52,7 +52,7 @@
         "addLoading": "Añadiendo los productos en la despensa..."
     },
     "AddItem": {
-        "view-header": "Añadir Producto",
+        "view-header": "Añadir",
         "name-label": "Nombre",
         "quantity-label": "Cantidad",
         "category-label": "Categoría",

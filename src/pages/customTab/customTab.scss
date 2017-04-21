@@ -7,4 +7,24 @@
             font-style: italic;
         }
     }
+
+    .item-md.item-block {
+        .item-inner {
+            border-bottom: none;
+        }
+    }
+
+    ion-grid {
+        ion-row {
+            ion-col {
+                border-bottom: 1px solid #dedede;
+            }
+
+            &:last-child {
+                ion-col {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
 }

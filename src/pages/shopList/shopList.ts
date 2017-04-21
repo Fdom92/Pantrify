@@ -4,7 +4,7 @@ import { ModalController } from 'ionic-angular';
 
 import { LoadingService } from '../../providers/loading.provider';
 import { UserData } from '../../providers/user.provider';
-import { AddItemModal } from '../../modals/addItemModal/addItemModal';
+import { ShopItemModal } from '../../modals/shopItemModal/shopItemModal';
 
 import { AngularFire } from 'angularfire2';
 import { TranslateService } from 'ng2-translate';
@@ -74,13 +74,13 @@ export class ShopListPage {
   }
 
   addSingleItem() {
-      let addModal = this.modalCtrl.create(AddItemModal, { shop: true });
-      addModal.onDidDismiss(data => {
+      let shopModal = this.modalCtrl.create(ShopItemModal);
+      shopModal.onDidDismiss(data => {
         if (data) {
           this.items.push({$key: '', title: data.title, units: data.units, done: false, type: data.category});
         }
       });
-      addModal.present();
+      shopModal.present();
   }
 
   onAdd(item) {

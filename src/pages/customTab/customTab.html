@@ -1,16 +1,24 @@
 <ion-content class="customTab">
-  <ion-list>
-    <ion-item *ngFor="let item of items | async">
-      <h2>{{item.title}}</h2>
-      <p>{{ 'Common.quantity' | translate }}: {{item.units}}</p>
-      <button ion-button outline item-right (click)="onAdd(item, item.$key)">
-        <ion-icon name="add"></ion-icon>
-      </button>
-      <button ion-button outline item-right (click)="onRemove(item, item.$key)">
-        <ion-icon name="remove"></ion-icon>
-      </button>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row *ngFor="let item of items | async">
+      <ion-col col-7 (click)="onEdit(item, item.$key)">
+          <ion-item>
+              <p>{{item.title}}</p>
+          </ion-item>
+      </ion-col>
+      <ion-col col-5>
+          <ion-item>
+              <p>{{item.units}}</p>            
+              <button ion-button outline item-right (click)="onAdd(item, item.$key)">
+                <ion-icon name="add"></ion-icon>
+              </button>
+              <button ion-button outline item-right (click)="onRemove(item, item.$key)">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div class="no-items" *ngIf="(items | async)?.length === 0">
     <p class="no-items-text" text-center>{{ 'CustomTab.no-items.text1' | translate }}</p>
     <p class="no-items-text" text-center>{{ 'CustomTab.no-items.text2' | translate }}</p>
