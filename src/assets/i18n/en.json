@@ -60,6 +60,11 @@
         "category-2": "Drinks",
         "category-3": "Home"        
     },
+    "EditItem": {
+        "view-header":"Edit",
+        "ok-button": "Save",
+        "delete-button": "Delete"
+    },
     "Common": {
         "quantity": "Quantity",
         "logout": "Log out",
@@ -72,7 +77,8 @@
         }
     },
     "Error": {
-        "addItemMax": "You have reached the limit of products"
+        "addItemMax": "You have reached the limit of products",
+        "notValid": "Wrong data check them"
     },
     "Validations": {
         "validName": "Please enter a valid name",

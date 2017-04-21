@@ -60,6 +60,11 @@
         "category-2": "Bebidas",
         "category-3": "Casa"        
     },
+    "EditItem": {
+        "view-header":"Edit",
+        "ok-button": "Save",
+        "delete-button": "Delete"
+    },
     "Common": {
         "quantity": "Quantidade",
         "logout": "Encerrar Sessão",
@@ -72,7 +77,8 @@
         }
     },
     "Error": {
-        "addItemMax": "Você chegou ao limite de produtos"
+        "addItemMax": "Você chegou ao limite de produtos",
+        "notValid": "Vê-los dados errados"
     },
     "Validations": {
         "validName": "O nome é inválido",

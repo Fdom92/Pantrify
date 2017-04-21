@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
-import { ViewController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams, ToastController } from 'ionic-angular';
 
 import { QuantityValidator } from  '../../validators/quantity';
+
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   templateUrl: "addItemModal.html",
@@ -13,7 +15,10 @@ export class AddItemModal {
   itemQuantity: number;
   addItemForm: FormGroup;
 
-  constructor(public viewCtrl: ViewController, params: NavParams) {
+  constructor(public viewCtrl: ViewController, 
+              public params: NavParams,              
+              private toastCtrl: ToastController, 
+              public translate: TranslateService) {
     this.addItemForm = new FormGroup({
         quantity: new FormControl('', [
             Validators.required,
@@ -34,6 +39,20 @@ export class AddItemModal {
   accept() {
     if(this.addItemForm.valid){
         this.viewCtrl.dismiss({title: this.itemName, units: this.itemQuantity});
+    } else {
+      this.presentToast();
     }
+  }
+
+  presentToast() {
+    this.translate.get('Error').subscribe( value => {
+      let toast = this.toastCtrl.create({
+          message: value.notValid,
+          duration: 1500,
+          position: 'bottom'
+      });
+
+      toast.present();
+    });
   }
 }

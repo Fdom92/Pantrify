@@ -5,10 +5,10 @@
         <ion-icon name="arrow-round-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center>Edit Item</ion-title>
+    <ion-title text-center>{{ 'EditItem.view-header' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button outline (click)="edit()">
-        Save
+        {{ 'EditItem.ok-button' | translate }}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -25,6 +25,6 @@
     </ion-item>
   </ion-list>
   <button ion-button full (click)="remove()" color="red">
-    Borrar
+    {{ 'EditItem.delete-button' | translate }}
   </button>
 </ion-content>
