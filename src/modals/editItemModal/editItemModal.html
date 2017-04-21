@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="indigo500">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Edit Item</ion-title>
+    <ion-buttons end>
+      <button ion-button outline (click)="edit()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="editItemModal">
+  <ion-list>
+    <ion-item>
+      <ion-label>{{ 'AddItem.name-label' | translate }}</ion-label>
+      <ion-input type="text" placeholder="{{itemName}}" [(ngModel)]="newName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'AddItem.quantity-label' | translate }}</ion-label>
+      <ion-input type="number" placeholder="{{itemQuantity}}" [(ngModel)]="newQuantity"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)="remove()" color="red">
+    Borrar
+  </button>
+</ion-content>

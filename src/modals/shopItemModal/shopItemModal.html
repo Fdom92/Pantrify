@@ -30,6 +30,23 @@
       <ion-item *ngIf="!addItemForm.controls.quantity.valid  && addItemForm.controls.quantity.touched">
           <p>{{ 'Validations.validQuantity' | translate }}</p>
       </ion-item>
+      <ion-list radio-group formControlName="category">
+        <ion-list-header>
+          {{ 'AddItem.category-label' | translate }}
+        </ion-list-header>
+        <ion-item>
+          <ion-label>{{ 'AddItem.category-1' | translate }}</ion-label>
+          <ion-radio value="food" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ 'AddItem.category-2' | translate }}</ion-label>
+          <ion-radio value="drinks"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ 'AddItem.category-3' | translate }}</ion-label>
+          <ion-radio value="home"></ion-radio>
+        </ion-item>
+      </ion-list>
     </ion-list>
   </form>
 </ion-content>

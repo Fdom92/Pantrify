@@ -52,7 +52,7 @@
         "addLoading": "Adding the products in the pantry..."
     },
     "AddItem": {
-        "view-header": "Add item",
+        "view-header": "Add",
         "name-label": "Name",
         "quantity-label": "Quantity",
         "category-label": "Category",
