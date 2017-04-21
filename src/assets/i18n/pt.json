@@ -61,9 +61,9 @@
         "category-3": "Casa"        
     },
     "EditItem": {
-        "view-header":"Edit",
-        "ok-button": "Save",
-        "delete-button": "Delete"
+        "view-header":"Editar",
+        "ok-button": "Salve",
+        "delete-button": "Excluir"
     },
     "Common": {
         "quantity": "Quantidade",
