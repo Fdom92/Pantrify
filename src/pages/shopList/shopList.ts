@@ -35,44 +35,6 @@ export class ShopListPage {
     return this.items.every((element, index, array) => {return element.done});
   }
 
-  addItemsToList(observer, type) {
-    observer
-      .subscribe(snapshots => {
-        snapshots.forEach(snapshot => {
-          snapshot.val().units === 0 && this.items.push({$key: snapshot.key, title: snapshot.val().title, units: 1, done: false, type: type});
-        });
-    });
-  }
-
-  generateList() {
-    this.translate.get('ShopList').subscribe( value => {
-        this._loading.present({content: value.generatingLoading, duration: 2000});
-    });
-    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
-    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
-    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home');
-  }
-
-  updateItemsOnPantry(observable, type) {
-    this.items.filter((value) => value.type === type).forEach((value) => {
-      if (value.$key === '') {
-        observable.push({title: value.title, units: value.units});
-      } else {
-        observable.update(value.$key, { units: value.units });
-      }
-    });
-  }
-
-  finished() {
-    this.translate.get('ShopList').subscribe( value => {
-        this._loading.present({content: value.addLoading, duration: 2000});
-    });
-    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/food'), 'food');    
-    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
-    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/home'), 'home');
-    this.items = [];
-  }
-
   addSingleItem() {
       let shopModal = this.modalCtrl.create(ShopItemModal);
       shopModal.onDidDismiss(data => {
@@ -93,5 +55,48 @@ export class ShopListPage {
     if (item.units > 1) {
       item.units -= 1;
     }
+  }
+
+  addItemsToList(observer, type, ...args) {
+    observer
+      .subscribe(snapshots => {
+        snapshots.forEach(snapshot => {
+          snapshot.val().units === 0 && this.items.push({$key: snapshot.key, title: snapshot.val().title, units: 1, done: false, type: type});
+        });
+    });
+    if (args.length > 0) {
+      this._loading.dismiss();
+    }
+  }
+
+  generateList() {
+    this.translate.get('ShopList').subscribe( value => {
+        this._loading.present({content: value.generatingLoading});
+    });
+    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
+    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
+    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home', true);
+  }
+
+  updateItemsOnPantry(observable, type, ...args) {
+    this.items.filter((value) => value.type === type).forEach((value) => {
+      if (value.$key === '') {
+        observable.push({title: value.title, units: value.units});
+      } else {
+        observable.update(value.$key, { units: value.units });
+      }
+    });
+    if (args.length > 0) {
+      this._loading.dismiss().then(() => this.items = []);
+    }
+  }
+
+  finished() {
+    this.translate.get('ShopList').subscribe( value => {
+        this._loading.present({content: value.addLoading});
+    });
+    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/food'), 'food');    
+    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
+    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/home'), 'home', true);
   }
 }
