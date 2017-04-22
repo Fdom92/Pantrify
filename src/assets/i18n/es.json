@@ -35,15 +35,35 @@
     },
     "Menu": {
         "pantry": "Despensa",
-        "settings": "Ajustes"
+        "settings": "Ajustes",
+        "shop": "Lista de la compra"
     },
     "Pantry": {
         "view-header": "Despensa"
     },
+    "ShopList": {
+        "view-header": "Lista de la compra",
+        "list-button": "Generar Lista",
+        "finish-button": "Terminado",
+        "nothing-text-1": "No tienes nada que comprar,",
+        "nothing-text-2": "prueba a generar una lista de la compra",
+        "nothing-text-3": "o añadir nuevos productos",
+        "generatingLoading": "Generando tu lista de la compra...",
+        "addLoading": "Añadiendo los productos en la despensa..."
+    },
     "AddItem": {
-        "view-header": "Añadir item",
+        "view-header": "Añadir",
         "name-label": "Nombre",
-        "quantity-label": "Cantidad"
+        "quantity-label": "Cantidad",
+        "category-label": "Categoría",
+        "category-1": "Comida",
+        "category-2": "Bebidas",
+        "category-3": "Hogar"        
+    },
+    "EditItem": {
+        "view-header":"Editar",
+        "ok-button": "Guardar",
+        "delete-button": "Borrar"
     },
     "Common": {
         "quantity": "Cantidad",
@@ -57,7 +77,8 @@
         }
     },
     "Error": {
-        "addItemMax": "Has llegado al límite de productos"
+        "addItemMax": "Has llegado al límite de productos",
+        "notValid": "Datos erróneos compruébalos"
     },
     "Validations": {
         "validName": "El nombre no es válido",

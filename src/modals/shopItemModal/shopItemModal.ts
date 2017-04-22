@@ -8,9 +8,9 @@ import { QuantityValidator } from  '../../validators/quantity';
 import { TranslateService } from 'ng2-translate';
 
 @Component({
-  templateUrl: "addItemModal.html",
+  templateUrl: "shopItemModal.html",
 })
-export class AddItemModal {
+export class ShopItemModal {
   itemName: string = '';
   itemQuantity: number;
   addItemForm: FormGroup;
@@ -28,6 +28,9 @@ export class AddItemModal {
             Validators.required,
             Validators.maxLength(20),
             Validators.pattern('[a-zA-Z ]*')
+       ]),
+        category: new FormControl('', [
+            Validators.required
        ])
     });
   }
@@ -38,7 +41,7 @@ export class AddItemModal {
 
   accept() {
     if(this.addItemForm.valid){
-        this.viewCtrl.dismiss({title: this.itemName, units: this.itemQuantity});
+        this.viewCtrl.dismiss({title: this.itemName, units: this.itemQuantity, category: this.addItemForm.value.category});
     } else {
       this.presentToast();
     }

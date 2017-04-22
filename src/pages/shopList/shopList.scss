@@ -1,0 +1,24 @@
+.shopList {
+    .item-md.item-block{
+        .item-inner {
+            border: none;
+        }
+    }
+
+    .no-items {
+        margin-top: 50%;
+        display: flex;
+        flex-flow: column;
+        .no-items-text {
+            color: #000000;
+            opacity: 0.54;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        button {
+            margin: auto;
+            margin-top: 15px;
+        }
+    }
+}

@@ -9,9 +9,12 @@ import { PantryPage } from '../pages/pantry/pantry';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
+import { ShopListPage } from '../pages/shopList/shopList';
 import { SettingsPage } from '../pages/settings/settings';
 import { CustomTabPage } from '../pages/customTab/customTab';
 import { AddItemModal } from '../modals/addItemModal/addItemModal';
+import { EditItemModal } from '../modals/editItemModal/editItemModal';
+import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { LoadingService } from '../providers/loading.provider';
@@ -32,7 +35,10 @@ let pages = [
   HomePage,
   SettingsPage,
   CustomTabPage,
-  AddItemModal
+  AddItemModal,
+  EditItemModal,
+  ShopItemModal,
+  ShopListPage
 ];
 
 export function declarations() {
