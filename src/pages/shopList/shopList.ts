@@ -7,7 +7,7 @@ import { UserData } from '../../providers/user.provider';
 import { ShopItemModal } from '../../modals/shopItemModal/shopItemModal';
 
 import { AngularFire } from 'angularfire2';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 class ShopItem {
   $key: string;

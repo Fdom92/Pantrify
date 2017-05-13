@@ -7,7 +7,7 @@ import { AlertController, NavController } from 'ionic-angular';
 import { UserData } from '../../providers/user.provider';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 import { AngularFire } from 'angularfire2';
 
 @Component({

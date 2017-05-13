@@ -8,7 +8,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { ShopListPage } from '../pages/shopList/shopList';
 import { UserData } from '../providers/user.provider';
 
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 import { AngularFire } from 'angularfire2';
 
 @Component({

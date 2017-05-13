@@ -5,7 +5,7 @@ import { ViewController, NavParams, ToastController } from 'ionic-angular';
 
 import { QuantityValidator } from  '../../validators/quantity';
 
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: "addItemModal.html",

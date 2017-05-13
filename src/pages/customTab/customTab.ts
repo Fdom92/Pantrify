@@ -5,7 +5,7 @@ import { ModalController, NavParams, ToastController } from 'ionic-angular';
 import { EditItemModal } from '../../modals/editItemModal/editItemModal';
 
 import { FirebaseListObservable } from 'angularfire2';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'customTab.html'

@@ -8,7 +8,7 @@ import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 import { UserData } from '../../providers/user.provider';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 class Tab {
     icon: string;

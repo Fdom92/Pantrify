@@ -8,7 +8,7 @@ import { UserData } from '../../providers/user.provider';
 import { LoadingService } from '../../providers/loading.provider';
 
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     templateUrl: "login.html"
