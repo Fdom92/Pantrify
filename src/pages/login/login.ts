@@ -7,7 +7,7 @@ import { PantryPage } from '../pantry/pantry';
 import { UserData } from '../../providers/user.provider';
 import { LoadingService } from '../../providers/loading.provider';
 
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -23,7 +23,7 @@ export class LoginPage {
                 public userdata: UserData,
                 public navCtrl: NavController,
                 public menu: MenuController,
-                public af: AngularFire,
+                public af: AngularFireAuth,
                 private toastCtrl: ToastController,
                 private _loading: LoadingService,
                 public translate: TranslateService) {
@@ -42,8 +42,7 @@ export class LoginPage {
         this.translate.get('Home').subscribe( value => {
             this._loading.present({content: value.loginLoading});
         });
-        this.af.auth.login({ email: this.email, password: this.password },
-        { provider: AuthProviders.Password, method: AuthMethods.Password })
+        this.af.auth.signInWithEmailAndPassword(this.email, this.password)
         .then((response: any) => {
             this._loading.dismiss().then(() => {
                 this.userdata.setUserData(response.auth);

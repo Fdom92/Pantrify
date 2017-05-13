@@ -4,7 +4,7 @@ import { ModalController, NavParams, ToastController } from 'ionic-angular';
 
 import { EditItemModal } from '../../modals/editItemModal/editItemModal';
 
-import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

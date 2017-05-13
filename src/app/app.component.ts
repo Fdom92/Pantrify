@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { PantryPage } from '../pages/pantry/pantry';
 import { HomePage } from '../pages/home/home';
@@ -9,7 +10,7 @@ import { ShopListPage } from '../pages/shopList/shopList';
 import { UserData } from '../providers/user.provider';
 
 import { TranslateService } from '@ngx-translate/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,8 +22,13 @@ export class MyApp {
   usermail: String;
   pages: Array<{ title: string, component: any, iconMD: string, iconOS: string }>;
 
-  constructor(public platform: Platform, public translate: TranslateService,
-    public af: AngularFire, public userData: UserData) {
+  constructor(public platform: Platform, 
+              public translate: TranslateService,
+              public userData: UserData,
+              public splashScreen: SplashScreen, 
+              public statusBar: StatusBar,
+              private _auth: AngularFireAuth) {
+
     this.initialize();
   }
 
@@ -48,8 +54,8 @@ export class MyApp {
           }
         ];
 
-        StatusBar.styleDefault();
-        Splashscreen.hide();
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
       });
     });
   }
@@ -57,10 +63,10 @@ export class MyApp {
 
   getInitialPageToLoad() {
     return new Promise((resolve, reject) => {
-      const unsubscribe = this.af.auth.subscribe(user => {
+      const unsubscribe = this._auth.authState.subscribe(user => {
         if (user) {
-          this.userData.setUserData(user.auth);
-          this.usermail = this.userData.getEmail();
+          this.userData.setUserData({email: user.email, uid: user.uid});
+          this.usermail = user.email;
           resolve(PantryPage);
           unsubscribe.unsubscribe();
         } else {

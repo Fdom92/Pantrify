@@ -6,7 +6,7 @@ import { LoadingService } from '../../providers/loading.provider';
 import { UserData } from '../../providers/user.provider';
 import { ShopItemModal } from '../../modals/shopItemModal/shopItemModal';
 
-import { AngularFire } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
 
 class ShopItem {
@@ -25,7 +25,7 @@ export class ShopListPage {
   items: Array<ShopItem> = [];
 
   constructor(private _loading: LoadingService,
-              private _af: AngularFire,
+              private _af: AngularFireDatabase,
               private userdata: UserData,
               public modalCtrl: ModalController,
               public translate: TranslateService) {
@@ -73,9 +73,9 @@ export class ShopListPage {
     this.translate.get('ShopList').subscribe( value => {
         this._loading.present({content: value.generatingLoading});
     });
-    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
-    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
-    this.addItemsToList(this._af.database.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home', true);
+    this.addItemsToList(this._af.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
+    this.addItemsToList(this._af.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
+    this.addItemsToList(this._af.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home', true);
   }
 
   updateItemsOnPantry(observable, type, ...args) {
@@ -95,8 +95,8 @@ export class ShopListPage {
     this.translate.get('ShopList').subscribe( value => {
         this._loading.present({content: value.addLoading});
     });
-    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/food'), 'food');    
-    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
-    this.updateItemsOnPantry(this._af.database.list('/' + this.userdata.getUid() + '/home'), 'home', true);
+    this.updateItemsOnPantry(this._af.list('/' + this.userdata.getUid() + '/food'), 'food');    
+    this.updateItemsOnPantry(this._af.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
+    this.updateItemsOnPantry(this._af.list('/' + this.userdata.getUid() + '/home'), 'home', true);
   }
 }

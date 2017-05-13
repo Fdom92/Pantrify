@@ -7,7 +7,7 @@ import { AddItemModal } from '../../modals/addItemModal/addItemModal';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 import { UserData } from '../../providers/user.provider';
 
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
 
 class Tab {
@@ -29,11 +29,11 @@ export class PantryPage {
               public modalCtrl: ModalController, 
               public translate: TranslateService,
               public navCtrl: NavController,
-              private _af: AngularFire) {
+              private _af: AngularFireDatabase) {
 
-      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  _af.database.list('/' + this.userdata.getUid() + '/food')},
-              {icon: 'beer',  component: CustomTabPage, items:  _af.database.list('/' + this.userdata.getUid() + '/drinks')},
-              {icon: 'home',  component: CustomTabPage, items:  _af.database.list('/' + this.userdata.getUid() + '/home')}];
+      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/food')},
+              {icon: 'beer',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/drinks')},
+              {icon: 'home',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/home')}];
   }
 
     onAdd() {

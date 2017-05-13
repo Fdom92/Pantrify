@@ -1,8 +1,10 @@
-import { AlertService } from '../providers/alert.provider';
 import { NgModule } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { PantryPage } from '../pages/pantry/pantry';
@@ -18,11 +20,14 @@ import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { LoadingService } from '../providers/loading.provider';
+import { AlertService } from '../providers/alert.provider';
 import { FirebaseConfig } from '../config/firebase.config';
 
 import { TranslateHttpLoader  } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -54,8 +59,12 @@ export function entryComponents() {
 @NgModule({
   declarations: declarations(),
   imports: [
+    HttpModule,
+    BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FirebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,
@@ -66,6 +75,7 @@ export function entryComponents() {
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
-  providers: [UserData, HardwareBackButtonService, LoadingService, AlertService]
+  providers: [UserData, SplashScreen, StatusBar, 
+              HardwareBackButtonService, LoadingService, AlertService]
 })
 export class AppModule {}

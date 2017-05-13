@@ -8,7 +8,7 @@ import { UserData } from '../../providers/user.provider';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 
 import { TranslateService } from '@ngx-translate/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
     templateUrl: "settings.html"
@@ -22,7 +22,7 @@ export class SettingsPage {
                 public translate: TranslateService,
                 private alertCtrl: AlertController,
                 private alertProvider: AlertService,
-                public af: AngularFire,
+                public af: AngularFireAuth,
                 public navCtrl: NavController) {
 
         this.language = translate.currentLang;
@@ -48,7 +48,7 @@ export class SettingsPage {
             this.alertProvider.createWithCallback(value.title,
                 value.text, true).then((yes) => {
                 if (yes) {
-                    this.af.auth.logout().then( () => {
+                    this.af.auth.signOut().then( () => {
                         this.navCtrl.setRoot(HomePage);
                     }, (error) => {
                         console.log('auth logout error', error);
