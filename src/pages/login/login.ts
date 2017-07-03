@@ -45,7 +45,11 @@ export class LoginPage {
         this.af.auth.signInWithEmailAndPassword(this.email, this.password)
         .then((response: any) => {
             this._loading.dismiss().then(() => {
-                this.userdata.setUserData(response.auth);
+                let userdata = {
+                    email: response.email,
+                    uid: response.uid
+                };
+                this.userdata.setUserData(userdata);
                 this.navCtrl.setRoot(PantryPage);
             });
         })
