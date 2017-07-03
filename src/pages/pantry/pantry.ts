@@ -16,6 +16,11 @@ class Tab {
     items: FirebaseListObservable<any[]>;
 };
 
+const fbQuery = {
+    orderByChild: 'title',
+    limitToLast: 15
+};
+
 @Component({
   templateUrl: 'pantry.html'
 })
@@ -31,9 +36,9 @@ export class PantryPage {
               public navCtrl: NavController,
               private _af: AngularFireDatabase) {
 
-      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/food')},
-              {icon: 'beer',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/drinks')},
-              {icon: 'home',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/home')}];
+      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/food', {query: fbQuery})},
+              {icon: 'beer',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/drinks', {query: fbQuery})},
+              {icon: 'home',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/home', {query: fbQuery})}];
   }
 
     onAdd() {
