@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="indigo500">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ 'AddItem.view-header' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button outline (click)="accept()">
+        {{ 'Common.accept' | translate }}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="shopItemModal">
+  <form [formGroup]="shopItemForm">
+    <ion-list>
+      <ion-item>
+        <ion-label>{{ 'AddItem.name-label' | translate }}</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!shopItemForm.get('name').valid  && shopItemForm.get('name').touched">
+        <p *ngIf="shopItemForm.get('name').errors['pattern']">Solo letras y la primera en mayúscula</p>
+        <p *ngIf="shopItemForm.get('name').errors['required']">{{ 'Validations.validName' | translate }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'AddItem.quantity-label' | translate }}</ion-label>
+        <ion-input formControlName="quantity" type="number"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!shopItemForm.get('quantity').valid  && shopItemForm.get('quantity').touched">
+          <p>{{ 'Validations.validQuantity' | translate }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'AddItem.category-label' | translate }}</ion-label>
+        <ion-select formControlName="category">
+          <ion-option value="food">{{ 'AddItem.category-1' | translate }}</ion-option>
+          <ion-option value="drinks">{{ 'AddItem.category-2' | translate }}</ion-option>
+          <ion-option value="home">{{ 'AddItem.category-3' | translate }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
