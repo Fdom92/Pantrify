@@ -36,7 +36,6 @@ export class ItemModal {
   }
 
   accept() {
-    console.log(this.itemForm);
     if (this.itemForm.valid) {
         let itemData = {
           type: this.type,

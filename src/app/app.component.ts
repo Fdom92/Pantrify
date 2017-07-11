@@ -43,15 +43,9 @@ export class MyApp {
 
         // Set sidemenu pages
         this.pages = [
-          {
-            title: 'pantry', component: PantryPage, iconMD: 'md-home', iconOS: 'ios-home-outline'
-          },
-          {
-            title: 'shop', component: ShopListPage, iconMD: 'md-cart', iconOS: 'ios-cart-outline'
-          },
-          {
-            title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline'
-          }
+          { title: 'pantry', component: PantryPage, iconMD: 'md-home', iconOS: 'ios-home-outline' },
+          { title: 'shop', component: ShopListPage, iconMD: 'md-cart', iconOS: 'ios-cart-outline' },
+          { title: 'settings', component: SettingsPage, iconMD: 'md-settings', iconOS: 'ios-settings-outline' }
         ];
 
         this.statusBar.styleDefault();

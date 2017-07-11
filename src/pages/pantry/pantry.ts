@@ -45,20 +45,7 @@ export class PantryPage {
         let addModal = this.modalCtrl.create(ItemModal, {type: 'add'});
         addModal.onDidDismiss(data => {
           let id = this.tabRef.getSelected().id.split('-')[1];
-          switch (id) {
-            case '0':
-              this.tabs[0].items.push(data);
-              break;
-            case '1':
-              this.tabs[1].items.push(data);
-              break;
-            case '2':
-              this.tabs[2].items.push(data);
-              break;
-            default:
-              console.log('Error');            
-              break;
-          }
+          this.tabs[+id].items.push(data);
         });
         addModal.present();
     }
