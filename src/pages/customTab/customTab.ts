@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { ModalController, NavParams, ToastController } from 'ionic-angular';
 
-import { EditItemModal } from '../../modals/editItemModal/editItemModal';
+import { ItemModal } from '../../modals/itemModal/itemModal';
 
 import { FirebaseListObservable } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
@@ -39,7 +39,7 @@ export class CustomTabPage {
   }
 
   onEdit(item, key) {
-    let editItemModal = this.modalCtrl.create(EditItemModal, { item: item });
+    let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item });
     editItemModal.onDidDismiss(data => {
       if (data) {
         if (data.type === 'remove') {

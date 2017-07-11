@@ -14,8 +14,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { ShopListPage } from '../pages/shopList/shopList';
 import { SettingsPage } from '../pages/settings/settings';
 import { CustomTabPage } from '../pages/customTab/customTab';
-import { AddItemModal } from '../modals/addItemModal/addItemModal';
-import { EditItemModal } from '../modals/editItemModal/editItemModal';
+import { ItemModal } from '../modals/itemModal/itemModal';
 import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
@@ -42,8 +41,7 @@ let pages = [
   HomePage,
   SettingsPage,
   CustomTabPage,
-  AddItemModal,
-  EditItemModal,
+  ItemModal,
   ShopItemModal,
   ShopListPage
 ];

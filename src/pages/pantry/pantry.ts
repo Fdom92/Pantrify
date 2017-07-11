@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ModalController, Tabs, NavController } from 'ionic-angular';
 
 import { CustomTabPage } from './../customTab/customTab';
-import { AddItemModal } from '../../modals/addItemModal/addItemModal';
+import { ItemModal } from '../../modals/itemModal/itemModal';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 import { UserData } from '../../providers/user.provider';
 
@@ -42,7 +42,7 @@ export class PantryPage {
   }
 
     onAdd() {
-        let addModal = this.modalCtrl.create(AddItemModal);
+        let addModal = this.modalCtrl.create(ItemModal, {type: 'add'});
         addModal.onDidDismiss(data => {
           let id = this.tabRef.getSelected().id.split('-')[1];
           switch (id) {
