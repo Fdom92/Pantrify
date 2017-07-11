@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-
 import { ViewController, NavParams, ToastController } from 'ionic-angular';
 
 import { QuantityValidator } from  '../../validators/quantity';
@@ -11,27 +10,18 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: "shopItemModal.html",
 })
 export class ShopItemModal {
-  itemName: string = '';
-  itemQuantity: number;
-  addItemForm: FormGroup;
+  shopItemForm: FormGroup;
 
   constructor(public viewCtrl: ViewController, 
               public params: NavParams,              
               private toastCtrl: ToastController, 
               public translate: TranslateService) {
-    this.addItemForm = new FormGroup({
-        quantity: new FormControl('', [
-            Validators.required,
-            QuantityValidator.isValid
-        ]),
-        name: new FormControl('', [
-            Validators.required,
-            Validators.maxLength(20),
-            Validators.pattern('[a-zA-Z ]*')
-       ]),
-        category: new FormControl('', [
-            Validators.required
-       ])
+
+    this.shopItemForm = new FormGroup({
+        'name': new FormControl('', [Validators.required, Validators.maxLength(20),
+                                     Validators.pattern('[A-Z][a-zA-Z ]*')]),
+        'quantity': new FormControl('', [Validators.required, QuantityValidator.isValid]),
+        'category': new FormControl('', [Validators.required])
     });
   }
 
@@ -40,8 +30,10 @@ export class ShopItemModal {
   }
 
   accept() {
-    if(this.addItemForm.valid){
-        this.viewCtrl.dismiss({title: this.itemName, units: this.itemQuantity, category: this.addItemForm.value.category});
+    if(this.shopItemForm.valid){
+        this.viewCtrl.dismiss({title: this.shopItemForm.get('name').value, 
+                               units: this.shopItemForm.get('quantity').value, 
+                               category: this.shopItemForm.get('category').value});
     } else {
       this.presentToast();
     }
