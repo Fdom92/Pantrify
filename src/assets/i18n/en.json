@@ -1,4 +1,29 @@
 {
+    "Modal": {
+        "ItemModal": {
+            "add-header"     : "Add",
+            "edit-header"    : "Edit",
+            "accept-button"  : "Accept",
+            "delete-button"  : "Delete",
+            "name-label"     : "Name",
+            "quantity-label" : "Quantity"
+        },
+        "ShopItemModal": {
+            "shop-header" : "Add",
+            "accept-button"  : "Accept",
+            "name-label"     : "Name",
+            "quantity-label" : "Quantity",
+            "category-label": "Category",
+            "category-1": "Food",
+            "category-2": "Drinks",
+            "category-3": "Home"
+        }
+    },
+    "Validations": {
+        "modal-name-required": "Please enter a valid name",
+        "modal-name-pattern": "Only letters are allowed and the first capital letter",
+        "modal-quantity": "Please enter a valid quantity between 0 to 999"
+    },
     "Home": {
         "login": "Log in",
         "signup": "Sign up",
@@ -51,20 +76,6 @@
         "generatingLoading": "Generating your shopping list...",
         "addLoading": "Adding the products in the pantry..."
     },
-    "AddItem": {
-        "view-header": "Add",
-        "name-label": "Name",
-        "quantity-label": "Quantity",
-        "category-label": "Category",
-        "category-1": "Food",
-        "category-2": "Drinks",
-        "category-3": "Home"        
-    },
-    "EditItem": {
-        "view-header":"Edit",
-        "ok-button": "Save",
-        "delete-button": "Delete"
-    },
     "Common": {
         "quantity": "Quantity",
         "logout": "Log out",
@@ -79,9 +90,5 @@
     "Error": {
         "addItemMax": "You have reached the limit of products",
         "notValid": "Wrong data check them"
-    },
-    "Validations": {
-        "validName": "Please enter a valid name",
-        "validQuantity": "Please enter a valid quantity between 0 to 999"
     }
 }

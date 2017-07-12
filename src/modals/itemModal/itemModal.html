@@ -5,11 +5,15 @@
         <ion-icon name="arrow-round-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center *ngIf="type === 'add'">{{ 'AddItem.view-header' | translate }}</ion-title>
-    <ion-title text-center *ngIf="type === 'edit'">{{ 'EditItem.view-header' | translate }}</ion-title>
+    <ion-title text-center *ngIf="type === 'add'">
+      {{ 'Modal.ItemModal.add-header' | translate }}
+      </ion-title>
+    <ion-title text-center *ngIf="type === 'edit'">
+      {{ 'Modal.ItemModal.edit-header' | translate }}
+    </ion-title>
     <ion-buttons end>
       <button ion-button outline (click)="accept()">
-        {{ 'Common.accept' | translate }}
+        {{ 'Modal.ItemModal.accept-button' | translate }}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -18,23 +22,30 @@
   <form [formGroup]="itemForm">
     <ion-list>
       <ion-item>
-        <ion-label>{{ 'AddItem.name-label' | translate }}</ion-label>
+        <ion-label>{{ 'Modal.ItemModal.name-label' | translate }}</ion-label>
         <ion-input formControlName="name" placeholder="{{item?.title}}" type="text"></ion-input>
       </ion-item>
-      <div *ngIf="!itemForm.get('name').valid  && itemForm.get('name').touched">
-        <p class="error-text" *ngIf="itemForm.get('name').errors['pattern']">Solo letras y la primera en mayúscula</p>
-        <p class="error-text" *ngIf="itemForm.get('name').errors['required']">{{ 'Validations.validName' | translate }}</p>
+      <div *ngIf="!itemForm.get('name').valid && itemForm.get('name').touched">
+        <p class="error-text" *ngIf="itemForm.get('name').errors['pattern']">
+          {{ 'Validations.modal-name-pattern' | translate }}
+        </p>
+        <p class="error-text" *ngIf="itemForm.get('name').errors['required']">
+          {{ 'Validations.modal-name-required' | translate }}
+        </p>
       </div>
       <ion-item>
-        <ion-label>{{ 'AddItem.quantity-label' | translate }}</ion-label>
-        <ion-input formControlName="quantity" placeholder="{{item?.units}}" type="number"></ion-input>
+        <ion-label>{{ 'Modal.ItemModal.quantity-label' | translate }}</ion-label>
+        <ion-input formControlName="quantity" 
+                   placeholder="{{item?.units}}" 
+                   type="number">
+        </ion-input>
       </ion-item>
-      <div *ngIf="!itemForm.get('quantity').valid  && itemForm.get('quantity').touched">
-          <p class="error-text">{{ 'Validations.validQuantity' | translate }}</p>
+      <div *ngIf="!itemForm.get('quantity').valid && itemForm.get('quantity').touched">
+          <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
       </div>
     </ion-list>
   </form>
   <button *ngIf="type === 'edit'" ion-button full (click)="remove()" color="red">
-    {{ 'EditItem.delete-button' | translate }}
+    {{ 'Modal.ItemModal.delete-button' | translate }}
   </button>
 </ion-content>

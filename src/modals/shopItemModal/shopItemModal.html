@@ -5,10 +5,12 @@
         <ion-icon name="arrow-round-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center>{{ 'AddItem.view-header' | translate }}</ion-title>
+    <ion-title text-center>
+      {{ 'Modal.ShopItemModal.shop-header' | translate }}
+    </ion-title>
     <ion-buttons end>
       <button ion-button outline (click)="accept()">
-        {{ 'Common.accept' | translate }}
+       {{ 'Modal.ShopItemModal.accept-button' | translate }}
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -17,26 +19,38 @@
   <form [formGroup]="shopItemForm">
     <ion-list>
       <ion-item>
-        <ion-label>{{ 'AddItem.name-label' | translate }}</ion-label>
+        <ion-label>{{ 'Modal.ShopItemModal.name-label' | translate }}</ion-label>
         <ion-input formControlName="name" type="text"></ion-input>
       </ion-item>
-      <div *ngIf="!shopItemForm.get('name').valid  && shopItemForm.get('name').touched">
-        <p class="error-text" *ngIf="shopItemForm.get('name').errors['pattern']">Solo letras y la primera en mayúscula</p>
-        <p class="error-text" *ngIf="shopItemForm.get('name').errors['required']">{{ 'Validations.validName' | translate }}</p>
+      <div *ngIf="!shopItemForm.get('name').valid && shopItemForm.get('name').touched">
+        <p class="error-text" *ngIf="shopItemForm.get('name').errors['pattern']">
+          {{ 'Validations.modal-name-pattern' | translate }}
+        </p>
+        <p class="error-text" *ngIf="shopItemForm.get('name').errors['required']">
+          {{ 'Validations.modal-name-required' | translate }}
+        </p>
       </div>
       <ion-item>
-        <ion-label>{{ 'AddItem.quantity-label' | translate }}</ion-label>
+        <ion-label>{{ 'Modal.ShopItemModal.quantity-label' | translate }}</ion-label>
         <ion-input formControlName="quantity" type="number"></ion-input>
       </ion-item>
-      <div *ngIf="!shopItemForm.get('quantity').valid  && shopItemForm.get('quantity').touched">
-          <p class="error-text">{{ 'Validations.validQuantity' | translate }}</p>
+      <div *ngIf="!shopItemForm.get('quantity').valid && shopItemForm.get('quantity').touched">
+          <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
       </div>
       <ion-item>
-        <ion-label>{{ 'AddItem.category-label' | translate }}</ion-label>
+        <ion-label>
+          {{ 'Modal.ShopItemModal.category-label' | translate }}
+        </ion-label>
         <ion-select formControlName="category">
-          <ion-option value="food">{{ 'AddItem.category-1' | translate }}</ion-option>
-          <ion-option value="drinks">{{ 'AddItem.category-2' | translate }}</ion-option>
-          <ion-option value="home">{{ 'AddItem.category-3' | translate }}</ion-option>
+          <ion-option value="food">
+            {{ 'Modal.ShopItemModal.category-1' | translate }}
+            </ion-option>
+          <ion-option value="drinks">
+            {{ 'Modal.ShopItemModal.category-2' | translate }}
+            </ion-option>
+          <ion-option value="home">
+            {{ 'Modal.ShopItemModal.category-3' | translate }}
+          </ion-option>
         </ion-select>
       </ion-item>
     </ion-list>

@@ -1,4 +1,29 @@
 {
+    "Modal": {
+        "ItemModal": {
+            "add-header"     : "Añadir",
+            "edit-header"    : "Editar",
+            "accept-button"  : "Aceptar",
+            "delete-button"  : "Borrar",
+            "name-label"     : "Nombre",
+            "quantity-label" : "Cantidad"
+        },
+        "ShopItemModal": {
+            "shop-header" : "Añadir",
+            "accept-button"  : "Aceptar",
+            "name-label"     : "Nombre",
+            "quantity-label" : "Cantidad",
+            "category-label": "Categoría",
+            "category-1": "Comida",
+            "category-2": "Bebidas",
+            "category-3": "Hogar"
+        }
+    },
+    "Validations": {
+        "modal-name-required": "El nombre no es válido",
+        "modal-name-pattern": "Solo letras y la primera en mayúscula",
+        "modal-quantity": "Introduce un número entre 0 y 999"
+    },
     "Home": {
         "login": "Iniciar sesión",
         "signup": "Registrarte",
@@ -51,20 +76,6 @@
         "generatingLoading": "Generando tu lista de la compra...",
         "addLoading": "Añadiendo los productos en la despensa..."
     },
-    "AddItem": {
-        "view-header": "Añadir",
-        "name-label": "Nombre",
-        "quantity-label": "Cantidad",
-        "category-label": "Categoría",
-        "category-1": "Comida",
-        "category-2": "Bebidas",
-        "category-3": "Hogar"        
-    },
-    "EditItem": {
-        "view-header":"Editar",
-        "ok-button": "Guardar",
-        "delete-button": "Borrar"
-    },
     "Common": {
         "quantity": "Cantidad",
         "logout": "Cerrar Sesión",
@@ -79,9 +90,5 @@
     "Error": {
         "addItemMax": "Has llegado al límite de productos",
         "notValid": "Datos erróneos compruébalos"
-    },
-    "Validations": {
-        "validName": "El nombre no es válido",
-        "validQuantity": "Introduce un número entre 0 y 999"
     }
 }
