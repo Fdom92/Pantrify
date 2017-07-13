@@ -63,4 +63,8 @@ export class CustomTabPage {
       toast.present();
     });
   }
+
+  expandItem(item) {
+    item.expanded=!item.expanded;
+  }
 }

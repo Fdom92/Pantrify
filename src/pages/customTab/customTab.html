@@ -1,12 +1,37 @@
 <ion-content class="customTab">
   <ion-grid>
     <ion-row *ngFor="let item of items | async">
-      <ion-col col-7 (click)="onEdit(item, item.$key)">
+      <ion-col col-12 *ngIf="item.isFolder">
+        <ion-item (click)="expandItem(item)">
+          <p>{{item.title}}</p>
+          <expandable [expanded]="item.expanded" [expandHeight]="40">
+            <ion-row>
+              <ion-col>
+                  <ion-item>
+                      <p>Milk</p>
+                  </ion-item>
+              </ion-col>
+              <ion-col col-5>
+                  <ion-item>
+                      <p>0</p>            
+                      <button ion-button outline item-right>
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                      <button ion-button outline item-right>
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                  </ion-item>
+              </ion-col>
+            </ion-row>
+          </expandable>
+        </ion-item>
+      </ion-col>
+      <ion-col *ngIf="!item.isFolder" col-7 (click)="onEdit(item, item.$key)">
           <ion-item>
               <p>{{item.title}}</p>
           </ion-item>
       </ion-col>
-      <ion-col col-5>
+      <ion-col *ngIf="!item.isFolder" col-5>
           <ion-item>
               <p>{{item.units}}</p>            
               <button ion-button outline item-right (click)="onAdd(item, item.$key)">
