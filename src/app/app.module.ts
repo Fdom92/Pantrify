@@ -21,7 +21,8 @@ import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { LoadingService } from '../providers/loading.provider';
 import { AlertService } from '../providers/alert.provider';
 import { FirebaseConfig } from '../config/firebase.config';
-import { ExpandableComponent } from '../components/expandable/expandable'
+import { ExpandableComponent } from '../components/expandable/expandable';
+import { FolderItemComponent } from '../components/folderItem/folderItem';
 
 import { TranslateHttpLoader  } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -45,7 +46,8 @@ let pages = [
   ItemModal,
   ShopItemModal,
   ShopListPage,
-  ExpandableComponent
+  ExpandableComponent,
+  FolderItemComponent
 ];
 
 export function declarations() {

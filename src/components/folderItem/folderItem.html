@@ -1,0 +1,18 @@
+ <ion-row *ngFor="let item of items">
+    <ion-col>
+        <ion-item>
+            <p>{{item.title}}</p>
+        </ion-item>
+    </ion-col>
+    <ion-col col-5>
+        <ion-item>
+            <p>{{item.units}}</p>            
+            <button ion-button outline item-right>
+            <ion-icon name="add"></ion-icon>
+            </button>
+            <button ion-button outline item-right>
+            <ion-icon name="remove"></ion-icon>
+            </button>
+        </ion-item>
+    </ion-col>
+</ion-row>
