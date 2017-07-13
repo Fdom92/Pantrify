@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FolderItemComponent implements OnInit{
  
     @Input('products') products;
- 
+
     items: Array<any> = [];
 
     constructor() {
@@ -23,4 +23,11 @@ export class FolderItemComponent implements OnInit{
         });
     }
  
+    onAdd(item, key) {
+        console.log('add', item, key);
+    }
+
+    onRemove(item, key) {
+        console.log('remove', item, key);
+    }
 }

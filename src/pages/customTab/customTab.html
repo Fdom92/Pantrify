@@ -2,9 +2,13 @@
   <ion-grid>
     <ion-row *ngFor="let item of items | async">
       <ion-col col-12 *ngIf="item.isFolder">
-        <ion-item (click)="expandItem(item)">
+        <ion-item>
           <p>{{item.title}}</p>
-          <expandable [expanded]="item.expanded" [expandHeight]="40">
+          <button class="expandable-button" ion-button outline item-right (click)="expandItem(item)">
+            <ion-icon *ngIf="!item.expanded" name="add"></ion-icon>
+            <ion-icon *ngIf="item.expanded" name="remove"></ion-icon>
+          </button>
+          <expandable [expanded]="item.expanded" [expandHeight]="100">
             <folder-item [products]="item.products"></folder-item>
           </expandable>
         </ion-item>
