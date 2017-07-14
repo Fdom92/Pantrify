@@ -8,7 +8,7 @@
             <ion-icon *ngIf="!item.expanded" name="add"></ion-icon>
             <ion-icon *ngIf="item.expanded" name="remove"></ion-icon>
           </button>
-          <expandable [expanded]="item.expanded" [expandHeight]="40">
+          <expandable *ngIf="item.products" [expanded]="item.expanded" [expandHeight]="40">
             <folder-item [products]="item.products"
                          [type]="type.key"
                          [folder]="item">

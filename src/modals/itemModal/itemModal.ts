@@ -21,7 +21,8 @@ export class ItemModal {
         'name': new FormControl('', [Validators.required, 
                                      Validators.maxLength(20), 
                                      Validators.pattern('[A-Z][a-zA-Z]*')]),      
-        'quantity': new FormControl('', [Validators.required, QuantityValidator.isValid])
+        'quantity': new FormControl('', [Validators.required, QuantityValidator.isValid]),
+        'folder': new FormControl('false', [])        
     });
 
     this.type = params.get('type');
@@ -39,6 +40,7 @@ export class ItemModal {
     if (this.itemForm.valid) {
         let itemData = {
           type: this.type,
+          isFolder: this.itemForm.get('folder').value ? this.itemForm.get('folder').value : this.item.isFolder,
           title: this.itemForm.get('name').value ? this.itemForm.get('name').value : this.item.title,
           units: this.itemForm.get('quantity').value ? this.itemForm.get('quantity').value : this.item.units
         };
@@ -50,6 +52,12 @@ export class ItemModal {
 
   remove() {
     this.viewCtrl.dismiss({type: 'remove'});    
+  }
+
+  onToggle(event) {
+    if (event.value) {
+      console.log('checked');
+    }
   }
 
   presentToast() {

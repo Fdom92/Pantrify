@@ -67,6 +67,6 @@ export class CustomTabPage {
   }
 
   expandItem(item) {
-    item.expanded=!item.expanded;
+    this.items.update(item.$key, {expanded: !item.expanded});
   }
 }

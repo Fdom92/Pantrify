@@ -46,7 +46,20 @@ export class PantryPage {
         addModal.onDidDismiss(data => {
             if (data) {
                 let id = this.tabRef.getSelected().id.split('-')[1];
-                this.tabs[+id].items.push(data);
+                if (data.isFolder) {
+                    this.tabs[+id].items.push({
+                        title: data.title,
+                        units: data.units,
+                        isFolder: data.isFolder,
+                        expanded: false,
+                        products: ''
+                    });
+                } else {
+                    this.tabs[+id].items.push({
+                        title: data.title,
+                        units: data.units
+                    });
+                }
             }
         });
         addModal.present();
