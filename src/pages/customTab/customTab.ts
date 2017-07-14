@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class CustomTabPage {
 
   items : FirebaseListObservable<any[]>;
+  type: any;
 
   constructor(public modalCtrl: ModalController, 
               public navParams: NavParams, 
@@ -20,6 +21,7 @@ export class CustomTabPage {
               public translate: TranslateService) {
 
     this.items = navParams.data;
+    this.type = this.items.$ref;
   }
 
   onAdd(item, key) {

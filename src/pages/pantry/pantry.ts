@@ -44,8 +44,10 @@ export class PantryPage {
     onAdd() {
         let addModal = this.modalCtrl.create(ItemModal, {type: 'add'});
         addModal.onDidDismiss(data => {
-          let id = this.tabRef.getSelected().id.split('-')[1];
-          this.tabs[+id].items.push(data);
+            if (data) {
+                let id = this.tabRef.getSelected().id.split('-')[1];
+                this.tabs[+id].items.push(data);
+            }
         });
         addModal.present();
     }
