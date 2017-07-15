@@ -8,14 +8,13 @@ export class ExpandableComponent {
  
     @ViewChild('expandWrapper', {read: ElementRef}) expandWrapper;
     @Input('expanded') expanded;
-    @Input('expandHeight') expandHeight;
  
     constructor(public renderer: Renderer) {
  
     }
  
     ngAfterViewInit(){
-        this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', this.expandHeight + 'px');    
-    }
- 
+        let expandHeight = this.expandWrapper.nativeElement.childNodes[2].children.length * 50;
+        this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', expandHeight + 'px');    
+    } 
 }

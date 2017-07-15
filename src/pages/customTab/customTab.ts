@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 import { ModalController, NavParams, ToastController } from 'ionic-angular';
 
 import { ItemModal } from '../../modals/itemModal/itemModal';
+import { FolderModal } from '../../modals/folderModal/folderModal';
+import { UserData } from '../../providers/user.provider';
 
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -14,14 +16,20 @@ export class CustomTabPage {
 
   items : FirebaseListObservable<any[]>;
   type: any;
+  folders: any;
 
   constructor(public modalCtrl: ModalController, 
               public navParams: NavParams, 
               private toastCtrl: ToastController, 
-              public translate: TranslateService) {
+              public translate: TranslateService,
+              private _af: AngularFireDatabase,
+              private userdata: UserData) {
 
     this.items = navParams.data;
     this.type = this.items.$ref;
+    this.items.subscribe(data => {
+       this.folders = data.filter(ele => ele.isFolder === true)
+    });
   }
 
   onAdd(item, key) {
@@ -40,18 +48,38 @@ export class CustomTabPage {
     }
   }
 
-  onEdit(item, key) {
-    let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item });
+  onEditItem(item, key) {
+    let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, folders: this.folders });
     editItemModal.onDidDismiss(data => {
       if (data) {
         if (data.type === 'remove') {
           this.items.remove(key);
         } else {
-          this.items.update(key, {title: data.title, units: data.units});
+          if (data.moveFolder !== '') {
+            this.items.remove(key);
+            this._af.list(this.type + '/' + data.moveFolder.$key + '/products/')
+                .push({title: data.title, units: data.units});           
+          } else {
+            this.items.update(key, {title: data.title, units: data.units});
+          }
         }
       }
     });
     editItemModal.present();
+  }
+
+  onEditFolder(item, key) {
+    let folderModal = this.modalCtrl.create(FolderModal, { type: 'edit' });
+    folderModal.onDidDismiss(data => {
+      if (data) {
+        if (data.type === 'remove') {
+          this.items.remove(key);
+        } else {
+          this.items.update(key, {title: data.title});
+        }
+      }
+    });
+    folderModal.present();  
   }
 
   presentToast() {

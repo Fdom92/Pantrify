@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
- import { ToastController } from 'ionic-angular';
+ import { ToastController,ModalController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user.provider';
+import { ItemModal } from '../../modals/itemModal/itemModal';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -19,7 +20,8 @@ export class FolderItemComponent implements OnInit{
     items: Array<any> = [];
 
     constructor(private _af: AngularFireDatabase, private userdata: UserData,
-                private toastCtrl: ToastController, private translate: TranslateService) {
+                private toastCtrl: ToastController, private translate: TranslateService,
+                public modalCtrl: ModalController) {
     }
 
     ngOnInit() {
@@ -48,6 +50,24 @@ export class FolderItemComponent implements OnInit{
             this._af.list('/' + this.userdata.getUid() + '/' + this.type
                 + '/' + this.folder.$key + '/products/').update(key, data);
         }
+    }
+
+    onEdit(item, key, event) {
+        event.stopPropagation();
+        let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, folders: [] });
+        editItemModal.onDidDismiss(data => {
+        if (data) {
+            if (data.type === 'remove') {
+                this._af.list('/' + this.userdata.getUid() + '/' + this.type
+                    + '/' + this.folder.$key + '/products/').remove(key);
+            } else {
+            this._af.list('/' + this.userdata.getUid() + '/' + this.type
+                    + '/' + this.folder.$key + '/products/')
+                    .update(key, {title: data.title, units: data.units});
+            }
+        }
+        });
+        editItemModal.present();
     }
 
     presentToast() {

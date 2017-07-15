@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { PantryPage } from '../pages/pantry/pantry';
+import { PopoverPage } from '../pages/pantry/popover';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
@@ -16,6 +17,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { CustomTabPage } from '../pages/customTab/customTab';
 import { ItemModal } from '../modals/itemModal/itemModal';
 import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
+import { FolderModal } from '../modals/folderModal/folderModal';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { LoadingService } from '../providers/loading.provider';
@@ -38,6 +40,7 @@ export function HttpLoaderFactory(http: Http) {
 let pages = [
   MyApp,
   PantryPage,
+  PopoverPage,
   LoginPage,
   SignupPage,
   HomePage,
@@ -45,6 +48,7 @@ let pages = [
   CustomTabPage,
   ItemModal,
   ShopItemModal,
+  FolderModal,
   ShopListPage,
   ExpandableComponent,
   FolderItemComponent
