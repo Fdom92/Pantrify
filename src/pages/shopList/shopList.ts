@@ -5,30 +5,22 @@ import { ModalController } from 'ionic-angular';
 import { LoadingService } from '../../providers/loading.provider';
 import { UserData } from '../../providers/user.provider';
 import { ShopItemModal } from '../../modals/shopItemModal/shopItemModal';
+import { FirebaseService } from '../../providers/firebase.provider';
 
-import { AngularFireDatabase } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
-
-class ShopItem {
-  $key: string;
-  title: string;
-  units: Number;
-  done: boolean;
-  type: string;
-}
 
 @Component({
   templateUrl: 'shopList.html'
 })
 export class ShopListPage {
 
-  items: Array<ShopItem> = [];
+  items: Array<any> = [];
 
   constructor(private _loading: LoadingService,
-              private _af: AngularFireDatabase,
               private userdata: UserData,
               public modalCtrl: ModalController,
-              public translate: TranslateService) {
+              public translate: TranslateService,
+              private _fbService: FirebaseService) {
   }
 
   isAllDone() {
@@ -57,11 +49,25 @@ export class ShopListPage {
     }
   }
 
-  addItemsToList(observer, type, ...args) {
-    observer
-      .subscribe(snapshots => {
-        snapshots.forEach(snapshot => {
-          snapshot.val().units === 0 && this.items.push({$key: snapshot.key, title: snapshot.val().title, units: 1, done: false, type: type});
+  addItemsToList(fbRef, type, ...args) {
+    fbRef
+      .subscribe(items => {
+        items.forEach(item => {
+          if (item.isFolder) {
+            Object.keys(item.products).forEach(key => {
+              this.items.push({
+                $key: key,
+                title: item.products[key].title,
+                units: 1,
+                folder: item,
+                done: false, 
+                type: type
+              })
+            });
+          } else {
+            item.units === 0 && this.items.push({$key: item.key, title: item.title, units: 1, 
+                                                 done: false, type: type});
+          }
         });
     });
     if (args.length > 0) {
@@ -73,17 +79,21 @@ export class ShopListPage {
     this.translate.get('ShopList').subscribe( value => {
         this._loading.present({content: value.generatingLoading});
     });
-    this.addItemsToList(this._af.list('/' + this.userdata.getUid() + '/food', { preserveSnapshot: true }), 'food');
-    this.addItemsToList(this._af.list('/' + this.userdata.getUid() + '/drinks', { preserveSnapshot: true }), 'drinks');
-    this.addItemsToList(this._af.list('/' + this.userdata.getUid() + '/home', { preserveSnapshot: true }), 'home', true);
+    this.addItemsToList(this._fbService.getFood(), 'food');
+    this.addItemsToList(this._fbService.getDrinks(), 'drinks');
+    this.addItemsToList(this._fbService.getHome(), 'home', true);
   }
 
-  updateItemsOnPantry(observable, type, ...args) {
+  updateItemsOnPantry(fbRef, type, ...args) {
     this.items.filter((value) => value.type === type).forEach((value) => {
       if (value.$key === '') {
-        observable.push({title: value.title, units: value.units});
+        fbRef.push({title: value.title, units: value.units});
       } else {
-        observable.update(value.$key, { units: value.units });
+        if (value.folder) {
+          this._fbService.updateItemFolder(value, type, {units: value.units}, value.folder);
+        } else {
+          fbRef.update(value.$key, { units: value.units });         
+        }
       }
     });
     if (args.length > 0) {
@@ -95,8 +105,8 @@ export class ShopListPage {
     this.translate.get('ShopList').subscribe( value => {
         this._loading.present({content: value.addLoading});
     });
-    this.updateItemsOnPantry(this._af.list('/' + this.userdata.getUid() + '/food'), 'food');    
-    this.updateItemsOnPantry(this._af.list('/' + this.userdata.getUid() + '/drinks'), 'drinks');
-    this.updateItemsOnPantry(this._af.list('/' + this.userdata.getUid() + '/home'), 'home', true);
+    this.updateItemsOnPantry(this._fbService.getFood(), 'food');    
+    this.updateItemsOnPantry(this._fbService.getDrinks(), 'drinks');
+    this.updateItemsOnPantry(this._fbService.getHome(), 'home', true);
   }
 }
