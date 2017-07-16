@@ -20,6 +20,7 @@ import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
 import { FolderModal } from '../modals/folderModal/folderModal';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
+import { FirebaseService } from '../providers/firebase.provider';
 import { LoadingService } from '../providers/loading.provider';
 import { AlertService } from '../providers/alert.provider';
 import { FirebaseConfig } from '../config/firebase.config';
@@ -82,6 +83,6 @@ export function entryComponents() {
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
   providers: [UserData, SplashScreen, StatusBar, 
-              HardwareBackButtonService, LoadingService, AlertService]
+              HardwareBackButtonService, LoadingService, AlertService, FirebaseService]
 })
 export class AppModule {}

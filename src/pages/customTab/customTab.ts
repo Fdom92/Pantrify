@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 
-import { ModalController, NavParams, ToastController } from 'ionic-angular';
+import { ModalController, NavParams } from 'ionic-angular';
 
 import { ItemModal } from '../../modals/itemModal/itemModal';
 import { FolderModal } from '../../modals/folderModal/folderModal';
-import { UserData } from '../../providers/user.provider';
+import { FirebaseService } from '../../providers/firebase.provider';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { TranslateService } from '@ngx-translate/core';
+import { FirebaseListObservable } from 'angularfire2/database';
+
+const types = {
+    'food': 0,
+    'drinks': 1,
+    'home': 2
+};
 
 @Component({
   templateUrl: 'customTab.html'
@@ -18,49 +23,36 @@ export class CustomTabPage {
   type: any;
   folders: any;
 
-  constructor(public modalCtrl: ModalController, 
-              public navParams: NavParams, 
-              private toastCtrl: ToastController, 
-              public translate: TranslateService,
-              private _af: AngularFireDatabase,
-              private userdata: UserData) {
+  constructor(private modalCtrl: ModalController, private navParams: NavParams, 
+              private _fbService: FirebaseService) {
 
     this.items = navParams.data;
     this.type = this.items.$ref;
-    this.items.subscribe(data => {
-       this.folders = data.filter(ele => ele.isFolder === true)
-    });
+    this.folders = this._fbService.getFolders();
   }
 
   onAdd(item, key) {
-    let data = { title:item.title, units:parseInt(item.units) + 1 };
-    if (data.units <= 999) {
-      this.items.update(key, data);
-    } else {
-      this.presentToast();
-    }
+    this._fbService.updateItem(item, this.type.key, { title: item.title, units: parseInt(item.units) + 1 });
   }
 
   onRemove(item, key) {
-    let data = { title:item.title, units:parseInt(item.units) - 1 };
-    if (data.units >= 0) {
-      this.items.update(key, data);
-    }
+    this._fbService.updateItem(item, this.type.key, { title: item.title, units: parseInt(item.units) - 1 });
   }
 
   onEditItem(item, key) {
-    let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, folders: this.folders });
+    let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, 
+                                                           folders: this.folders[types[this.type.key]] });
     editItemModal.onDidDismiss(data => {
       if (data) {
         if (data.type === 'remove') {
-          this.items.remove(key);
+          this._fbService.removeItem(item, this.type.key);
         } else {
           if (data.moveFolder !== '') {
-            this.items.remove(key);
-            this._af.list(this.type + '/' + data.moveFolder.$key + '/products/')
-                .push({title: data.title, units: data.units});           
+            this._fbService.removeItem(item, this.type.key);
+            this._fbService.pushItemFolder({title: data.title, units: data.units}, 
+                                            this.type.key, data.moveFolder);        
           } else {
-            this.items.update(key, {title: data.title, units: data.units});
+            this._fbService.updateItem(item, this.type.key, {title: data.title, units: data.units});
           }
         }
       }
@@ -73,25 +65,13 @@ export class CustomTabPage {
     folderModal.onDidDismiss(data => {
       if (data) {
         if (data.type === 'remove') {
-          this.items.remove(key);
+          this._fbService.removeItem(item, this.type.key);
         } else {
-          this.items.update(key, {title: data.title});
+          this._fbService.updateFolder(item, this.type.key, {title: data.title});
         }
       }
     });
     folderModal.present();  
-  }
-
-  presentToast() {
-    this.translate.get('Error').subscribe( value => {
-      let toast = this.toastCtrl.create({
-          message: value.addItemMax,
-          duration: 3000,
-          position: 'bottom'
-      });
-
-      toast.present();
-    });
   }
 
   expandItem(item) {

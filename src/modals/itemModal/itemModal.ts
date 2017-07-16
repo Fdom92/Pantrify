@@ -27,10 +27,10 @@ export class ItemModal {
     });
 
     this.type = params.get('type');
+    this.folders = params.get('folders');
 
     if (this.type === 'edit') {
       this.item = params.get('item');
-      this.folders = params.get('folders');
     }
   }
 

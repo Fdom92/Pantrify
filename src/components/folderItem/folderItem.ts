@@ -1,11 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
- import { ToastController,ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
-import { UserData } from '../../providers/user.provider';
 import { ItemModal } from '../../modals/itemModal/itemModal';
+import { FirebaseService } from '../../providers/firebase.provider';
 
-import { AngularFireDatabase } from 'angularfire2/database';
-import { TranslateService } from '@ngx-translate/core';
+const types = {
+    'food': 0,
+    'drinks': 1,
+    'home': 2
+};
 
 @Component({
   selector: 'folder-item',
@@ -18,11 +21,9 @@ export class FolderItemComponent implements OnInit{
     @Input('folder') folder;
 
     items: Array<any> = [];
+    folders: Array<any> = [];
 
-    constructor(private _af: AngularFireDatabase, private userdata: UserData,
-                private toastCtrl: ToastController, private translate: TranslateService,
-                public modalCtrl: ModalController) {
-    }
+    constructor(public modalCtrl: ModalController, private _fbService: FirebaseService) {}
 
     ngOnInit() {
         Object.keys(this.products).forEach(key => {
@@ -32,53 +33,40 @@ export class FolderItemComponent implements OnInit{
                 units: this.products[key].units
             });
         });
+        this.folders = this._fbService.getFolders();
     }
  
     onAdd(item, key) {
-        let data = { title:item.title, units:parseInt(item.units) + 1 };
-        if (data.units <= 999) {
-            this._af.list('/' + this.userdata.getUid() + '/' + this.type
-                + '/' + this.folder.$key + '/products/').update(key, data);
-        } else {
-            this.presentToast();
-        }
+        event.stopPropagation();
+        this._fbService.updateItemFolder(item, this.type, 
+                                        { title: item.title, units: parseInt(item.units) + 1 }, this.folder);
     }
 
     onRemove(item, key) {
-        let data = { title:item.title, units:parseInt(item.units) - 1 };
-        if (data.units >= 0) {
-            this._af.list('/' + this.userdata.getUid() + '/' + this.type
-                + '/' + this.folder.$key + '/products/').update(key, data);
-        }
+        event.stopPropagation();
+        this._fbService.updateItemFolder(item, this.type, 
+                                        { title: item.title, units: parseInt(item.units) - 1 }, this.folder);
     }
 
     onEdit(item, key, event) {
         event.stopPropagation();
-        let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, folders: [] });
+        let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, 
+                                                               folders: this.folders[types[this.type]] });
         editItemModal.onDidDismiss(data => {
         if (data) {
             if (data.type === 'remove') {
-                this._af.list('/' + this.userdata.getUid() + '/' + this.type
-                    + '/' + this.folder.$key + '/products/').remove(key);
+                this._fbService.removeItemFolder(item, this.type, this.folder);
             } else {
-            this._af.list('/' + this.userdata.getUid() + '/' + this.type
-                    + '/' + this.folder.$key + '/products/')
-                    .update(key, {title: data.title, units: data.units});
+                if (data.moveFolder !== '') {
+                    this._fbService.removeItemFolder(item, this.type, this.folder);
+                    this._fbService.pushItemFolder({title: data.title, units: data.units}, 
+                                                    this.type, data.moveFolder);        
+                } else {
+                    this._fbService.updateItemFolder(item, this.type, 
+                                                    {title: data.title, units: data.units}, this.folder);                }
             }
         }
         });
         editItemModal.present();
-    }
-
-    presentToast() {
-        this.translate.get('Error').subscribe( value => {
-            let toast = this.toastCtrl.create({
-                message: value.addItemMax,
-                duration: 3000,
-                position: 'bottom'
-            });
-
-            toast.present();
-        });
     }
 }
