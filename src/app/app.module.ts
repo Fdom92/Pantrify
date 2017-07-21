@@ -23,22 +23,22 @@ import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { FirebaseService } from '../providers/firebase.provider';
 import { LoadingService } from '../providers/loading.provider';
 import { AlertService } from '../providers/alert.provider';
-import { FirebaseConfig } from '../config/firebase.config';
+import { firebaseConfig } from '../config/firebase.config';
 import { ExpandableComponent } from '../components/expandable/expandable';
 import { FolderItemComponent } from '../components/folderItem/folderItem';
 
-import { TranslateHttpLoader  } from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+export function httpLoaderFactory(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-let pages = [
+const pages = [
   MyApp,
   PantryPage,
   PopoverPage,
@@ -69,20 +69,20 @@ export function entryComponents() {
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FirebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [Http]
-        }
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [Http]
+      }
     })
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
-  providers: [UserData, SplashScreen, StatusBar, 
-              HardwareBackButtonService, LoadingService, AlertService, FirebaseService]
+  providers: [UserData, SplashScreen, StatusBar,
+    HardwareBackButtonService, LoadingService, AlertService, FirebaseService]
 })
-export class AppModule {}
+export class AppModule { }

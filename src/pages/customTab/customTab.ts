@@ -9,9 +9,9 @@ import { FirebaseService } from '../../providers/firebase.provider';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 const types = {
-    'food': 0,
-    'drinks': 1,
-    'home': 2
+  food: 0,
+  drinks: 1,
+  home: 2
 };
 
 @Component({
@@ -19,29 +19,34 @@ const types = {
 })
 export class CustomTabPage {
 
-  items : FirebaseListObservable<any[]>;
+  items: FirebaseListObservable<any[]>;
   type: any;
   folders: any;
 
-  constructor(private modalCtrl: ModalController, private navParams: NavParams, 
-              private _fbService: FirebaseService) {
+  constructor(private modalCtrl: ModalController, private navParams: NavParams,
+    private _fbService: FirebaseService) {
 
-    this.items = navParams.data;
+    this.items = this.navParams.data;
     this.type = this.items.$ref;
     this.folders = this._fbService.getFolders();
   }
 
   onAdd(item, key) {
-    this._fbService.updateItem(item, this.type.key, { title: item.title, units: parseInt(item.units) + 1 });
+    this._fbService.updateItem(item, this.type.key,
+    { title: item.title, units: parseInt(item.units, 10) + 1 });
   }
 
   onRemove(item, key) {
-    this._fbService.updateItem(item, this.type.key, { title: item.title, units: parseInt(item.units) - 1 });
+    this._fbService.updateItem(item, this.type.key,
+    { title: item.title, units: parseInt(item.units, 10) - 1 });
   }
 
   onEditItem(item, key) {
-    let editItemModal = this.modalCtrl.create(ItemModal, { type: 'edit', item: item, 
-                                                           folders: this.folders[types[this.type.key]] });
+    const editItemModal = this.modalCtrl.create(ItemModal, {
+      item,
+      type: 'edit',
+      folders: this.folders[types[this.type.key]]
+    });
     editItemModal.onDidDismiss(data => {
       if (data) {
         if (data.type === 'remove') {
@@ -49,10 +54,10 @@ export class CustomTabPage {
         } else {
           if (data.moveFolder !== '') {
             this._fbService.removeItem(item, this.type.key);
-            this._fbService.pushItemFolder({title: data.title, units: data.units}, 
-                                            this.type.key, data.moveFolder);        
+            this._fbService.pushItemFolder({ title: data.title, units: data.units },
+              this.type.key, data.moveFolder);
           } else {
-            this._fbService.updateItem(item, this.type.key, {title: data.title, units: data.units});
+            this._fbService.updateItem(item, this.type.key, { title: data.title, units: data.units });
           }
         }
       }
@@ -61,20 +66,20 @@ export class CustomTabPage {
   }
 
   onEditFolder(item, key) {
-    let folderModal = this.modalCtrl.create(FolderModal, { type: 'edit' });
+    const folderModal = this.modalCtrl.create(FolderModal, { type: 'edit' });
     folderModal.onDidDismiss(data => {
       if (data) {
         if (data.type === 'remove') {
           this._fbService.removeItem(item, this.type.key);
         } else {
-          this._fbService.updateFolder(item, this.type.key, {title: data.title});
+          this._fbService.updateFolder(item, this.type.key, { title: data.title });
         }
       }
     });
-    folderModal.present();  
+    folderModal.present();
   }
 
   expandItem(item) {
-    this.items.update(item.$key, {expanded: !item.expanded});
+    this.items.update(item.$key, { expanded: !item.expanded });
   }
 }

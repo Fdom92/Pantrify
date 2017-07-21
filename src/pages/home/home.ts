@@ -12,12 +12,12 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public menu: MenuController) {}
 
-  openSignUpPage(){
-    this.navCtrl.push(SignupPage, {}, {animate: false});
+  openSignUpPage() {
+    this.navCtrl.push(SignupPage, {}, { animate: false });
   }
 
-  openLoginPage(){
-    this.navCtrl.push(LoginPage, {}, {animate: false});
+  openLoginPage() {
+    this.navCtrl.push(LoginPage, {}, { animate: false });
   }
 
   ionViewDidEnter() {

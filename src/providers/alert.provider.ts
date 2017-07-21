@@ -3,59 +3,59 @@ import { AlertController } from 'ionic-angular';
 
 @Injectable()
 export class AlertService {
-    constructor(public alertCtrl: AlertController) { }
+  constructor(public alertCtrl: AlertController) { }
 
-    create(title: string, message: string) {
-        let alert = this.alertCtrl.create(
-            {
-                title: title,
-                subTitle: message,
-                buttons: [
-                    {
-                        text: 'OK'
-                    }
-                ]
-            })
+  create(title: string, message: string) {
+    const alert = this.alertCtrl.create(
+      {
+        title,
+        subTitle: message,
+        buttons: [
+          {
+            text: 'OK'
+          }
+        ]
+      });
 
-        return alert.present();
-    }
+    return alert.present();
+  }
 
-    createWithError(message: string) {
-        return this.create("An error has occurred.", message);
-    }
+  createWithError(message: string) {
+    return this.create('An error has occurred.', message);
+  }
 
-    createWithCallback(title: string, message: string, confirmation: boolean): Promise<boolean> {
-        return new Promise((resolve, reject) => {
-            let buttons = null;
-            if (confirmation) {
-                buttons = [{
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: () => {
-                        confirm.dismiss().then(() => resolve(false));
-                    }
-                }, {
-                    text: 'Yes',
-                    handler: () => {
-                        confirm.dismiss().then(() => resolve(true));
-                    }
-                }];
-            } else {
-                buttons = [{
-                    text: 'Ok',
-                    handler: () => {
-                        confirm.dismiss().then(() => resolve(true));
-                    }
-                }]
-            }
+  createWithCallback(title: string, message: string, confirmation: boolean): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      let buttons = null;
+      if (confirmation) {
+        buttons = [{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            confirm.dismiss().then(() => resolve(false));
+          }
+        }, {
+          text: 'Yes',
+          handler: () => {
+            confirm.dismiss().then(() => resolve(true));
+          }
+        }];
+      } else {
+        buttons = [{
+          text: 'Ok',
+          handler: () => {
+            confirm.dismiss().then(() => resolve(true));
+          }
+        }];
+      }
 
-            const confirm = this.alertCtrl.create({
-                title,
-                message,
-                buttons: buttons
-            });
+      const confirm = this.alertCtrl.create({
+        title,
+        message,
+        buttons
+      });
 
-            return confirm.present();
-        });
-    }
+      return confirm.present();
+    });
+  }
 }

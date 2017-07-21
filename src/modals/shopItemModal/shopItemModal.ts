@@ -2,26 +2,26 @@ import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ViewController, NavParams, ToastController } from 'ionic-angular';
 
-import { QuantityValidator } from  '../../validators/quantity';
+import { QuantityValidator } from '../../validators/quantity';
 
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  templateUrl: "shopItemModal.html",
+  templateUrl: 'shopItemModal.html',
 })
 export class ShopItemModal {
   shopItemForm: FormGroup;
 
-  constructor(public viewCtrl: ViewController, 
-              public params: NavParams,              
-              private toastCtrl: ToastController, 
-              public translate: TranslateService) {
+  constructor(public viewCtrl: ViewController,
+    public params: NavParams,
+    private toastCtrl: ToastController,
+    public translate: TranslateService) {
 
     this.shopItemForm = new FormGroup({
-        'name': new FormControl('', [Validators.required, Validators.maxLength(20),
-                                     Validators.pattern('[A-Z][a-zA-Z ]*')]),
-        'quantity': new FormControl('', [Validators.required, QuantityValidator.isValid]),
-        'category': new FormControl('', [Validators.required])
+      name: new FormControl('', [Validators.required, Validators.maxLength(20),
+        Validators.pattern('[A-Z][a-zA-Z ]*')]),
+      quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
+      category: new FormControl('', [Validators.required])
     });
   }
 
@@ -30,21 +30,23 @@ export class ShopItemModal {
   }
 
   accept() {
-    if(this.shopItemForm.valid){
-        this.viewCtrl.dismiss({title: this.shopItemForm.get('name').value, 
-                               units: this.shopItemForm.get('quantity').value, 
-                               category: this.shopItemForm.get('category').value});
+    if (this.shopItemForm.valid) {
+      this.viewCtrl.dismiss({
+        title: this.shopItemForm.get('name').value,
+        units: this.shopItemForm.get('quantity').value,
+        category: this.shopItemForm.get('category').value
+      });
     } else {
       this.presentToast();
     }
   }
 
   presentToast() {
-    this.translate.get('Error').subscribe( value => {
-      let toast = this.toastCtrl.create({
-          message: value.notValid,
-          duration: 1500,
-          position: 'bottom'
+    this.translate.get('Error').subscribe(value => {
+      const toast = this.toastCtrl.create({
+        message: value.notValid,
+        duration: 1500,
+        position: 'bottom'
       });
 
       toast.present();
