@@ -44,7 +44,7 @@
           <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
       </div>
       <ion-item>
-        <ion-label>Mover a Carpeta</ion-label>
+        <ion-label>{{ 'Modal.ItemModal.move-folder' | translate }}</ion-label>
         <ion-select formControlName="moveFolder">
           <ion-option *ngFor="let folder of folders" [value]="folder">{{ folder.title }}</ion-option>
         </ion-select>

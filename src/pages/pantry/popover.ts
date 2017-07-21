@@ -4,8 +4,8 @@ import { ViewController } from 'ionic-angular';
 @Component({
   template: `
     <ion-list>
-      <button ion-item (click)="close('item')">Item</button>
-      <button ion-item (click)="close('folder')">Folder</button>
+      <button ion-item (click)="close('item')">{{ 'Pantry.popover.item' | translate }}</button>
+      <button ion-item (click)="close('folder')">{{ 'Pantry.popover.folder' | translate }}</button>
     </ion-list>
   `
 })
