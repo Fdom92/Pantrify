@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { PantryPage } from '../pages/pantry/pantry';
+import { PopoverPage } from '../pages/pantry/popover';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
@@ -16,11 +17,15 @@ import { SettingsPage } from '../pages/settings/settings';
 import { CustomTabPage } from '../pages/customTab/customTab';
 import { ItemModal } from '../modals/itemModal/itemModal';
 import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
+import { FolderModal } from '../modals/folderModal/folderModal';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
+import { FirebaseService } from '../providers/firebase.provider';
 import { LoadingService } from '../providers/loading.provider';
 import { AlertService } from '../providers/alert.provider';
 import { FirebaseConfig } from '../config/firebase.config';
+import { ExpandableComponent } from '../components/expandable/expandable';
+import { FolderItemComponent } from '../components/folderItem/folderItem';
 
 import { TranslateHttpLoader  } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -30,12 +35,13 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http);
+    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 let pages = [
   MyApp,
   PantryPage,
+  PopoverPage,
   LoginPage,
   SignupPage,
   HomePage,
@@ -43,7 +49,10 @@ let pages = [
   CustomTabPage,
   ItemModal,
   ShopItemModal,
-  ShopListPage
+  FolderModal,
+  ShopListPage,
+  ExpandableComponent,
+  FolderItemComponent
 ];
 
 export function declarations() {
@@ -74,6 +83,6 @@ export function entryComponents() {
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),
   providers: [UserData, SplashScreen, StatusBar, 
-              HardwareBackButtonService, LoadingService, AlertService]
+              HardwareBackButtonService, LoadingService, AlertService, FirebaseService]
 })
 export class AppModule {}

@@ -1,4 +1,11 @@
 .customTab {
+
+    .expandable-button {
+        position: absolute;
+        right: 8px;
+        top: 0;
+    }
+
     .no-items {
         margin-top: 50%;
         .no-items-text {

@@ -6,17 +6,18 @@
             "accept-button"  : "Aceptar",
             "delete-button"  : "Borrar",
             "name-label"     : "Nombre",
-            "quantity-label" : "Cantidad"
+            "quantity-label" : "Cantidad",
+            "move-folder"    : "Mover a una carpeta"
         },
         "ShopItemModal": {
-            "shop-header" : "Añadir",
+            "shop-header"    : "Añadir",
             "accept-button"  : "Aceptar",
             "name-label"     : "Nombre",
             "quantity-label" : "Cantidad",
-            "category-label": "Categoría",
-            "category-1": "Comida",
-            "category-2": "Bebidas",
-            "category-3": "Hogar"
+            "category-label" : "Categoría",
+            "category-1"     : "Comida",
+            "category-2"     : "Bebidas",
+            "category-3"     : "Hogar"
         }
     },
     "Validations": {
@@ -64,7 +65,11 @@
         "shop": "Lista de la compra"
     },
     "Pantry": {
-        "view-header": "Despensa"
+        "view-header": "Despensa",
+        "popover": {
+            "item": "Producto",
+            "folder": "Carpeta"
+        }
     },
     "ShopList": {
         "view-header": "Lista de la compra",

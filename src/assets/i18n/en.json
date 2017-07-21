@@ -6,17 +6,18 @@
             "accept-button"  : "Accept",
             "delete-button"  : "Delete",
             "name-label"     : "Name",
-            "quantity-label" : "Quantity"
+            "quantity-label" : "Quantity",
+            "move-folder"    : "Move to a folder"
         },
         "ShopItemModal": {
-            "shop-header" : "Add",
+            "shop-header"    : "Add",
             "accept-button"  : "Accept",
             "name-label"     : "Name",
             "quantity-label" : "Quantity",
-            "category-label": "Category",
-            "category-1": "Food",
-            "category-2": "Drinks",
-            "category-3": "Home"
+            "category-label" : "Category",
+            "category-1"     : "Food",
+            "category-2"     : "Drinks",
+            "category-3"     : "Home"
         }
     },
     "Validations": {
@@ -64,7 +65,11 @@
         "shop": "Shop List"
     },
     "Pantry": {
-        "view-header": "Pantry"
+        "view-header": "Pantry",
+        "popover": {
+            "item": "Product",
+            "folder": "Folder"
+        }
     },
     "ShopList": {
         "view-header": "Shop List",

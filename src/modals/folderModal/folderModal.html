@@ -33,22 +33,6 @@
           {{ 'Validations.modal-name-required' | translate }}
         </p>
       </div>
-      <ion-item>
-        <ion-label>{{ 'Modal.ItemModal.quantity-label' | translate }}</ion-label>
-        <ion-input formControlName="quantity" 
-                   placeholder="{{item?.units}}" 
-                   type="number">
-        </ion-input>
-      </ion-item>
-      <div *ngIf="!itemForm.get('quantity').valid && itemForm.get('quantity').touched">
-          <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
-      </div>
-      <ion-item>
-        <ion-label>{{ 'Modal.ItemModal.move-folder' | translate }}</ion-label>
-        <ion-select formControlName="moveFolder">
-          <ion-option *ngFor="let folder of folders" [value]="folder">{{ folder.title }}</ion-option>
-        </ion-select>
-      </ion-item>
     </ion-list>
   </form>
   <button *ngIf="type === 'edit'" ion-button full (click)="remove()" color="red">

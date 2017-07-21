@@ -1,14 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { ModalController, Tabs, NavController } from 'ionic-angular';
+import { ModalController, Tabs, NavController, PopoverController } from 'ionic-angular';
 
 import { CustomTabPage } from './../customTab/customTab';
 import { ItemModal } from '../../modals/itemModal/itemModal';
+import { FolderModal } from '../../modals/folderModal/folderModal';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
-import { UserData } from '../../providers/user.provider';
+import { PopoverPage } from './popover';
+import { FirebaseService } from '../../providers/firebase.provider';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { TranslateService } from '@ngx-translate/core';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 class Tab {
     icon: string;
@@ -16,9 +17,10 @@ class Tab {
     items: FirebaseListObservable<any[]>;
 };
 
-const fbQuery = {
-    orderByChild: 'title',
-    limitToLast: 15
+const type = {
+    '0': '/food',
+    '1': '/drinks',
+    '2': '/home'
 };
 
 @Component({
@@ -28,26 +30,64 @@ export class PantryPage {
   @ViewChild('pantryTabs') tabRef: Tabs;
   
   tabs : Array<Tab>;
+  folders: Array<any> = [];
 
   constructor(private _backBtn: HardwareBackButtonService, 
-              public userdata: UserData, 
               public modalCtrl: ModalController, 
-              public translate: TranslateService,
               public navCtrl: NavController,
-              private _af: AngularFireDatabase) {
+              private _fbService: FirebaseService,
+              private popoverCtrl: PopoverController) {
 
-      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/food', {query: fbQuery})},
-              {icon: 'beer',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/drinks', {query: fbQuery})},
-              {icon: 'home',  component: CustomTabPage, items:  _af.list('/' + this.userdata.getUid() + '/home', {query: fbQuery})}];
+      this.tabs = [{icon: 'pizza',  component: CustomTabPage, items:  this._fbService.getFood()},
+              {icon: 'beer',  component: CustomTabPage, items:  this._fbService.getDrinks()},
+              {icon: 'home',  component: CustomTabPage, items:  this._fbService.getHome()}];
+
+      this.folders = this._fbService.getFolders();
   }
 
-    onAdd() {
-        let addModal = this.modalCtrl.create(ItemModal, {type: 'add'});
+    onAddItem() {
+        let id = this.tabRef.getSelected().id.split('-')[1];
+        let addModal = this.modalCtrl.create(ItemModal, {type: 'add', folders:this.folders[+id]});
         addModal.onDidDismiss(data => {
-          let id = this.tabRef.getSelected().id.split('-')[1];
-          this.tabs[+id].items.push(data);
+            if (data) {
+                if (data.moveFolder !== '') {
+                    this._fbService.pushItemFolder({title: data.title, units: data.units}, 
+                                                    type[id], data.moveFolder); 
+                } else {
+                    this._fbService.pushItem({ title: data.title, units: data.units}, type[id]);
+                }
+            }
         });
         addModal.present();
+    }
+
+    onAddFolder() {
+        let id = this.tabRef.getSelected().id.split('-')[1];        
+        let folderModal = this.modalCtrl.create(FolderModal, {type: 'add'});
+        folderModal.onDidDismiss(data => {
+            if (data) {
+                this._fbService.pushItem({
+                        title: data.title,
+                        isFolder: true,
+                        expanded: false,
+                        products: ''
+                }, type[id]);
+            }
+        });
+        folderModal.present();
+    }
+
+    onAdd(event) {
+        let popover = this.popoverCtrl.create(PopoverPage);
+        popover.onDidDismiss(data => {
+            if (data === 'folder') {
+                this.onAddFolder();
+            }
+            if (data === 'item') {
+                this.onAddItem();
+            }
+        });
+        popover.present({ ev: event });
     }
 
     ionViewDidEnter() {
