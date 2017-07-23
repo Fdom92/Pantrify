@@ -14,7 +14,7 @@ export class ExpandableComponent {
   }
 
   ngAfterViewInit() {
-    const expandHeight = this.expandWrapper.nativeElement.childNodes[2].children.length * 50;
+    const expandHeight = this.expandWrapper.nativeElement.childNodes[2].children.length * 55;
     this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', expandHeight + 'px');
   }
 }
