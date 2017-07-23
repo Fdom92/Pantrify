@@ -18,19 +18,24 @@ export class ItemModal {
   constructor(private viewCtrl: ViewController, private params: NavParams,
     private toastCtrl: ToastController, private translate: TranslateService) {
 
-    this.itemForm = new FormGroup({
-      name: new FormControl('', [Validators.required,
-        Validators.maxLength(20),
-        Validators.pattern('[A-Z][a-zA-Z]*')]),
-      quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
-      moveFolder: new FormControl('', [])
-    });
-
     this.type = this.params.get('type');
     this.folders = this.params.get('folders');
 
     if (this.type === 'edit') {
+      this.itemForm = new FormGroup({
+        name: new FormControl('', [Validators.maxLength(20), Validators.pattern('[A-Z][a-zA-Z]*')]),
+        quantity: new FormControl('', [QuantityValidator.isValid]),
+        moveFolder: new FormControl('', [])
+      });
       this.item = this.params.get('item');
+    } else {
+      this.itemForm = new FormGroup({
+        name: new FormControl('', [Validators.required,
+          Validators.maxLength(20),
+          Validators.pattern('[A-Z][a-zA-Z]*')]),
+        quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
+        moveFolder: new FormControl('', [])
+      });
     }
   }
 
@@ -39,7 +44,7 @@ export class ItemModal {
   }
 
   accept() {
-    if (this.itemForm.valid) {
+    if (this.type === 'edit') {
       const itemData = {
         type: this.type,
         title: this.itemForm.get('name').value ? this.itemForm.get('name').value : this.item.title,
@@ -48,7 +53,17 @@ export class ItemModal {
       };
       this.viewCtrl.dismiss(itemData);
     } else {
-      this.presentToast();
+      if (this.itemForm.valid) {
+        const itemData = {
+          type: this.type,
+          title: this.itemForm.get('name').value,
+          units: this.itemForm.get('quantity').value,
+          moveFolder: this.itemForm.get('moveFolder').value ? this.itemForm.get('moveFolder').value : ''
+        };
+        this.viewCtrl.dismiss(itemData);
+      } else {
+        this.presentToast();
+      }
     }
   }
 
