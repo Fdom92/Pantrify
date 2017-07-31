@@ -7,10 +7,10 @@
     <ion-col col-5>
         <ion-item>
             <p>{{item.units}}</p>            
-            <button ion-button outline item-right (click)="onAdd(item, item.$key)">
+            <button ion-button outline item-right (click)="onAdd(item, item.$key, $event)">
                 <ion-icon name="add"></ion-icon>
             </button>
-            <button ion-button outline item-right (click)="onRemove(item, item.$key)">
+            <button ion-button outline item-right (click)="onRemove(item, item.$key, $event)">
                 <ion-icon name="remove"></ion-icon>
             </button>
         </ion-item>

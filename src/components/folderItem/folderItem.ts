@@ -36,13 +36,13 @@ export class FolderItemComponent implements OnInit {
     this.folders = this._fbService.getFolders();
   }
 
-  onAdd(item, key) {
+  onAdd(item, key, event) {
     event.stopPropagation();
     this._fbService.updateItemFolder(item, this.type,
       { title: item.title, units: parseInt(item.units, 10) + 1 }, this.folder);
   }
 
-  onRemove(item, key) {
+  onRemove(item, key, event) {
     event.stopPropagation();
     this._fbService.updateItemFolder(item, this.type,
       { title: item.title, units: parseInt(item.units, 10) - 1 }, this.folder);

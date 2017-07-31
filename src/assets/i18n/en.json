@@ -93,7 +93,7 @@
         }
     },
     "Error": {
-        "addItemMax": "You have reached the limit of products",
+        "addItemMax": "You can not have this quantity of products",
         "notValid": "Wrong data check them"
     }
 }

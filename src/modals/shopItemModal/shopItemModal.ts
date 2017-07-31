@@ -19,7 +19,7 @@ export class ShopItemModal {
 
     this.shopItemForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(20),
-        Validators.pattern('[A-Z][a-zA-Z ]*')]),
+        Validators.pattern('[^0-9]*')]),
       quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
       category: new FormControl('', [Validators.required])
     });

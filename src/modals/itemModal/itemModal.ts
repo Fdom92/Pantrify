@@ -23,7 +23,7 @@ export class ItemModal {
 
     if (this.type === 'edit') {
       this.itemForm = new FormGroup({
-        name: new FormControl('', [Validators.maxLength(20), Validators.pattern('[A-Z][a-zA-Z]*')]),
+        name: new FormControl('', [Validators.maxLength(20), Validators.pattern('[^0-9]*')]),
         quantity: new FormControl('', [QuantityValidator.isValid]),
         moveFolder: new FormControl('', [])
       });
@@ -32,7 +32,7 @@ export class ItemModal {
       this.itemForm = new FormGroup({
         name: new FormControl('', [Validators.required,
           Validators.maxLength(20),
-          Validators.pattern('[A-Z][a-zA-Z]*')]),
+          Validators.pattern('[^0-9]*')]),
         quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
         moveFolder: new FormControl('', [])
       });

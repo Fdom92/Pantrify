@@ -4,7 +4,7 @@ export class QuantityValidator {
 
   static isValid(control: FormControl): any {
 
-    if (control.value < 1) {
+    if (control.value < 0) {
       return { invalid_quantity: true };
     }
 

@@ -49,7 +49,7 @@ export class ShopListPage {
         items.forEach(item => {
           if (item.isFolder) {
             Object.keys(item.products).forEach(key => {
-              this.items.push({
+              item.units === 0 && this.items.push({
                 type,
                 $key: key,
                 title: item.products[key].title,

@@ -4,9 +4,9 @@
       <ion-col col-12 *ngIf="item.isFolder" (click)="onEditFolder(item, item.$key)">
         <ion-item>
           <p>{{item.title}}</p>
-          <button class="expandable-button" ion-button outline item-right (click)="expandItem(item)">
-            <ion-icon *ngIf="!item.expanded" name="add"></ion-icon>
-            <ion-icon *ngIf="item.expanded" name="remove"></ion-icon>
+          <button class="expandable-button" ion-button clear item-right (click)="expandItem(item)">
+            <ion-icon *ngIf="!item.expanded" name="arrow-dropdown"></ion-icon>
+            <ion-icon *ngIf="item.expanded" name="arrow-dropup"></ion-icon>
           </button>
           <expandable *ngIf="item.products" [expanded]="item.expanded">
             <folder-item [products]="item.products"
