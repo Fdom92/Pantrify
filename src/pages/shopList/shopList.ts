@@ -25,7 +25,8 @@ export class ShopListPage {
     const shopModal = this._modalCtrl.create(ShopItemModal);
     shopModal.onDidDismiss(data => {
       if (data) {
-        this.items.push({ $key: '', title: data.title, units: data.units, done: false, type: data.category });
+        this.items.push({ $key: '', title: data.title, 
+          units: parseInt(data.units, 10), done: false, type: data.category });
       }
     });
     shopModal.present();
@@ -49,7 +50,7 @@ export class ShopListPage {
         items.forEach(item => {
           if (item.isFolder) {
             Object.keys(item.products).forEach(key => {
-              item.units === 0 && this.items.push({
+              item.products[key].units === 0 && this.items.push({
                 type,
                 $key: key,
                 title: item.products[key].title,
@@ -61,7 +62,7 @@ export class ShopListPage {
           } else {
             item.units === 0 && this.items.push({
               type,
-              $key: item.key,
+              $key: item.$key,
               title: item.title,
               units: 1,
               done: false,
@@ -83,29 +84,21 @@ export class ShopListPage {
     this.addItemsToList(this._fbService.getHome(), 'home', true);
   }
 
-  updateItemsOnPantry(fbRef, type, ...args) {
-    this.items.filter((value) => value.type === type).forEach((value) => {
-      if (value.$key === '') {
-        fbRef.push({ title: value.title, units: value.units });
-      } else {
-        if (value.folder) {
-          this._fbService.updateItemFolder(value, type, { units: value.units }, value.folder);
-        } else {
-          fbRef.update(value.$key, { units: value.units });
-        }
-      }
-    });
-    if (args.length > 0) {
-      this._loading.dismiss().then(() => this.items = []);
-    }
-  }
-
   finished() {
     this._translate.get('ShopList').subscribe(value => {
       this._loading.present({ content: value.addLoading });
     });
-    this.updateItemsOnPantry(this._fbService.getFood(), 'food');
-    this.updateItemsOnPantry(this._fbService.getDrinks(), 'drinks');
-    this.updateItemsOnPantry(this._fbService.getHome(), 'home', true);
+    this.items.forEach((value) => {
+      if (value.$key === '') {
+        this._fbService.pushItem({ title: value.title, units: value.units }, value.type);
+      } else {
+        if (value.folder) {
+          this._fbService.updateItemFolder(value, value.type, { units: value.units }, value.folder);
+        } else {
+          this._fbService.updateItem(value, value.type, { units: value.units });
+        }
+      }
+    });
+    this._loading.dismiss().then(() => this.items = []);
   }
 }

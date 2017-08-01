@@ -33,6 +33,15 @@ export class FolderItemComponent implements OnInit {
         units: this.products[key].units
       });
     });
+    this.items.sort((a, b) => {
+      const nameA = a.title.toLowerCase();
+      const nameB = b.title.toLowerCase();
+      if (nameA < nameB)
+        return -1;
+      if (nameA > nameB)
+        return 1;
+      return 0;
+    });
     this.folders = this._fbService.getFolders();
   }
 
@@ -62,11 +71,11 @@ export class FolderItemComponent implements OnInit {
         } else {
           if (data.moveFolder !== '') {
             this._fbService.removeItemFolder(item, this.type, this.folder);
-            this._fbService.pushItemFolder({ title: data.title, units: data.units },
+            this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10) },
               this.type, data.moveFolder);
           } else {
             this._fbService.updateItemFolder(item, this.type,
-              { title: data.title, units: data.units }, this.folder);
+              { title: data.title, units: parseInt(data.units, 10) }, this.folder);
           }
         }
       }
