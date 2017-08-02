@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
-import { ItemModal } from '../../modals/itemModal/itemModal';
+import { ItemModal } from '../../modals/item/item';
 import { FirebaseService } from '../../providers/firebase.provider';
 
 const types = {
@@ -12,7 +12,7 @@ const types = {
 
 @Component({
   selector: 'folder-item',
-  templateUrl: 'folderItem.html'
+  templateUrl: 'folder-item.html'
 })
 export class FolderItemComponent implements OnInit {
 

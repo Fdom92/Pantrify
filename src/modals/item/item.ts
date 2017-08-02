@@ -7,7 +7,7 @@ import { ViewController, NavParams, ToastController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  templateUrl: 'itemModal.html',
+  templateUrl: 'item.html',
 })
 export class ItemModal {
   itemForm: FormGroup;

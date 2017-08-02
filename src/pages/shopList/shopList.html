@@ -14,25 +14,7 @@
 
 <ion-content class="shopList">
   <ion-grid>
-    <ion-row *ngFor="let item of items">
-      <ion-col col-7>
-          <ion-item>
-            <ion-label>{{item.title}}</ion-label>
-            <ion-checkbox color="md-secondary" [(ngModel)]="item.done"></ion-checkbox>
-          </ion-item>
-      </ion-col>
-      <ion-col col-5>
-          <ion-item>
-            <p>{{item.units}}</p>
-            <button ion-button item-right color="md-secondary" (click)="onAdd(item)">
-              <ion-icon name="add"></ion-icon>
-            </button>
-            <button ion-button item-right color="md-secondary" (click)="onRemove(item)">
-              <ion-icon name="remove"></ion-icon>
-            </button>
-          </ion-item>
-      </ion-col>
-    </ion-row>
+    <shoplist-item *ngFor="let item of items" [item]="item"></shoplist-item>
   </ion-grid>
   <div class="no-items" [hidden]="items.length !== 0">
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-1' | translate }}</p>
@@ -45,7 +27,9 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button block color="md-primary" [hidden]="!isAllDone() || items.length === 0" (click)="finished()">
+  <button ion-button block color="md-primary"
+          [hidden]="!isAllDone() || items.length === 0"
+          (click)="finished()">
     {{ 'ShopList.finish-button' | translate }}
   </button>
 </ion-footer>

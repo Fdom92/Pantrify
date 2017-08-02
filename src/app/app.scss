@@ -47,7 +47,9 @@
 @import "../pages/signup/signup";
 @import "../pages/login/login";
 @import "../pages/pantry/pantry";
-@import "../modals/itemModal/itemModal";
-@import "../pages/customTab/customTab";
+
+@import "../modals/item/item";
+
+@import "../components/custom-tab/custom-tab";
 
 @import "../theme/global";

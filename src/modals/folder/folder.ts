@@ -5,7 +5,7 @@ import { ViewController, NavParams, ToastController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  templateUrl: 'folderModal.html',
+  templateUrl: 'folder.html',
 })
 export class FolderModal {
   itemForm: FormGroup;

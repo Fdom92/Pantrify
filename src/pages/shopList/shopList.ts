@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
 import { LoadingService } from '../../providers/loading.provider';
-import { ShopItemModal } from '../../modals/shopItemModal/shopItemModal';
+import { ShopItemModal } from '../../modals/shop-item/shop-item';
 import { FirebaseService } from '../../providers/firebase.provider';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -25,23 +25,11 @@ export class ShopListPage {
     const shopModal = this._modalCtrl.create(ShopItemModal);
     shopModal.onDidDismiss(data => {
       if (data) {
-        this.items.push({ $key: '', title: data.title, 
+        this.items.push({ $key: '', title: data.title,
           units: parseInt(data.units, 10), done: false, type: data.category });
       }
     });
     shopModal.present();
-  }
-
-  onAdd(item) {
-    if (item.units < 999) {
-      item.units += 1;
-    }
-  }
-
-  onRemove(item) {
-    if (item.units > 1) {
-      item.units -= 1;
-    }
   }
 
   addItemsToList(fbRef, type, ...args) {

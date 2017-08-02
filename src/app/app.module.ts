@@ -14,18 +14,20 @@ import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
 import { ShopListPage } from '../pages/shopList/shopList';
 import { SettingsPage } from '../pages/settings/settings';
-import { CustomTabPage } from '../pages/customTab/customTab';
-import { ItemModal } from '../modals/itemModal/itemModal';
-import { ShopItemModal } from '../modals/shopItemModal/shopItemModal';
-import { FolderModal } from '../modals/folderModal/folderModal';
+import { ItemModal } from '../modals/item/item';
+import { ShopItemModal } from '../modals/shop-item/shop-item';
+import { FolderModal } from '../modals/folder/folder';
 import { UserData } from '../providers/user.provider';
 import { HardwareBackButtonService } from '../providers/backbutton.provider';
 import { FirebaseService } from '../providers/firebase.provider';
 import { LoadingService } from '../providers/loading.provider';
 import { AlertService } from '../providers/alert.provider';
 import { firebaseConfig } from '../config/firebase.config';
-import { ExpandableComponent } from '../components/expandable/expandable';
-import { FolderItemComponent } from '../components/folderItem/folderItem';
+import { CustomTabPage } from '../components/custom-tab/custom-tab';
+import { FolderItemComponent } from '../components/folder-item/folder-item';
+import { ShopListItemComponent } from '../components/shoplist-item/shoplist-item';
+import { PantryItemComponent } from '../components/pantry-item/pantry-item';
+import { PantryFolderComponent } from '../components/pantry-folder/pantry-folder';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -51,8 +53,10 @@ const pages = [
   ShopItemModal,
   FolderModal,
   ShopListPage,
-  ExpandableComponent,
-  FolderItemComponent
+  FolderItemComponent,
+  ShopListItemComponent,
+  PantryItemComponent,
+  PantryFolderComponent
 ];
 
 export function declarations() {
