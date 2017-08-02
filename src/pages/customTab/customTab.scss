@@ -1,5 +1,7 @@
 .customTab {
 
+    background-color: #f5f5f5;
+
     .expandable-button {
         position: absolute;
         right: 8px;
@@ -24,12 +26,18 @@
     ion-grid {
         ion-row {
             ion-col {
-                border-bottom: 1px solid #dedede;
+                border-bottom: 1px solid color($colors, md-primary-light);
+                .item.item-block {
+                    background-color: transparent;
+                }
             }
 
             &:last-child {
                 ion-col {
                     border-bottom: none;
+                    .item.item-block {
+                        background-color: transparent;
+                    }
                 }
             }
         }

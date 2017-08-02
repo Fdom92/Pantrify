@@ -12,8 +12,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-tabs #pantryTabs color="md-primary" tabsHighlight="true">
+<ion-content class="pantry">
+  <ion-tabs class="pantryTabs" #pantryTabs color="md-primary" tabsHighlight="true">
     <ion-tab *ngFor="let tab of tabs"  [tabIcon]="tab.icon" [root]="tab.component" [rootParams]="tab.items"></ion-tab>
   </ion-tabs>
 </ion-content>
