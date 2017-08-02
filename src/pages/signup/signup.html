@@ -1,7 +1,7 @@
 <ion-header no-border>
   <ion-buttons start>
     <button ion-button clear icon-only (click)="goBack()">
-      <ion-icon color="white" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      <ion-icon color="md-primary-dark" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
     </button>
   </ion-buttons>
 </ion-header>
@@ -13,9 +13,9 @@
     </div>
   </div>
   <form [formGroup]="registerForm">
-    <ion-input formControlName="email" [(ngModel)]="email" type="text" placeholder="Email" value="{{email}}"></ion-input>
-    <ion-input formControlName="password" [(ngModel)]="password" type="password" placeholder="Password" value="{{password}}"></ion-input>
-    <button type="submit" ion-button color="default" block (click)="registerUser()">
+    <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+    <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+    <button type="submit" ion-button color="md-primary" block (click)="registerUser()">
       {{ 'Home.signup' | translate }}
     </button>    
   </form>

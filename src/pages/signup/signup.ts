@@ -14,18 +14,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-
-  email: string;
-  password: string;
   registerForm: FormGroup;
 
-  constructor(public userdata: UserData,
-    public navCtrl: NavController,
-    public menu: MenuController,
-    public af: AngularFireAuth,
-    private toastCtrl: ToastController,
-    private _loading: LoadingService,
-    public translate: TranslateService) {
+  constructor(public userdata: UserData, public navCtrl: NavController,
+              public menu: MenuController, public af: AngularFireAuth,
+              private toastCtrl: ToastController, private _loading: LoadingService,
+              public translate: TranslateService) {
 
     this.registerForm = new FormGroup({
       email: new FormControl('', [
@@ -41,7 +35,8 @@ export class SignupPage {
     this.translate.get('Home').subscribe(value => {
       this._loading.present({ content: value.signupLoading });
     });
-    this.af.auth.createUserWithEmailAndPassword(this.email, this.password)
+    this.af.auth.createUserWithEmailAndPassword(this.registerForm.get('email').value,
+      this.registerForm.get('password').value)
       .then((response: any) => {
         this._loading.dismiss().then(() => {
           const userdata = {
@@ -60,12 +55,10 @@ export class SignupPage {
   }
 
   ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
   }
 
   ionViewWillLeave() {
-    // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
   }
 

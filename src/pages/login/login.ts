@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
-import { App, MenuController, NavController, ToastController } from 'ionic-angular';
+import { MenuController, NavController, ToastController } from 'ionic-angular';
 
 import { PantryPage } from '../pantry/pantry';
 import { UserData } from '../../providers/user.provider';
@@ -14,27 +14,16 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-
-  email: string;
-  password: string;
   loginForm: FormGroup;
 
-  constructor(public app: App,
-    public userdata: UserData,
-    public navCtrl: NavController,
-    public menu: MenuController,
-    public af: AngularFireAuth,
-    private toastCtrl: ToastController,
-    private _loading: LoadingService,
-    public translate: TranslateService) {
+  constructor(public userdata: UserData, public navCtrl: NavController,
+              public menu: MenuController, public af: AngularFireAuth,
+              private toastCtrl: ToastController, private _loading: LoadingService,
+              public translate: TranslateService) {
 
     this.loginForm = new FormGroup({
-      email: new FormControl('', [
-        Validators.required
-      ]),
-      password: new FormControl('', [
-        Validators.required
-      ])
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
 
@@ -42,7 +31,8 @@ export class LoginPage {
     this.translate.get('Home').subscribe(value => {
       this._loading.present({ content: value.loginLoading });
     });
-    this.af.auth.signInWithEmailAndPassword(this.email, this.password)
+    this.af.auth.signInWithEmailAndPassword(this.loginForm.get('email').value,
+      this.loginForm.get('password').value)
       .then((response: any) => {
         this._loading.dismiss().then(() => {
           const userdata = {
@@ -61,12 +51,10 @@ export class LoginPage {
   }
 
   ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
   }
 
   ionViewWillLeave() {
-    // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
   }
 
