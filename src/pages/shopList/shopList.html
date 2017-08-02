@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="indigo500">
+  <ion-navbar color="md-primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -38,14 +38,14 @@
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-1' | translate }}</p>
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-2' | translate }}</p>
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-3' | translate }}</p>
-    <button ion-button color="indigo500" (click)="generateList()">
+    <button ion-button color="md-primary" (click)="generateList()">
       {{ 'ShopList.list-button' | translate }}
     </button>
   </div>
 </ion-content>
 
 <ion-footer>
-  <button ion-button block color="indigo500" [hidden]="!isAllDone() || items.length === 0" (click)="finished()">
+  <button ion-button block color="md-primary" [hidden]="!isAllDone() || items.length === 0" (click)="finished()">
     {{ 'ShopList.finish-button' | translate }}
   </button>
 </ion-footer>

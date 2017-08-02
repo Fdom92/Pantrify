@@ -23,30 +23,16 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387EF5,
-  light:      #f4f4f4,
-  indigo50:   #E8EAF6,
-  indigo100:  #C5CAE9,
-  indigo200:  #9FA8DA,
-  indigo300:  #7986CB,
-  indigo400:  #5C6BC0,
-  indigo500:  #3F51B5,
-  indigo600:  #3949AB,
-  indigo700:  #303F9F,
-  indigo800:  #283593,
-  indigo900:  #1A237E,
-  indigoA100: #8C9EFF,
-  indigoA200: #536DFE,
-  indigoA400: #3D5AFE,
-  indigoA700: #304FFE,
-  pink100:    #FF80AB,
-  pink200:    #FF4081,
-  pink400:    #F50057,
-  gray:     #666666,
-  white:    #FFFFFF,
-  error:      #F53D3D,
-  red:      red,
-  black:    #121212,
+  primary            :#387EF5,
+  light              :#f4f4f4,
+  md-primary         :#6d4c41,
+  md-primary-light   :#9c786c,
+  md-primary-dark    :#40241a,
+  md-primary-text    :#ffffff,
+  md-secondary       :#ffa000,
+  md-secondary-light :#ffd149,
+  md-secondary-dark  :#c67100,
+  md-secondary-text  :#000000
 );
 
 
