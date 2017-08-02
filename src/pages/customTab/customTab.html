@@ -4,7 +4,7 @@
       <ion-col col-12 *ngIf="item.isFolder" (click)="onEditFolder(item, item.$key)">
         <ion-item>
           <p>{{item.title}}</p>
-          <button class="expandable-button" ion-button clear item-right (click)="expandItem(item)">
+          <button class="expandable-button" color="md-secondary" ion-button clear item-right (click)="expandItem(item)">
             <ion-icon *ngIf="!item.expanded" name="arrow-dropdown"></ion-icon>
             <ion-icon *ngIf="item.expanded" name="arrow-dropup"></ion-icon>
           </button>
@@ -24,10 +24,10 @@
       <ion-col *ngIf="!item.isFolder" col-5>
           <ion-item>
               <p>{{item.units}}</p>            
-              <button ion-button outline item-right (click)="onAdd(item, item.$key)">
+              <button ion-button item-right color="md-secondary" (click)="onAdd(item, item.$key)">
                 <ion-icon name="add"></ion-icon>
               </button>
-              <button ion-button outline item-right (click)="onRemove(item, item.$key)">
+              <button ion-button item-right color="md-secondary" (click)="onRemove(item, item.$key)">
                 <ion-icon name="remove"></ion-icon>
               </button>
           </ion-item>
