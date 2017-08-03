@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
+  selector: 'settings-page',
   templateUrl: 'settings.html'
 })
 export class SettingsPage {

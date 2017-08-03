@@ -8,6 +8,7 @@ import { FirebaseService } from '../../providers/firebase.provider';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
+  selector: 'shoplist-page',
   templateUrl: 'shopList.html'
 })
 export class ShopListPage {

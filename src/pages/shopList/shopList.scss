@@ -1,4 +1,9 @@
-.shopList {
+shoplist-page {
+
+    .content {
+        background-color: #f5f5f5;
+    }
+
     .item-md.item-block{
         .item-inner {
             border: none;
@@ -11,7 +16,7 @@
         flex-flow: column;
         .no-items-text {
             color: #000000;
-            opacity: 0.54;
+            opacity: 0.7;
             font-style: italic;
             margin-top: 5px;
             margin-bottom: 5px;

@@ -24,6 +24,7 @@ const type = {
 };
 
 @Component({
+  selector: 'pantry-page',
   templateUrl: 'pantry.html'
 })
 export class PantryPage {
