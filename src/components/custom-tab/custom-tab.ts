@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
-import { FirebaseService } from '../../providers/firebase.provider';
-
 import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -14,7 +12,7 @@ export class CustomTabPage {
   items: FirebaseListObservable<any[]>;
   type: any;
 
-  constructor(private navParams: NavParams, private _fbService: FirebaseService) {
+  constructor(private navParams: NavParams) {
 
     this.items = this.navParams.data;
     this.type = this.items.$ref;

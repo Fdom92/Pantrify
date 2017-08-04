@@ -12,30 +12,4 @@ custom-tab {
             font-style: italic;
         }
     }
-
-    .item-md.item-block {
-        .item-inner {
-            border-bottom: none;
-        }
-    }
-
-    ion-grid {
-        ion-row {
-            ion-col {
-                border-bottom: 1px solid color($colors, md-primary-light);
-                .item.item-block {
-                    background-color: transparent;
-                }
-            }
-
-            &:last-child {
-                ion-col {
-                    border-bottom: none;
-                    .item.item-block {
-                        background-color: transparent;
-                    }
-                }
-            }
-        }
-    }
 }
