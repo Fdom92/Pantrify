@@ -13,16 +13,18 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ShopListPage {
 
+  generated = false;
   items: Array<any> = [];
 
   constructor(private _loading: LoadingService, private _modalCtrl: ModalController,
     private _translate: TranslateService, private _fbService: FirebaseService) { }
 
   isAllDone() {
-    return this.items.every((element, index, array) => { return element.done; });
+    return this.items.every((element, index, array) => { return element.units > 0; });
   }
-
+  
   addSingleItem() {
+    this.generated = true;
     const shopModal = this._modalCtrl.create(ShopItemModal);
     shopModal.onDidDismiss(data => {
       if (data) {
@@ -43,7 +45,7 @@ export class ShopListPage {
                 type,
                 $key: key,
                 title: item.products[key].title,
-                units: 1,
+                units: 0,
                 folder: item,
                 done: false,
               });
@@ -53,7 +55,7 @@ export class ShopListPage {
               type,
               $key: item.$key,
               title: item.title,
-              units: 1,
+              units: 0,
               done: false,
             });
           }
@@ -68,6 +70,7 @@ export class ShopListPage {
     this._translate.get('ShopList').subscribe(value => {
       this._loading.present({ content: value.generatingLoading });
     });
+    this.generated = true;
     this.addItemsToList(this._fbService.getFood(), 'food');
     this.addItemsToList(this._fbService.getDrinks(), 'drinks');
     this.addItemsToList(this._fbService.getHome(), 'home', true);

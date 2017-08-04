@@ -15,7 +15,7 @@ export class ShopListItemComponent {
   }
 
   onRemove(item) {
-    if (item.units > 1) {
+    if (item.units > 0) {
       item.units -= 1;
     }
   }

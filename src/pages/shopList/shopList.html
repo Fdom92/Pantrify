@@ -16,7 +16,7 @@
   <ion-grid>
     <shoplist-item *ngFor="let item of items" [item]="item"></shoplist-item>
   </ion-grid>
-  <div class="no-items" [hidden]="items.length !== 0">
+  <div class="no-items" *ngIf="!generated">
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-1' | translate }}</p>
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-2' | translate }}</p>
     <p class="no-items-text" text-center>{{ 'ShopList.nothing-text-3' | translate }}</p>
@@ -24,12 +24,9 @@
       {{ 'ShopList.list-button' | translate }}
     </button>
   </div>
+  <ion-fab bottom center *ngIf="generated">
+    <button ion-fab color="md-secondary" [disabled]="!isAllDone()" (click)="finished()">
+      <ion-icon name="checkmark"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
-
-<ion-footer>
-  <button ion-button block color="md-primary"
-          [hidden]="!isAllDone() || items.length === 0"
-          (click)="finished()">
-    {{ 'ShopList.finish-button' | translate }}
-  </button>
-</ion-footer>
