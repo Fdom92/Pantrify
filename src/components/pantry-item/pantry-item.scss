@@ -1,20 +1,18 @@
 pantry-item {
-    .grid {
-        .row {
-            .col {
-                .item.item-block {
-                    background: transparent;
+  .row {
+    .col {
+      .item.item-block {
+        background: transparent;
 
-                    .item-inner {
-                        border-bottom: none;
+        .item-inner {
+          border-bottom: none;
 
-                        .label > p {
-                            color: #000000;
-                            opacity: 0.7;
-                        }
-                    }
-                }
-            }
+          .label>p {
+            color: #000000;
+            opacity: 0.7;
+          }
         }
+      }
     }
+  }
 }

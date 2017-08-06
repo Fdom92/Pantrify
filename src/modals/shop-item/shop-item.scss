@@ -1,7 +1,7 @@
 .shopItemModal {
   form {
     .error-text {
-      color: #f53d3d;
+      color: color($colors, remove);
       padding-left: 16px;
     }
   }

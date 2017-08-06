@@ -1,19 +1,17 @@
-<ion-grid>
-  <ion-row>
-    <ion-col col-10 (click)="onEditFolder()">
-      <ion-item>
-        <p>{{item.title}}</p>
-      </ion-item>
-    </ion-col>
-    <ion-col col-2>
-      <button color="md-secondary" ion-button clear item-right (click)="expandItem(item)">
+<ion-row>
+  <ion-col col-10 (click)="onEditFolder()">
+    <ion-item>
+      <p>{{item.title}}</p>
+    </ion-item>
+  </ion-col>
+  <ion-col col-2>
+    <button color="md-secondary" ion-button clear item-right (click)="expandItem(item)">
             <ion-icon *ngIf="!item.expanded" name="arrow-dropdown"></ion-icon>
             <ion-icon *ngIf="item.expanded" name="arrow-dropup"></ion-icon>
       </button>
-    </ion-col>
-    <ion-col col-12 *ngIf="item.expanded">
-      <folder-item *ngIf="item.products" [products]="item.products" [type]="type.key" [folder]="item">
-      </folder-item>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+  </ion-col>
+  <ion-col col-12 *ngIf="item.expanded">
+    <folder-item *ngIf="item.products" [products]="item.products" [type]="type.key" [folder]="item">
+    </folder-item>
+  </ion-col>
+</ion-row>
