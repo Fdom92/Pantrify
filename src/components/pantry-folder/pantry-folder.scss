@@ -5,13 +5,16 @@ pantry-folder {
         background: transparent;
 
         .item-inner {
-          border-bottom: none;
-
           .label>p {
             color: #000000;
             opacity: 0.7;
           }
         }
+      }
+      .item-md.item-block{
+          .item-inner {
+              border: none;
+          }
       }
     }
   }
