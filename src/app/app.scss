@@ -1,32 +1,42 @@
 // http://ionicframework.com/docs/v2/theming/
 
-#menu-material {
-  .menu-header {
+ion-menu {
+  ion-header {
     padding: 5px 15px;
     background-image: url('../assets/img/material-design.png');
     background-size: cover;
     color: white;
-    .name {
-      font-weight: 500;
-      margin-bottom: 3px;
+
+    .user-avatar {
+      padding: .5em;
+      height: 12vh;
     }
+
     .e-mail {
       margin-top: 0;
       margin-bottom: 5px;
     }
   }
-  .user-avatar {
-    padding: .5em;
-    height: 12vh;
-  }
-  h3,
-  .label,
-  {
-    color: #999;
-    font-weight: 400;
-  }
-  ion-icon {
-    color: #777;
+
+  .content {
+    background-color: #f5f5f5;
+
+    .list {
+      .item.item-block {
+          background-color: #f5f5f5;
+      }
+    }
+
+    h3, .label {
+      color: #000000;
+      opacity: 0.7;
+      font-weight: 400;
+    }
+
+    ion-icon {
+      color: #000000;
+      opacity: 0.7;
+    }
   }
 }
 
@@ -43,10 +53,5 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-@import "../pages/home/home";
-@import "../pages/signup/signup";
-@import "../pages/login/login";
-@import "../modals/itemModal/itemModal";
-@import "../pages/customTab/customTab";
 
 @import "../theme/global";

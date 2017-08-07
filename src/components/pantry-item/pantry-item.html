@@ -1,0 +1,18 @@
+<ion-row>
+  <ion-col col-7 (click)="onEditItem(item)">
+    <ion-item>
+      <p>{{item.title}}</p>
+    </ion-item>
+  </ion-col>
+  <ion-col col-5>
+    <ion-item>
+      <p>{{item.units}}</p>
+      <button ion-button item-right color="md-secondary" (click)="onAdd(item)">
+                <ion-icon name="add"></ion-icon>
+              </button>
+      <button ion-button item-right color="md-secondary" (click)="onRemove(item)">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+    </ion-item>
+  </ion-col>
+</ion-row>

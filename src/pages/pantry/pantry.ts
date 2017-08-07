@@ -2,9 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 
 import { ModalController, Tabs, NavController, PopoverController } from 'ionic-angular';
 
-import { CustomTabPage } from './../customTab/customTab';
-import { ItemModal } from '../../modals/itemModal/itemModal';
-import { FolderModal } from '../../modals/folderModal/folderModal';
+import { CustomTabPage } from '../../components/custom-tab/custom-tab';
+import { ItemModal } from '../../modals/item/item';
+import { FolderModal } from '../../modals/folder/folder';
 import { HardwareBackButtonService } from '../../providers/backbutton.provider';
 import { PopoverPage } from './popover';
 import { FirebaseService } from '../../providers/firebase.provider';
@@ -24,6 +24,7 @@ const type = {
 };
 
 @Component({
+  selector: 'pantry-page',
   templateUrl: 'pantry.html'
 })
 export class PantryPage {

@@ -1,0 +1,15 @@
+shoplist-item {
+  .row {
+    .col {
+      .item.item-block {
+        background: transparent;
+
+        .item-inner {
+          .label>p {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}

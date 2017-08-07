@@ -1,0 +1,12 @@
+<ion-content>
+  <div *ngFor="let item of items | async">
+    <ion-grid>
+      <pantry-folder *ngIf="item.isFolder" [type]="type" [item]="item"></pantry-folder>
+      <pantry-item *ngIf="!item.isFolder" [type]="type" [item]="item"></pantry-item>
+    </ion-grid>
+  </div>
+  <div class="no-items" *ngIf="(items | async)?.length === 0">
+    <p class="no-items-text" text-center>{{ 'CustomTab.no-items.text1' | translate }}</p>
+    <p class="no-items-text" text-center>{{ 'CustomTab.no-items.text2' | translate }}</p>
+  </div>
+</ion-content>

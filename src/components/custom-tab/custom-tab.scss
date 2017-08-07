@@ -1,0 +1,15 @@
+custom-tab {
+
+    .content {
+        background-color: #f5f5f5;
+    }
+    
+    .no-items {
+        margin-top: 50%;
+        .no-items-text {
+            color: #000000;
+            opacity: 0.7;
+            font-style: italic;
+        }
+    }
+}

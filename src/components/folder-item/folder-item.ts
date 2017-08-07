@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
-import { ItemModal } from '../../modals/itemModal/itemModal';
+import { ItemModal } from '../../modals/item/item';
 import { FirebaseService } from '../../providers/firebase.provider';
 
 const types = {
@@ -12,7 +12,7 @@ const types = {
 
 @Component({
   selector: 'folder-item',
-  templateUrl: 'folderItem.html'
+  templateUrl: 'folder-item.html'
 })
 export class FolderItemComponent implements OnInit {
 
@@ -45,20 +45,17 @@ export class FolderItemComponent implements OnInit {
     this.folders = this._fbService.getFolders();
   }
 
-  onAdd(item, key, event) {
-    event.stopPropagation();
+  onAdd(item) {
     this._fbService.updateItemFolder(item, this.type,
       { title: item.title, units: parseInt(item.units, 10) + 1 }, this.folder);
   }
 
-  onRemove(item, key, event) {
-    event.stopPropagation();
+  onRemove(item) {
     this._fbService.updateItemFolder(item, this.type,
       { title: item.title, units: parseInt(item.units, 10) - 1 }, this.folder);
   }
 
-  onEdit(item, key, event) {
-    event.stopPropagation();
+  onEdit(item) {
     const editItemModal = this.modalCtrl.create(ItemModal, {
       item,
       type: 'edit',

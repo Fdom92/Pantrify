@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
 import { LoadingService } from '../../providers/loading.provider';
-import { ShopItemModal } from '../../modals/shopItemModal/shopItemModal';
+import { ShopItemModal } from '../../modals/shop-item/shop-item';
 import { FirebaseService } from '../../providers/firebase.provider';
 
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
+  selector: 'shoplist-page',
   templateUrl: 'shopList.html'
 })
 export class ShopListPage {
@@ -18,30 +19,18 @@ export class ShopListPage {
     private _translate: TranslateService, private _fbService: FirebaseService) { }
 
   isAllDone() {
-    return this.items.every((element, index, array) => { return element.done; });
+    return this.items.every((element, index, array) => { return element.units > 0; });
   }
 
   addSingleItem() {
     const shopModal = this._modalCtrl.create(ShopItemModal);
     shopModal.onDidDismiss(data => {
       if (data) {
-        this.items.push({ $key: '', title: data.title, 
+        this.items.push({ $key: '', title: data.title,
           units: parseInt(data.units, 10), done: false, type: data.category });
       }
     });
     shopModal.present();
-  }
-
-  onAdd(item) {
-    if (item.units < 999) {
-      item.units += 1;
-    }
-  }
-
-  onRemove(item) {
-    if (item.units > 1) {
-      item.units -= 1;
-    }
   }
 
   addItemsToList(fbRef, type, ...args) {
@@ -54,7 +43,7 @@ export class ShopListPage {
                 type,
                 $key: key,
                 title: item.products[key].title,
-                units: 1,
+                units: 0,
                 folder: item,
                 done: false,
               });
@@ -64,7 +53,7 @@ export class ShopListPage {
               type,
               $key: item.$key,
               title: item.title,
-              units: 1,
+              units: 0,
               done: false,
             });
           }
@@ -99,6 +88,8 @@ export class ShopListPage {
         }
       }
     });
-    this._loading.dismiss().then(() => this.items = []);
+    this._loading.dismiss().then(() => {
+      this.items = [];
+    });
   }
 }

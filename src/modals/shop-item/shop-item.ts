@@ -7,7 +7,7 @@ import { QuantityValidator } from '../../validators/quantity';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  templateUrl: 'shopItemModal.html',
+  templateUrl: 'shop-item.html',
 })
 export class ShopItemModal {
   shopItemForm: FormGroup;

@@ -1,41 +1,49 @@
-.settings {
-    .hint-text-color {
-        color: #000000;
-        opacity: 0.38;
-        font-weight: bolder;
-        border-bottom: none;
-    }
+settings-page {
 
-    .primary-text-color {
-        color: #000000;
-        opacity: 0.87;
-    }
+    .content {
+        background-color: #f5f5f5;
 
-    .secondary-text-color {
-        color: #000000;
-        opacity: 0.54;
-    }
+        .primary-text-color {
+            color: #000000;
+            opacity: 0.90;
+        }
 
-    .item-md.item-block .item-inner {
-        border-bottom: none;
-    }
-
-    ion-item-group {
-        border-top: 1px solid #e0e0e0;
-        margin-bottom: 8px;
-
-        &:first-child() {
+        .hint-text-color {
+            color: #000000;
+            opacity: 0.70;
             border-bottom: none;
         }
-    }
 
-    ion-select {
-      .select-text {
-        color: #3D5AFE;
-      }
+        .secondary-text-color {
+            color: #000000;
+            opacity: 0.70;
+        }
 
-      .select-icon {
-        display: none;
-      }
+        .item-md.item-block .item-inner {
+            border-bottom: none;
+        }
+
+        ion-item-group {
+            border-top: 1px solid #bdbdbd;
+            margin-bottom: 8px;
+
+            &:first-child() {
+                border-bottom: none;
+            }
+
+            ion-item.item.item-block, ion-item-divider {
+                background-color: #f5f5f5;
+            }
+        }
+
+        ion-select {
+            .select-text {
+                color: color($colors, md-secondary);
+            }
+
+            .select-icon {
+                display: none;
+            }
+        }
     }
 }
