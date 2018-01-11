@@ -25,6 +25,7 @@ export class ItemModal {
       this.itemForm = new FormGroup({
         name: new FormControl('', [Validators.maxLength(20), Validators.pattern('[^0-9]*')]),
         quantity: new FormControl('', [QuantityValidator.isValid]),
+        minimum: new FormControl('', [QuantityValidator.isValid]),
         moveFolder: new FormControl('', [])
       });
       this.item = this.params.get('item');
@@ -34,6 +35,7 @@ export class ItemModal {
           Validators.maxLength(20),
           Validators.pattern('[^0-9]*')]),
         quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
+        minimum: new FormControl('', [Validators.required, QuantityValidator.isValid]),
         moveFolder: new FormControl('', [])
       });
     }
@@ -49,6 +51,7 @@ export class ItemModal {
         type: this.type,
         title: this.itemForm.get('name').value ? this.itemForm.get('name').value : this.item.title,
         units: this.itemForm.get('quantity').value ? this.itemForm.get('quantity').value : this.item.units,
+        minimum: this.itemForm.get('minimum').value ? this.itemForm.get('minimum').value : this.item.minimum,
         moveFolder: this.itemForm.get('moveFolder').value ? this.itemForm.get('moveFolder').value : ''
       };
       this.viewCtrl.dismiss(itemData);
@@ -58,6 +61,7 @@ export class ItemModal {
           type: this.type,
           title: this.itemForm.get('name').value,
           units: this.itemForm.get('quantity').value,
+          minimum: this.itemForm.get('minimum').value,
           moveFolder: this.itemForm.get('moveFolder').value ? this.itemForm.get('moveFolder').value : ''
         };
         this.viewCtrl.dismiss(itemData);

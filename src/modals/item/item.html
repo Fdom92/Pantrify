@@ -35,14 +35,21 @@
       </div>
       <ion-item>
         <ion-label>{{ 'Modal.ItemModal.quantity-label' | translate }}</ion-label>
-        <ion-input formControlName="quantity" 
-                   placeholder="{{item?.units}}" 
+        <ion-input formControlName="quantity"
+                   placeholder="{{item?.units}}"
                    type="number">
         </ion-input>
       </ion-item>
       <div *ngIf="!itemForm.get('quantity').valid && itemForm.get('quantity').touched">
           <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
       </div>
+      <ion-item>
+          <ion-label>{{ 'Modal.ItemModal.minimum-label' | translate }}</ion-label>
+          <ion-input formControlName="minimum"
+                     placeholder="{{item?.minimum}}"
+                     type="number">
+          </ion-input>
+        </ion-item>
       <ion-item>
         <ion-label>{{ 'Modal.ItemModal.move-folder' | translate }}</ion-label>
         <ion-select formControlName="moveFolder">

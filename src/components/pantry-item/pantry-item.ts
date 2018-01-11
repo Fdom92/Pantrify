@@ -49,11 +49,12 @@ export class PantryItemComponent {
         } else {
           if (data.moveFolder !== '') {
             this._fbService.removeItem(item, this.type.key);
-            this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10) },
-              this.type.key, data.moveFolder);
+            this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10),
+              minimum: parseInt(data.minimum, 10) }, this.type.key, data.moveFolder);
           } else {
             this._fbService.updateItem(item, this.type.key,
-              { title: data.title, units: parseInt(data.units, 10) });
+              { title: data.title, units: parseInt(data.units, 10),
+                minimum: parseInt(data.minimum, 10) });
           }
         }
       }

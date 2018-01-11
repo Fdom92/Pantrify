@@ -1,7 +1,7 @@
 {
   "name": "pantrify",
   "author": "Fernando del olmo",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "scripts": {
     "ionic:build": "ionic-app-scripts build",

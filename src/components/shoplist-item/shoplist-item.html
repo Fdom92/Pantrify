@@ -2,6 +2,7 @@
   <ion-col col-7>
     <ion-item>
       <ion-label>{{item.title}}</ion-label>
+      <ion-label *ngIf="item.minimum > 0" class="minimum">min:{{item.minimum}}</ion-label>
     </ion-item>
   </ion-col>
   <ion-col col-5>

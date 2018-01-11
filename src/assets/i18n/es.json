@@ -7,12 +7,14 @@
             "delete-button"  : "Borrar",
             "name-label"     : "Nombre",
             "quantity-label" : "Cantidad",
+            "minimum-label"  : "Mínimo",
             "move-folder"    : "Mover a una carpeta"
         },
         "ShopItemModal": {
             "shop-header"    : "Añadir",
             "accept-button"  : "Aceptar",
             "name-label"     : "Nombre",
+            "minimum-label"  : "Mínimo",
             "quantity-label" : "Cantidad",
             "category-label" : "Categoría",
             "category-1"     : "Comida",
@@ -55,7 +57,7 @@
             "logout": "Cerrar sesión",
             "dialog": {
                 "title": "¿Estás seguro?",
-                "text": "Vas a cerrar la sesión."           
+                "text": "Vas a cerrar la sesión."
             }
         }
     },

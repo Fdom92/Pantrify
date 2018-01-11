@@ -7,8 +7,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { TranslateService } from '@ngx-translate/core';
 
 const fbQuery = {
-  orderByChild: 'title',
-  limitToLast: 15
+  orderByChild: 'title'
 };
 
 @Injectable()
