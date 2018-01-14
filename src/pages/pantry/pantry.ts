@@ -52,10 +52,11 @@ export class PantryPage {
     addModal.onDidDismiss(data => {
       if (data) {
         if (data.moveFolder !== '') {
-          this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10) },
-            type[id], data.moveFolder);
+          this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10),
+            minimum: parseInt(data.minimum, 10) }, type[id], data.moveFolder);
         } else {
-          this._fbService.pushItem({ title: data.title, units: parseInt(data.units, 10) }, type[+id]);
+          this._fbService.pushItem({ title: data.title, units: parseInt(data.units, 10),
+            minimum: parseInt(data.minimum, 10) }, type[+id]);
         }
       }
     });

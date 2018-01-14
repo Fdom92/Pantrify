@@ -21,6 +21,7 @@ export class ShopItemModal {
       name: new FormControl('', [Validators.required, Validators.maxLength(20),
         Validators.pattern('[^0-9]*')]),
       quantity: new FormControl('', [Validators.required, QuantityValidator.isValid]),
+      minimum: new FormControl('', [Validators.required, QuantityValidator.isValid]),
       category: new FormControl('', [Validators.required])
     });
   }
@@ -34,7 +35,8 @@ export class ShopItemModal {
       this.viewCtrl.dismiss({
         title: this.shopItemForm.get('name').value,
         units: this.shopItemForm.get('quantity').value,
-        category: this.shopItemForm.get('category').value
+        category: this.shopItemForm.get('category').value,
+        minimum: this.shopItemForm.get('minimum').value
       });
     } else {
       this.presentToast();

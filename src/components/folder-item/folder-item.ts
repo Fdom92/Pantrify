@@ -30,7 +30,8 @@ export class FolderItemComponent implements OnInit {
       this.items.push({
         $key: key,
         title: this.products[key].title,
-        units: this.products[key].units
+        units: this.products[key].units,
+        minimum: this.products[key].minimum
       });
     });
     this.items.sort((a, b) => {
@@ -68,11 +69,12 @@ export class FolderItemComponent implements OnInit {
         } else {
           if (data.moveFolder !== '') {
             this._fbService.removeItemFolder(item, this.type, this.folder);
-            this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10) },
-              this.type, data.moveFolder);
+            this._fbService.pushItemFolder({ title: data.title, units: parseInt(data.units, 10),
+              minimum: parseInt(data.minimum, 10) }, this.type, data.moveFolder);
           } else {
             this._fbService.updateItemFolder(item, this.type,
-              { title: data.title, units: parseInt(data.units, 10) }, this.folder);
+              { title: data.title, units: parseInt(data.units, 10),
+                minimum: parseInt(data.minimum, 10) }, this.folder);
           }
         }
       }

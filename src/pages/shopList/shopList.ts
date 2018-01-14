@@ -19,7 +19,15 @@ export class ShopListPage {
     private _translate: TranslateService, private _fbService: FirebaseService) { }
 
   isAllDone() {
-    return this.items.every((element, index, array) => { return element.units > 0; });
+    return this.items.every((element, index, array) => {
+      if (element.minimum === 0 && element.units > 0) {
+        return true;
+      } else if (element.minimum > 0 && element.units >= element.minimum) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 
   addSingleItem() {
@@ -27,7 +35,8 @@ export class ShopListPage {
     shopModal.onDidDismiss(data => {
       if (data) {
         this.items.push({ $key: '', title: data.title,
-          units: parseInt(data.units, 10), done: false, type: data.category });
+          units: parseInt(data.units, 10), type: data.category,
+          minimum: parseInt(data.minimum, 10) });
       }
     });
     shopModal.present();
@@ -39,22 +48,25 @@ export class ShopListPage {
         items.forEach(item => {
           if (item.isFolder) {
             Object.keys(item.products).forEach(key => {
-              item.products[key].units === 0 && this.items.push({
+              (item.products[key].units === 0
+              || item.products[key].units < item.products[key].minimum)
+              && this.items.push({
                 type,
                 $key: key,
                 title: item.products[key].title,
-                units: 0,
+                units: item.products[key].units,
                 folder: item,
-                done: false,
+                minimum: item.products[key].minimum
               });
             });
           } else {
-            item.units === 0 && this.items.push({
+            (item.units === 0 || item.units < item.minimum)
+            && this.items.push({
               type,
               $key: item.$key,
               title: item.title,
-              units: 0,
-              done: false,
+              units: item.units,
+              minimum: item.minimum
             });
           }
         });
@@ -79,7 +91,8 @@ export class ShopListPage {
     });
     this.items.forEach((value) => {
       if (value.$key === '') {
-        this._fbService.pushItem({ title: value.title, units: value.units }, value.type);
+        this._fbService.pushItem({ title: value.title, units: value.units,
+          minimum: value.minimum }, value.type);
       } else {
         if (value.folder) {
           this._fbService.updateItemFolder(value, value.type, { units: value.units }, value.folder);

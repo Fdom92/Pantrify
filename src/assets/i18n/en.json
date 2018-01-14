@@ -6,6 +6,7 @@
             "accept-button"  : "Accept",
             "delete-button"  : "Delete",
             "name-label"     : "Name",
+            "minimum-label"  : "Minimum",
             "quantity-label" : "Quantity",
             "move-folder"    : "Move to a folder"
         },
@@ -13,6 +14,7 @@
             "shop-header"    : "Add",
             "accept-button"  : "Accept",
             "name-label"     : "Name",
+            "minimum-label"  : "Minimum",
             "quantity-label" : "Quantity",
             "category-label" : "Category",
             "category-1"     : "Food",
@@ -55,7 +57,7 @@
             "logout": "Logout",
             "dialog": {
                 "title": "Are you sure?",
-                "text": "This will log you out of this application."           
+                "text": "This will log you out of this application."
             }
         }
     },

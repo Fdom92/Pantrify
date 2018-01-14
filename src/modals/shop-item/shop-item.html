@@ -38,6 +38,13 @@
           <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
       </div>
       <ion-item>
+        <ion-label>{{ 'Modal.ShopItemModal.minimum-label' | translate }}</ion-label>
+        <ion-input formControlName="minimum"
+                   placeholder=""
+                   type="number">
+        </ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label>
           {{ 'Modal.ShopItemModal.category-label' | translate }}
         </ion-label>

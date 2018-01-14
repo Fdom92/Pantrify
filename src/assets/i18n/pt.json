@@ -6,6 +6,7 @@
             "accept-button"  : "Aceitar",
             "delete-button"  : "Excluir",
             "name-label"     : "Nome",
+            "minimum-label"  : "Mínimo",
             "quantity-label" : "Quantidade",
             "move-folder"    : "Mover para a pasta"
         },
@@ -13,6 +14,7 @@
             "shop-header"    : "Adicionar",
             "accept-button"  : "Aceitar",
             "name-label"     : "Nome",
+            "minimum-label"  : "Mínimo",
             "quantity-label" : "Quantidade",
             "category-label" : "Categoria",
             "category-1"     : "Comida",
@@ -55,7 +57,7 @@
             "logout": "Encerrar sessão",
             "dialog": {
                 "title": "Tem certeza?",
-                "text": "Você está prestes a terminar a sessão."           
+                "text": "Você está prestes a terminar a sessão."
             }
         }
     },
