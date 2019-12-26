@@ -1,0 +1,15 @@
+<ion-item lines="none">
+  <ion-label>
+    {{item.title}}
+    <p *ngIf="item.minimum > 0" class="minimum">min:{{item.minimum}}</p>
+  </ion-label>
+  <div class="button-section" slot="end">
+    <p>{{item.units}}</p>
+    <ion-button (click)="onAdd(item)">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+    <ion-button (click)="onRemove(item)">
+      <ion-icon name="remove"></ion-icon>
+    </ion-button>
+  </div>
+</ion-item>

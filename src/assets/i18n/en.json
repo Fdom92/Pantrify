@@ -1,101 +1,105 @@
 {
-    "Modal": {
-        "ItemModal": {
-            "add-header"     : "Add",
-            "edit-header"    : "Edit",
-            "accept-button"  : "Accept",
-            "delete-button"  : "Delete",
-            "name-label"     : "Name",
-            "minimum-label"  : "Minimum",
-            "quantity-label" : "Quantity",
-            "move-folder"    : "Move to a folder"
-        },
-        "ShopItemModal": {
-            "shop-header"    : "Add",
-            "accept-button"  : "Accept",
-            "name-label"     : "Name",
-            "minimum-label"  : "Minimum",
-            "quantity-label" : "Quantity",
-            "category-label" : "Category",
-            "category-1"     : "Food",
-            "category-2"     : "Drinks",
-            "category-3"     : "Home"
-        }
+  "Modal": {
+    "ItemModal": {
+      "add-header": "Add",
+      "edit-header": "Edit",
+      "accept-button": "Accept",
+      "delete-button": "Delete",
+      "name-label": "Name",
+      "minimum-label": "Minimum",
+      "quantity-label": "Quantity",
+      "move-folder": "Move to a folder"
     },
-    "Validations": {
-        "modal-name-required": "Please enter a valid name",
-        "modal-name-pattern": "Only letters are allowed and the first capital letter",
-        "modal-quantity": "Please enter a valid quantity between 0 to 999"
-    },
-    "Home": {
-        "login": "Log in",
-        "signup": "Sign up",
-        "loginLoading": "We are looking for your pantry, wait please...",
-        "signupLoading": "We are creating your pantry, wait please..."
-    },
-    "Settings": {
-        "view-header": "Settings",
-        "divider-info": "Info",
-        "info": {
-          "mail": "Email"
-        },
-        "divider-settings": "Settings",
-        "settings": {
-          "language": "Language"
-        },
-        "divider-support": "Support",
-        "support": {
-            "contact": "Contact us",
-            "dialog": {
-                "title": "Thank you",
-                "text": "Contact us at",
-                "button": "Dismiss"
-            }
-        },
-        "divider-other": "Other",
-        "other": {
-            "logout": "Logout",
-            "dialog": {
-                "title": "Are you sure?",
-                "text": "This will log you out of this application."
-            }
-        }
-    },
-    "Menu": {
-        "pantry": "Pantry",
-        "settings": "Settings",
-        "shop": "Shop List"
-    },
-    "Pantry": {
-        "view-header": "Pantry",
-        "popover": {
-            "item": "Product",
-            "folder": "Folder"
-        }
-    },
-    "ShopList": {
-        "view-header": "Shop List",
-        "list-button": "Generate List",
-        "finish-button": "Finished",
-        "nothing-text-1": "You have nothing to buy",
-        "nothing-text-2": "try generating a shop list",
-        "nothing-text-3": "or adding new products",
-        "generatingLoading": "Generating your shopping list...",
-        "addLoading": "Adding the products in the pantry..."
-    },
-    "Common": {
-        "quantity": "Quantity",
-        "logout": "Log out",
-        "accept": "Accept"
-    },
-    "CustomTab": {
-        "no-items": {
-            "text1": "You don't have anything stored yet,",
-            "text2": "try adding something"
-        }
-    },
-    "Error": {
-        "addItemMax": "You can not have this quantity of products",
-        "notValid": "Wrong data check them"
+
+    "ShopItemModal": {
+      "shop-header": "Add",
+      "accept-button": "Accept",
+      "name-label": "Name",
+      "minimum-label": "Minimum",
+      "quantity-label": "Quantity",
+      "category-label": "Category",
+      "category-1": "Food",
+      "category-2": "Drinks",
+      "category-3": "Home"
     }
+  },
+  "Validations": {
+    "modal-name-required": "Please enter a valid name",
+    "modal-name-pattern": "Only letters are allowed and the first capital letter",
+    "modal-quantity": "Please enter a valid quantity between 0 to 999"
+  },
+  "Home": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "loginLoading": "We are looking for your pantry, wait please...",
+    "signupLoading": "We are creating your pantry, wait please..."
+  },
+  "Settings": {
+    "view-header": "Settings",
+    "divider-info": "Info",
+    "info": {
+      "mail": "Email"
+    },
+    "divider-settings": "Settings",
+    "settings": {
+      "language": "Language"
+    },
+    "divider-support": "Support",
+    "support": {
+      "contact": "Contact us",
+      "dialog": {
+        "title": "Thank you",
+        "text": "Contact us at",
+        "button": "Dismiss"
+      }
+    },
+    "divider-other": "Other",
+    "other": {
+      "logout": "Logout",
+      "dialog": {
+        "title": "Are you sure?",
+        "text": "This will log you out of this application."
+      }
+    }
+  },
+  "Menu": {
+    "pantry": "Pantry",
+    "settings": "Settings",
+    "shop": "Shop List"
+  },
+  "Pantry": {
+    "view-header": "Pantry",
+    "popover": {
+      "item": "Product",
+      "folder": "Folder"
+    }
+  },
+  "ShopList": {
+    "view-header": "Shop List",
+    "list-button": "Generate List",
+    "finish-button": "Finished",
+    "nothing-text-1": "You have nothing to buy",
+    "nothing-text-2": "try generating a shop list",
+    "nothing-text-3": "or adding new products",
+    "finish_alert":  {
+      "title": "Cool",
+      "message": "All the products were added to your pantry"
+    }
+  },
+  "Common": {
+    "quantity": "Quantity",
+    "logout": "Log out",
+    "accept": "Accept"
+  },
+  "CustomTab": {
+    "no-items": {
+      "text1": "You don't have anything stored yet,",
+      "text2": "try adding something"
+    }
+  },
+  "Error": {
+    "addItemMax": "You have reached the maximum number of possible units",
+    "removeItemMin": "You can not have less than 0 units",
+    "notValid": "Wrong data check them"
+  }
 }

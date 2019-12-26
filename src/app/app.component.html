@@ -1,0 +1,33 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu [disabled]="hideMenu">
+      <ion-header>
+        <img class="user-avatar round" src="assets/imgs/default.png" />
+        <p class="e-mail">{{ usermail }}</p>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle>
+            <ion-item (click)="homePage()">
+              <ion-icon name="home"></ion-icon>
+              {{ 'Menu.pantry' | translate }}
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item (click)="cartPage()">
+              <ion-icon name="cart"></ion-icon>
+              {{ 'Menu.shop' | translate }}
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item (click)="settingsPage()">
+              <ion-icon name="settings"></ion-icon>
+              {{ 'Menu.settings' | translate }}
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

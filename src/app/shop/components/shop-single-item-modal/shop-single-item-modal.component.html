@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ 'Modal.ShopItemModal.shop-header' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="accept()">
+        {{ 'Modal.ShopItemModal.accept-button' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="shopItemForm">
+    <ion-list>
+      <ion-item>
+        <ion-label>{{ 'Modal.ShopItemModal.name-label' | translate }}</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <div *ngIf="!shopItemForm.get('name').valid && shopItemForm.get('name').touched">
+        <p class="error-text" *ngIf="shopItemForm.get('name').errors['pattern']">
+          {{ 'Validations.modal-name-pattern' | translate }}
+        </p>
+        <p class="error-text" *ngIf="shopItemForm.get('name').errors['required']">
+          {{ 'Validations.modal-name-required' | translate }}
+        </p>
+      </div>
+      <ion-item>
+        <ion-label>{{ 'Modal.ShopItemModal.quantity-label' | translate }}</ion-label>
+        <ion-input formControlName="quantity" type="number" max="999" min="0"></ion-input>
+      </ion-item>
+      <div *ngIf="!shopItemForm.get('quantity').valid && shopItemForm.get('quantity').touched">
+        <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
+      </div>
+      <ion-item>
+        <ion-label>{{ 'Modal.ShopItemModal.minimum-label' | translate }}</ion-label>
+        <ion-input formControlName="minimum" placeholder="" type="number" max="999" min="0">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          {{ 'Modal.ShopItemModal.category-label' | translate }}
+        </ion-label>
+        <ion-select formControlName="category">
+          <ion-select-option value="food">
+            {{ 'Modal.ShopItemModal.category-1' | translate }}
+          </ion-select-option>
+          <ion-select-option value="drinks">
+            {{ 'Modal.ShopItemModal.category-2' | translate }}
+          </ion-select-option>
+          <ion-select-option value="home">
+            {{ 'Modal.ShopItemModal.category-3' | translate }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

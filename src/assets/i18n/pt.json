@@ -1,101 +1,104 @@
 {
-    "Modal": {
-        "ItemModal": {
-            "add-header"     : "Adicionar",
-            "edit-header"    : "Editar",
-            "accept-button"  : "Aceitar",
-            "delete-button"  : "Excluir",
-            "name-label"     : "Nome",
-            "minimum-label"  : "Mínimo",
-            "quantity-label" : "Quantidade",
-            "move-folder"    : "Mover para a pasta"
-        },
-        "ShopItemModal": {
-            "shop-header"    : "Adicionar",
-            "accept-button"  : "Aceitar",
-            "name-label"     : "Nome",
-            "minimum-label"  : "Mínimo",
-            "quantity-label" : "Quantidade",
-            "category-label" : "Categoria",
-            "category-1"     : "Comida",
-            "category-2"     : "Bebidas",
-            "category-3"     : "Casa"
-        }
+  "Modal": {
+    "ItemModal": {
+      "add-header": "Adicionar",
+      "edit-header": "Editar",
+      "accept-button": "Aceitar",
+      "delete-button": "Excluir",
+      "name-label": "Nome",
+      "minimum-label": "Mínimo",
+      "quantity-label": "Quantidade",
+      "move-folder": "Mover para a pasta"
     },
-    "Validations": {
-        "modal-name-required": "O nome é inválido",
-        "modal-name-pattern": "Somente letras são permitidas e a primeira letra maiúscula",
-        "modal-quantity": "Insira um número entre 0 e 999"
-    },
-    "Home": {
-        "login": "Iniciar sessão",
-        "signup": "Cadastrar",
-        "loginLoading": "Estamos buscando sua despensa, aguarde por favor...",
-        "signupLoading": "Estamos criando sua despensa, aguarde por favor..."
-    },
-    "Settings": {
-        "view-header": "Ajustes",
-        "divider-info": "Informação",
-        "info": {
-          "mail": "E-mail"
-        },
-        "divider-settings": "Ajustes",
-        "settings": {
-          "language": "Idioma"
-        },
-        "divider-support": "Suporte",
-        "support": {
-            "contact": "Entre em contato",
-            "dialog": {
-                "title": "Obrigado!",
-                "text": "Entre em contato en",
-                "button": "Fechar"
-            }
-        },
-        "divider-other": "Outros",
-        "other": {
-            "logout": "Encerrar sessão",
-            "dialog": {
-                "title": "Tem certeza?",
-                "text": "Você está prestes a terminar a sessão."
-            }
-        }
-    },
-    "Menu": {
-        "pantry": "Despensa",
-        "settings": "Ajustes",
-        "shop": "Lista de lojas"
-    },
-    "Pantry": {
-        "view-header": "Despensa",
-        "popover": {
-            "item": "Produto",
-            "folder": "Pasta"
-        }
-    },
-    "ShopList": {
-        "view-header": "Lista de lojas",
-        "list-button": "Gerar lista",
-        "finish-button": "Acabado",
-        "nothing-text-1": "Você não tem nada para comprar",
-        "nothing-text-2": "Tente gerar uma lista de lojas",
-        "nothing-text-3": "ou adicionar novos produtos",
-        "generatingLoading": "Gerando sua lista de compras...",
-        "addLoading": "Adicionando os produtos na despensa..."
-    },
-    "Common": {
-        "quantity": "Quantidade",
-        "logout": "Encerrar Sessão",
-        "accept": "Aceitar"
-    },
-    "CustomTab": {
-        "no-items": {
-            "text1": "Você não tem nada guardado ainda,",
-            "text2": "tente adicionar algo"
-        }
-    },
-    "Error": {
-        "addItemMax": "Você não pode ter essa quantidade de produtos",
-        "notValid": "Vê-los dados errados"
+    "ShopItemModal": {
+      "shop-header": "Adicionar",
+      "accept-button": "Aceitar",
+      "name-label": "Nome",
+      "minimum-label": "Mínimo",
+      "quantity-label": "Quantidade",
+      "category-label": "Categoria",
+      "category-1": "Comida",
+      "category-2": "Bebidas",
+      "category-3": "Casa"
     }
+  },
+  "Validations": {
+    "modal-name-required": "O nome é inválido",
+    "modal-name-pattern": "Somente letras são permitidas e a primeira letra maiúscula",
+    "modal-quantity": "Insira um número entre 0 e 999"
+  },
+  "Home": {
+    "login": "Iniciar sessão",
+    "signup": "Cadastrar",
+    "loginLoading": "Estamos buscando sua despensa, aguarde por favor...",
+    "signupLoading": "Estamos criando sua despensa, aguarde por favor..."
+  },
+  "Settings": {
+    "view-header": "Ajustes",
+    "divider-info": "Informação",
+    "info": {
+      "mail": "E-mail"
+    },
+    "divider-settings": "Ajustes",
+    "settings": {
+      "language": "Idioma"
+    },
+    "divider-support": "Suporte",
+    "support": {
+      "contact": "Entre em contato",
+      "dialog": {
+        "title": "Obrigado!",
+        "text": "Entre em contato en",
+        "button": "Fechar"
+      }
+    },
+    "divider-other": "Outros",
+    "other": {
+      "logout": "Encerrar sessão",
+      "dialog": {
+        "title": "Tem certeza?",
+        "text": "Você está prestes a terminar a sessão."
+      }
+    }
+  },
+  "Menu": {
+    "pantry": "Despensa",
+    "settings": "Ajustes",
+    "shop": "Lista de lojas"
+  },
+  "Pantry": {
+    "view-header": "Despensa",
+    "popover": {
+      "item": "Produto",
+      "folder": "Pasta"
+    }
+  },
+  "ShopList": {
+    "view-header": "Lista de lojas",
+    "list-button": "Gerar lista",
+    "finish-button": "Acabado",
+    "nothing-text-1": "Você não tem nada para comprar",
+    "nothing-text-2": "Tente gerar uma lista de lojas",
+    "nothing-text-3": "ou adicionar novos produtos",
+    "finish_alert":  {
+      "title": "Ótimo",
+      "message": "Todos os produtos foram adicionados à sua despensa"
+    }
+  },
+  "Common": {
+    "quantity": "Quantidade",
+    "logout": "Encerrar Sessão",
+    "accept": "Aceitar"
+  },
+  "CustomTab": {
+    "no-items": {
+      "text1": "Você não tem nada guardado ainda,",
+      "text2": "tente adicionar algo"
+    }
+  },
+  "Error": {
+    "addItemMax": "Você atingiu o número máximo de unidades possíveis",
+    "removeItemMin": "Você não pode ter menos de 0 unidades",
+    "notValid": "Vê-los dados errados"
+  }
 }

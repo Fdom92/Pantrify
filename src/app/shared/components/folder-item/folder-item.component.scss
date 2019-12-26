@@ -1,0 +1,10 @@
+:host {
+    .button-section {
+        align-items: center;
+        display: flex;
+
+        ion-button {
+            --background: #ffa000;
+        }
+    }
+}

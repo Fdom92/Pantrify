@@ -1,101 +1,104 @@
 {
-    "Modal": {
-        "ItemModal": {
-            "add-header"     : "Añadir",
-            "edit-header"    : "Editar",
-            "accept-button"  : "Aceptar",
-            "delete-button"  : "Borrar",
-            "name-label"     : "Nombre",
-            "quantity-label" : "Cantidad",
-            "minimum-label"  : "Mínimo",
-            "move-folder"    : "Mover a una carpeta"
-        },
-        "ShopItemModal": {
-            "shop-header"    : "Añadir",
-            "accept-button"  : "Aceptar",
-            "name-label"     : "Nombre",
-            "minimum-label"  : "Mínimo",
-            "quantity-label" : "Cantidad",
-            "category-label" : "Categoría",
-            "category-1"     : "Comida",
-            "category-2"     : "Bebidas",
-            "category-3"     : "Hogar"
-        }
+  "Modal": {
+    "ItemModal": {
+      "add-header": "Añadir",
+      "edit-header": "Editar",
+      "accept-button": "Aceptar",
+      "delete-button": "Borrar",
+      "name-label": "Nombre",
+      "quantity-label": "Cantidad",
+      "minimum-label": "Mínimo",
+      "move-folder": "Mover a una carpeta"
     },
-    "Validations": {
-        "modal-name-required": "El nombre no es válido",
-        "modal-name-pattern": "Solo letras y la primera en mayúscula",
-        "modal-quantity": "Introduce un número entre 0 y 999"
-    },
-    "Home": {
-        "login": "Iniciar sesión",
-        "signup": "Registrarte",
-        "loginLoading": "Estamos buscando tu despensa, espera por favor...",
-        "signupLoading": "Estamos creando tu despensa, espera por favor..."
-    },
-    "Settings": {
-        "view-header": "Ajustes",
-        "divider-info": "Información",
-        "info": {
-          "mail": "Correo"
-        },
-        "divider-settings": "Ajustes",
-        "settings": {
-          "language": "Idioma"
-        },
-        "divider-support": "Soporte",
-        "support": {
-            "contact": "Contacta con nosotros",
-            "dialog": {
-                "title": "Gracias",
-                "text": "Contacta con nosotros en",
-                "button": "Cerrar"
-            }
-        },
-        "divider-other": "Otros",
-        "other": {
-            "logout": "Cerrar sesión",
-            "dialog": {
-                "title": "¿Estás seguro?",
-                "text": "Vas a cerrar la sesión."
-            }
-        }
-    },
-    "Menu": {
-        "pantry": "Despensa",
-        "settings": "Ajustes",
-        "shop": "Lista de la compra"
-    },
-    "Pantry": {
-        "view-header": "Despensa",
-        "popover": {
-            "item": "Producto",
-            "folder": "Carpeta"
-        }
-    },
-    "ShopList": {
-        "view-header": "Lista de la compra",
-        "list-button": "Generar Lista",
-        "finish-button": "Terminado",
-        "nothing-text-1": "No tienes nada que comprar,",
-        "nothing-text-2": "prueba a generar una lista de la compra",
-        "nothing-text-3": "o añadir nuevos productos",
-        "generatingLoading": "Generando tu lista de la compra...",
-        "addLoading": "Añadiendo los productos en la despensa..."
-    },
-    "Common": {
-        "quantity": "Cantidad",
-        "logout": "Cerrar Sesión",
-        "accept": "Aceptar"
-    },
-    "CustomTab": {
-        "no-items": {
-            "text1": "No tienes nada guardado aún,",
-            "text2": "prueba añadiendo algo"
-        }
-    },
-    "Error": {
-        "addItemMax": "No puedes tener esta cantidad de productos",
-        "notValid": "Datos erróneos compruébalos"
+    "ShopItemModal": {
+      "shop-header": "Añadir",
+      "accept-button": "Aceptar",
+      "name-label": "Nombre",
+      "minimum-label": "Mínimo",
+      "quantity-label": "Cantidad",
+      "category-label": "Categoría",
+      "category-1": "Comida",
+      "category-2": "Bebidas",
+      "category-3": "Hogar"
     }
+  },
+  "Validations": {
+    "modal-name-required": "El nombre no es válido",
+    "modal-name-pattern": "Solo letras y la primera en mayúscula",
+    "modal-quantity": "Introduce un número entre 0 y 999"
+  },
+  "Home": {
+    "login": "Iniciar sesión",
+    "signup": "Registrarte",
+    "loginLoading": "Estamos buscando tu despensa, espera por favor...",
+    "signupLoading": "Estamos creando tu despensa, espera por favor..."
+  },
+  "Settings": {
+    "view-header": "Ajustes",
+    "divider-info": "Información",
+    "info": {
+      "mail": "Correo"
+    },
+    "divider-settings": "Ajustes",
+    "settings": {
+      "language": "Idioma"
+    },
+    "divider-support": "Soporte",
+    "support": {
+      "contact": "Contacta con nosotros",
+      "dialog": {
+        "title": "Gracias",
+        "text": "Contacta con nosotros en",
+        "button": "Cerrar"
+      }
+    },
+    "divider-other": "Otros",
+    "other": {
+      "logout": "Cerrar sesión",
+      "dialog": {
+        "title": "¿Estás seguro?",
+        "text": "Vas a cerrar la sesión."
+      }
+    }
+  },
+  "Menu": {
+    "pantry": "Despensa",
+    "settings": "Ajustes",
+    "shop": "Lista de la compra"
+  },
+  "Pantry": {
+    "view-header": "Despensa",
+    "popover": {
+      "item": "Producto",
+      "folder": "Carpeta"
+    }
+  },
+  "ShopList": {
+    "view-header": "Lista de la compra",
+    "list-button": "Generar Lista",
+    "finish-button": "Terminado",
+    "nothing-text-1": "No tienes nada que comprar,",
+    "nothing-text-2": "prueba a generar una lista de la compra",
+    "nothing-text-3": "o añadir nuevos productos",
+    "finish_alert":  {
+      "title": "Genial",
+      "message": "Todos los productos fueron añadidos a tu despensa"
+    }
+  },
+  "Common": {
+    "quantity": "Cantidad",
+    "logout": "Cerrar Sesión",
+    "accept": "Aceptar"
+  },
+  "CustomTab": {
+    "no-items": {
+      "text1": "No tienes nada guardado aún,",
+      "text2": "prueba añadiendo algo"
+    }
+  },
+  "Error": {
+    "addItemMax": "Has llegado al máximo de unidades posibles",
+    "removeItemMin": "No puedes tener menos de 0 unidades",
+    "notValid": "Datos erróneos compruébalos"
+  }
 }

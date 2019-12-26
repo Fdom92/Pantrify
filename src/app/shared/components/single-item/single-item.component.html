@@ -1,0 +1,12 @@
+<ion-item lines="none">
+  <ion-label (click)="onEditItem(item)">{{itemData.title}}</ion-label>
+  <div class="button-section" slot="end">
+    <p>{{itemData.units}}</p>
+    <ion-button (click)="onAdd(item)">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+    <ion-button (click)="onRemove(item)">
+      <ion-icon name="remove"></ion-icon>
+    </ion-button>
+  </div>
+</ion-item>

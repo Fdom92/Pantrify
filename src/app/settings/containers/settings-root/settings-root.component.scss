@@ -1,0 +1,41 @@
+:host {
+  ion-toolbar {
+    --background: #6d4c41;
+    color: white;
+  }
+
+  ion-content {
+    --background: #f5f5f5;
+
+    .user-info {
+      display: flex;
+      align-items: baseline;
+
+      h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 15px;
+      }
+    }
+
+    ion-item-group {
+      border-top: 1px solid #bdbdbd;
+      margin-bottom: 8px;
+
+      ion-item-divider {
+        --background: #f5f5f5;
+        border: none;
+      }
+
+      ion-item {
+        --background: #f5f5f5;
+      }
+    }
+  }
+}

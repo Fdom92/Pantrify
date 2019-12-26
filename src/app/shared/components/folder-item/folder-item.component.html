@@ -1,0 +1,12 @@
+<ion-item lines="none">
+  <ion-label (click)="onEditFolder()">{{itemData.title}}</ion-label>
+  <div class="button-section" slot="end">
+    <ion-button (click)="expandItem()">
+      <ion-icon *ngIf="!itemData.expanded" name="arrow-dropdown"></ion-icon>
+      <ion-icon *ngIf="itemData.expanded" name="arrow-dropup"></ion-icon>
+    </ion-button>
+  </div>
+</ion-item>
+<ion-list *ngIf="itemData.expanded && itemData.products">
+  <app-single-item *ngFor="let item of items" [item]="item" [type]="type" [folder]="folder"></app-single-item>
+</ion-list>

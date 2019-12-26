@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'Settings.view-header' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider>{{ 'Settings.divider-info' | translate }}</ion-item-divider>
+    <ion-item lines="none">
+      <div class="user-info">
+          <p>{{ 'Settings.info.mail' | translate }}</p>
+          <h2>{{ usermail }}</h2>
+      </div>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider>{{ 'Settings.divider-settings' | translate }}</ion-item-divider>
+    <ion-item lines="none">
+      <ion-label>{{ 'Settings.settings.language' | translate }}</ion-label>
+      <ion-select [(ngModel)]="language" (ionChange)="onChange($event)">
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="en">English</ion-select-option>
+        <ion-select-option value="pt">Portuguese</ion-select-option>
+        <ion-select-option value="fr">Français</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider>{{ 'Settings.divider-other' | translate }}</ion-item-divider>
+    <ion-item (click)="logout()" lines="none">
+      <ion-label>{{ 'Settings.other.logout' | translate }}</ion-label>
+    </ion-item>
+  </ion-item-group>
+  <p text-center> Pantrify v3.0.0</p>
+</ion-content>

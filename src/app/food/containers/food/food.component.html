@@ -1,0 +1,6 @@
+<ion-content *ngIf="items$ | async; let items;">
+    <div *ngFor="let item of items">
+        <app-folder-item *ngIf="item.payload.val().isFolder" [item]="item" [type]="'food'"></app-folder-item>
+        <app-single-item *ngIf="!item.payload.val().isFolder" [item]="item" [type]="'food'"></app-single-item>
+    </div>
+</ion-content>

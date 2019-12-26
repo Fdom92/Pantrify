@@ -1,0 +1,39 @@
+:host {
+  background-image: url('/assets/imgs/splash.png');
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+
+  ion-content {
+    --background: none;
+
+    .logo {
+      height: 50%;
+      width: 100%;
+
+      .logo-icon {
+        text-align: center;
+        font-size: 40px;
+        color: white;
+      }
+    }
+
+    ion-input {
+      margin: auto;
+      width: 95%;
+      margin-bottom: 5px;
+      -webkit-box-shadow: inset 0px 0px 150px 6px rgba(255, 255, 255, 1);
+      -moz-box-shadow: inset 0px 0px 150px 6px rgba(255, 255, 255, 1);
+      box-shadow: inset 0px 0px 150px 6px rgba(255, 255, 255, 1);
+    }
+
+    ion-button {
+      --color: none;
+      --border-width: 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      margin-top: 5%;
+      margin-left: 2.5%;
+      width: 95%;
+    }
+  }
+}

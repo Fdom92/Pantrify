@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ type === 'add' ? ('Modal.ItemModal.add-header' | translate) : ('Modal.ItemModal.edit-header' | translate)}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="accept()">
+        {{ 'Modal.ItemModal.accept-button' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="itemForm">
+    <ion-list>
+      <ion-item>
+        <ion-label>{{ 'Modal.ItemModal.name-label' | translate }}</ion-label>
+        <ion-input formControlName="name" placeholder="{{item?.title}}" type="text"></ion-input>
+      </ion-item>
+      <div *ngIf="!itemForm.get('name').valid && itemForm.get('name').touched">
+        <p class="error-text" *ngIf="itemForm.get('name').errors['pattern']">
+          {{ 'Validations.modal-name-pattern' | translate }}
+        </p>
+        <p class="error-text" *ngIf="itemForm.get('name').errors['required']">
+          {{ 'Validations.modal-name-required' | translate }}
+        </p>
+      </div>
+      <ion-item>
+        <ion-label>{{ 'Modal.ItemModal.quantity-label' | translate }}</ion-label>
+        <ion-input formControlName="quantity" placeholder="{{item?.units}}" type="number" max="999" min="0">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="!itemForm.get('quantity').valid && itemForm.get('quantity').touched">
+        <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
+      </div>
+      <ion-item>
+        <ion-label>{{ 'Modal.ItemModal.minimum-label' | translate }}</ion-label>
+        <ion-input formControlName="minimum" placeholder="{{item?.minimum}}" type="number" max="999" min="0">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="!itemForm.get('minimum').valid && itemForm.get('minimum').touched">
+        <p class="error-text">{{ 'Validations.modal-quantity' | translate }}</p>
+      </div>
+      <ion-item>
+        <ion-label>{{ 'Modal.ItemModal.move-folder' | translate }}</ion-label>
+        <ion-select formControlName="moveFolder">
+          <ion-select-option *ngFor="let folder of folders | async" [value]="folder">{{ folder.title }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+  <ion-button *ngIf="type === 'edit'" (click)="remove()" expand="full">
+    {{ 'Modal.ItemModal.delete-button' | translate }}
+  </ion-button>
+</ion-content>

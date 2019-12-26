@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ type === 'add' ? ('Modal.ItemModal.add-header' | translate) : ('Modal.ItemModal.edit-header' | translate)}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="accept()">
+        {{ 'Modal.ItemModal.accept-button' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="folderForm">
+    <ion-list>
+      <ion-item>
+        <ion-label>{{ 'Modal.ItemModal.name-label' | translate }}</ion-label>
+        <ion-input formControlName="name" placeholder="{{item?.title}}" type="text"></ion-input>
+      </ion-item>
+      <div *ngIf="!folderForm.get('name').valid && folderForm.get('name').touched">
+        <p class="error-text" *ngIf="folderForm.get('name').errors['pattern']">
+          {{ 'Validations.modal-name-pattern' | translate }}
+        </p>
+        <p class="error-text" *ngIf="folderForm.get('name').errors['required']">
+          {{ 'Validations.modal-name-required' | translate }}
+        </p>
+      </div>
+    </ion-list>
+  </form>
+  <ion-button *ngIf="type === 'edit'" expand="full" (click)="remove()">
+    {{ 'Modal.ItemModal.delete-button' | translate }}
+  </ion-button>
+</ion-content>

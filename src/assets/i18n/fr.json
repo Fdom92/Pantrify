@@ -1,101 +1,104 @@
 {
   "Modal": {
-      "ItemModal": {
-          "add-header"     : "Ajouter",
-          "edit-header"    : "Modifier",
-          "accept-button"  : "Acceptez",
-          "delete-button"  : "Effacer",
-          "name-label"     : "Nom",
-          "minimum-label"  : "Minimum",
-          "quantity-label" : "Quantité",
-          "move-folder"    : "Déplacer vers un dossier"
-      },
-      "ShopItemModal": {
-          "shop-header"    : "Ajouter",
-          "accept-button"  : "Acceptez",
-          "name-label"     : "Nom",
-          "minimum-label"  : "Minimum",
-          "quantity-label" : "Quantité",
-          "category-label" : "Catégorie",
-          "category-1"     : "Aliments",
-          "category-2"     : "Boissons",
-          "category-3"     : "Accueil"
-      }
+    "ItemModal": {
+      "add-header": "Ajouter",
+      "edit-header": "Modifier",
+      "accept-button": "Acceptez",
+      "delete-button": "Effacer",
+      "name-label": "Nom",
+      "minimum-label": "Minimum",
+      "quantity-label": "Quantité",
+      "move-folder": "Déplacer vers un dossier"
+    },
+    "ShopItemModal": {
+      "shop-header": "Ajouter",
+      "accept-button": "Acceptez",
+      "name-label": "Nom",
+      "minimum-label": "Minimum",
+      "quantity-label": "Quantité",
+      "category-label": "Catégorie",
+      "category-1": "Aliments",
+      "category-2": "Boissons",
+      "category-3": "Accueil"
+    }
   },
   "Validations": {
-      "modal-name-required": "Merci d'entrer un nom valide",
-      "modal-name-pattern": "Seules les lettres sont autorisées et la première lettre majuscule",
-      "modal-quantity": "Veuillez entrer une quantité valide entre 0 et 999"
+    "modal-name-required": "Merci d'entrer un nom valide",
+    "modal-name-pattern": "Seules les lettres sont autorisées et la première lettre majuscule",
+    "modal-quantity": "Veuillez entrer une quantité valide entre 0 et 999"
   },
   "Home": {
-      "login": "S'identifier",
-      "signup": "S'inscrire",
-      "loginLoading": "Nous cherchons votre garde-manger, attendez s'il vous plait ...",
-      "signupLoading": "Nous créons votre garde-manger, attendez s'il vous plaît ..."
+    "login": "S'identifier",
+    "signup": "S'inscrire",
+    "loginLoading": "Nous cherchons votre garde-manger, attendez s'il vous plait ...",
+    "signupLoading": "Nous créons votre garde-manger, attendez s'il vous plaît ..."
   },
   "Settings": {
-      "view-header": "Paramètres",
-      "divider-info": "Info",
-      "info": {
-        "mail": "Email"
-      },
-      "divider-settings": "Paramètres",
-      "settings": {
-        "language": "La langue"
-      },
-      "divider-support": "Support",
-      "support": {
-          "contact": "Contactez nous",
-          "dialog": {
-              "title": "Merci!",
-              "text": "Contactez-nous à",
-              "button": "Rejeter"
-          }
-      },
-      "divider-other": "Autre",
-      "other": {
-          "logout": "Connectez - Out",
-          "dialog": {
-              "title": "Êtes-vous sûr?",
-              "text": "Cela vous déconnecter de cette application."
-          }
+    "view-header": "Paramètres",
+    "divider-info": "Info",
+    "info": {
+      "mail": "Email"
+    },
+    "divider-settings": "Paramètres",
+    "settings": {
+      "language": "La langue"
+    },
+    "divider-support": "Support",
+    "support": {
+      "contact": "Contactez nous",
+      "dialog": {
+        "title": "Merci!",
+        "text": "Contactez-nous à",
+        "button": "Rejeter"
       }
+    },
+    "divider-other": "Autre",
+    "other": {
+      "logout": "Connectez - Out",
+      "dialog": {
+        "title": "Êtes-vous sûr?",
+        "text": "Cela vous déconnecter de cette application."
+      }
+    }
   },
   "Menu": {
-      "pantry": "Garde-manger",
-      "settings": "Paramètres",
-      "shop": "Liste de magasins"
+    "pantry": "Garde-manger",
+    "settings": "Paramètres",
+    "shop": "Liste de magasins"
   },
   "Pantry": {
-      "view-header": "Garde-manger",
-      "popover": {
-          "item": "Produit",
-          "folder": "Dossier"
-      }
+    "view-header": "Garde-manger",
+    "popover": {
+      "item": "Produit",
+      "folder": "Dossier"
+    }
   },
   "ShopList": {
-      "view-header": "Liste de magasins",
-      "list-button": "Générer la liste",
-      "finish-button": "Fini",
-      "nothing-text-1": "Vous n'avez rien à acheter",
-      "nothing-text-2": "essayez de générer une liste de magasins",
-      "nothing-text-3": "ou ajouter de nouveaux produits",
-      "generatingLoading": "Générer votre liste de courses ...",
-      "addLoading": "Ajouter les produits dans le garde-manger ..."
+    "view-header": "Liste de magasins",
+    "list-button": "Générer la liste",
+    "finish-button": "Fini",
+    "nothing-text-1": "Vous n'avez rien à acheter",
+    "nothing-text-2": "essayez de générer une liste de magasins",
+    "nothing-text-3": "ou ajouter de nouveaux produits",
+    "finish_alert":  {
+      "title": "Brillant",
+      "message": "Tous les produits ont été ajoutés à votre garde-manger"
+    }
   },
   "Common": {
-      "quantity": "Quantité",
-      "logout": "Connectez - Out",
-      "accept": "Acceptez"
+    "quantity": "Quantité",
+    "logout": "Connectez - Out",
+    "accept": "Acceptez"
   },
   "CustomTab": {
-      "no-items": {
-          "text1": "Vous n'avez encore rien stocké,",
-          "text2": "essayez d'ajouter quelque chose"
-      }
+    "no-items": {
+      "text1": "Vous n'avez encore rien stocké,",
+      "text2": "essayez d'ajouter quelque chose"
+    }
   },
   "Error": {
-      "addItemMax": "Vous ne pouvez pas avoir cette quantité de produits",
-      "notValid": "Des données incorrectes les vérifient"
+    "addItemMax": "Vous avez atteint le nombre maximum d'unités possibles",
+    "removeItemMin": "Vous ne pouvez pas avoir moins de 0 unités",
+    "notValid": "Des données incorrectes les vérifient"
   }
 }
