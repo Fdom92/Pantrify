@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { SingleItem, FolderItem } from '../../models/database';
+import { SingleItem, FolderItem } from '../../../models/database';
 import { AuthService } from './auth.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PantryService {
 
-  folders: Array<any> = [];
+  foodFolder: any;
+  drinksFolder: any;
+  homeFolder: any;
 
   constructor(private afDb: AngularFireDatabase, private auth: AuthService) {
-    this.folders[0] = this.afDb.list('/' + this.auth.getUser().uid + '/food');
-    this.folders[1] = this.afDb.list('/' + this.auth.getUser().uid + '/drinks');
-    this.folders[2] = this.afDb.list('/' + this.auth.getUser().uid + '/home');
-  }
-
-  getFolders() {
-    return this.folders;
+    this.foodFolder = this.afDb.list<FolderItem>('/' + this.auth.getUser().uid + '/food',
+      ref => ref.orderByChild('isFolder').equalTo(true)).snapshotChanges();
+    this.drinksFolder = this.afDb.list<FolderItem>('/' + this.auth.getUser().uid + '/drinks',
+      ref => ref.orderByChild('isFolder').equalTo(true)).snapshotChanges();
+    this.homeFolder = this.afDb.list<FolderItem>('/' + this.auth.getUser().uid + '/home',
+      ref => ref.orderByChild('isFolder').equalTo(true)).snapshotChanges();
   }
 
   getFoodItems(uid: string) {
@@ -34,11 +37,11 @@ export class PantryService {
     return this.afDb.list<FolderItem>(`/${uid}/${type}/`).update(folderKey, data);
   }
 
-  updateItem(uid: string, type: string,  key: string, data: any) {
+  updateItem(uid: string, type: string, key: string, data: any) {
     return this.afDb.list<SingleItem>(`/${uid}/${type}/`).update(key, data);
   }
 
-  updateItemFromFolder(uid: string, type: string, folderKey: string,  key: string, data: any) {
+  updateItemFromFolder(uid: string, type: string, folderKey: string, key: string, data: any) {
     return this.afDb.list<SingleItem>(`/${uid}/${type}/${folderKey}/products/`).update(key, data);
   }
 
@@ -46,7 +49,7 @@ export class PantryService {
     return this.afDb.list<SingleItem>(`/${uid}/${type}`).remove(key);
   }
 
-  removeItemFromFolder(uid: string, type: string, folderKey: string,  key: string) {
+  removeItemFromFolder(uid: string, type: string, folderKey: string, key: string) {
     return this.afDb.list<SingleItem>(`/${uid}/${type}/${folderKey}/products/`).remove(key);
   }
 

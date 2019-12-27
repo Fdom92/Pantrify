@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 import { combineLatest } from 'rxjs/observable/combineLatest';
-import { PopupService } from '../../../shared/popup.service';
+import { PopupService } from '../../../shared/services/popup.service';
 import { ShopSingleItemModalComponent } from '../../components/shop-single-item-modal/shop-single-item-modal.component';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../../../shared/auth.service';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-shop-root',

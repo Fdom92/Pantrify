@@ -100,5 +100,10 @@
     "addItemMax": "Has llegado al máximo de unidades posibles",
     "removeItemMin": "No puedes tener menos de 0 unidades",
     "notValid": "Datos erróneos compruébalos"
+  },
+  "Tabs": {
+    "food": "Comida",
+    "home": "Hogar",
+    "drinks": "Bebidas"
   }
 }

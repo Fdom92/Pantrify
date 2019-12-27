@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavParams } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { PopupService } from '../../../shared/popup.service';
+import { PopupService } from '../../../shared/services/popup.service';
 
 @Component({
   selector: 'app-shop-single-item-modal',

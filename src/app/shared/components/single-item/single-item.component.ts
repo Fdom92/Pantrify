@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { PopupService } from '../../../shared/popup.service';
+import { PopupService } from '../../services/popup.service';
 import { SingleItemModalComponent } from '../single-item-modal/single-item-modal.component';
-import { PantryService } from '../../pantry.service';
-import { AuthService } from '../../auth.service';
-
+import { PantryService } from '../../services/pantry.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-single-item',
@@ -25,24 +24,30 @@ export class SingleItemComponent implements OnInit {
     private popSvc: PopupService,
     private translateSvc: TranslateService,
     private popupSvc: PopupService) {
-    }
+  }
 
   ngOnInit() {
     this.userData = this.authSvc.getUser();
-    this.itemData = this.item.payload.val();
+    this.itemData = this.item;
   }
 
   onEditItem(item) {
     this.popupSvc.openModal({
       component: SingleItemModalComponent,
-      componentProps: { type: 'edit', item, folders: this.getCurrentFolders() }
+      componentProps: {
+        type: 'edit',
+        itemType: this.type,
+        item
+      }
     }).then(modalResult => {
       if (modalResult.data.type === 'edit') {
         if (!modalResult.data.moveToFolder) {
-        this.pantrySvc.updateItem(this.userData.uid, this.type, item.key,
-          { title: modalResult.data.item.title,
-            units: parseInt(modalResult.data.item.units, 10),
-            minimum: parseInt(modalResult.data.item.minimum, 10) });
+          this.pantrySvc.updateItem(this.userData.uid, this.type, item.key,
+            {
+              title: modalResult.data.item.title,
+              units: parseInt(modalResult.data.item.units, 10),
+              minimum: parseInt(modalResult.data.item.minimum, 10)
+            });
         } else {
           this.pantrySvc.removeItem(this.userData.uid, this.type, item.key);
           this.pantrySvc.pushItemFolder(this.userData.uid, this.type, modalResult.data.moveToFolder,
@@ -61,7 +66,7 @@ export class SingleItemComponent implements OnInit {
   onAdd(item) {
     if ((parseInt(this.itemData.units, 10) + 1) <= 999) {
       if (this.folder) {
-        this.pantrySvc.updateItemFromFolder(this.userData.uid, this.type, this.folder, item.key,
+        this.pantrySvc.updateItemFromFolder(this.userData.uid, this.type, this.folder.key, item.key,
           { title: this.itemData.title, units: parseInt(this.itemData.units, 10) + 1, minimum: this.itemData.minimum });
       } else {
         this.pantrySvc.updateItem(this.userData.uid, this.type, item.key,
@@ -77,7 +82,7 @@ export class SingleItemComponent implements OnInit {
   onRemove(item) {
     if ((parseInt(this.itemData.units, 10) - 1) >= 0) {
       if (this.folder) {
-        this.pantrySvc.updateItemFromFolder(this.userData.uid, this.type, this.folder, item.key,
+        this.pantrySvc.updateItemFromFolder(this.userData.uid, this.type, this.folder.key, item.key,
           { title: this.itemData.title, units: parseInt(this.itemData.units, 10) - 1, minimum: this.itemData.minimum });
       } else {
         this.pantrySvc.updateItem(this.userData.uid, this.type, item.key,
@@ -88,23 +93,5 @@ export class SingleItemComponent implements OnInit {
         this.popSvc.simpleToast(translation.removeItemMin, 'bottom', 3000);
       });
     }
-  }
-
-  getCurrentFolders() {
-    // let folders;
-    switch (this.type) {
-      case 'food':
-        // folders = this.pantrySvc.foodFolders$;
-        break;
-      case 'drinks':
-        // folders = this.pantrySvc.drinkFolders$;
-        break;
-      case 'home':
-        // folders = this.pantrySvc.homeFolders$;
-        break;
-      default:
-        break;
-    }
-    return [];
   }
 }

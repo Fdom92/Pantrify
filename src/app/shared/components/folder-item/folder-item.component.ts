@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PopupService } from '../../../shared/popup.service';
+import { PopupService } from '../../services/popup.service';
 import { FolderItemModalComponent } from '../folder-item-modal/folder-item-modal.component';
-import { PantryService } from '../../pantry.service';
-import { AuthService } from '../../auth.service';
+import { PantryService } from '../../services/pantry.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-folder-item',
@@ -23,14 +23,16 @@ export class FolderItemComponent implements OnInit {
 
   ngOnInit() {
     this.itemData = this.item.payload.val();
-    Object.keys(this.itemData.products).forEach(key => {
-      this.items.push({
-        key,
-        title: this.itemData.products[key].title,
-        units: this.itemData.products[key].units,
-        minimum: this.itemData.products[key].minimum
+    if (this.itemData.products) {
+      Object.keys(this.itemData.products).forEach(key => {
+        this.items.push({
+          key,
+          title: this.itemData.products[key].title,
+          units: this.itemData.products[key].units,
+          minimum: this.itemData.products[key].minimum
+        });
       });
-    });
+    }
     this.items.sort((a, b) => {
       const nameA = a.title.toLowerCase();
       const nameB = b.title.toLowerCase();
@@ -48,15 +50,15 @@ export class FolderItemComponent implements OnInit {
   }
 
   expandItem() {
-    this.pantrySvc.updateFolder(this.userData.uid, this.type, this.item, { expanded: !this.item.expanded });
+    this.pantrySvc.updateFolder(this.userData.uid, this.type, this.item.key, { expanded: !this.item.expanded });
   }
 
   onEditFolder() {
     this.popupSvc.openModal({ component: FolderItemModalComponent, componentProps: {type: 'edit'} }).then(modalResult => {
       if (modalResult.data.type === 'edit') {
-        this.pantrySvc.updateFolder(this.userData.uid, this.type, this.item, {title: modalResult.data.item.title});
+        this.pantrySvc.updateFolder(this.userData.uid, this.type, this.item.key, {title: modalResult.data.item.title});
       } else if (modalResult.data.type === 'remove') {
-        this.pantrySvc.removeItem(this.userData.uid, this.type, this.item);
+        this.pantrySvc.removeItem(this.userData.uid, this.type, this.item.key);
       }
     });
   }

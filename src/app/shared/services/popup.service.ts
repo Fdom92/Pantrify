@@ -6,7 +6,9 @@ import {
   AlertController,
 } from '@ionic/angular';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PopupService {
   constructor(
     private modalCtrl: ModalController,

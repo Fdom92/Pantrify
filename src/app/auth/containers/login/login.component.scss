@@ -7,33 +7,29 @@
   ion-content {
     --background: none;
 
-    .logo {
-      height: 50%;
-      width: 100%;
-
-      .logo-icon {
-        text-align: center;
-        font-size: 40px;
-        color: white;
-      }
-    }
-
     ion-input {
       margin: auto;
-      width: 95%;
-      margin-bottom: 5px;
-      -webkit-box-shadow: inset 0px 0px 150px 6px rgba(255, 255, 255, 1);
-      -moz-box-shadow: inset 0px 0px 150px 6px rgba(255, 255, 255, 1);
-      box-shadow: inset 0px 0px 150px 6px rgba(255, 255, 255, 1);
+      width: 92%;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.7);
+      -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+      box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
     }
 
     ion-button {
       --color: none;
       --border-width: 0;
       background-color: rgba(255, 255, 255, 0.7);
-      margin-top: 5%;
-      margin-left: 2.5%;
-      width: 95%;
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-top: 16px;
     }
+  }
+
+  form {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
   }
 }

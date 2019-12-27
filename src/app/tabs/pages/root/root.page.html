@@ -15,23 +15,17 @@
 </ion-header>
 
 <ion-content>
-    <ion-tabs>
-
-      <ion-tab-bar>
-  
-        <ion-tab-button tab="food">
-            <ion-label>Food</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="drink">
-            <ion-label>Drink</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="home">
-            <ion-label>Home</ion-label>
-        </ion-tab-button>
-  
-      </ion-tab-bar>
-  
-    </ion-tabs>
-  </ion-content>
+  <ion-tabs (ionTabsDidChange)="onTabChange($event)">
+    <ion-tab-bar>
+      <ion-tab-button tab="food">
+        <ion-label>{{ 'Tabs.food' | translate }}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="drink">
+        <ion-label>{{ 'Tabs.drinks' | translate }}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="home">
+        <ion-label>{{ 'Tabs.home' | translate }}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

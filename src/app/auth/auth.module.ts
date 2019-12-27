@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthRootComponent } from './containers/auth-root/auth-root.component';
@@ -9,9 +8,7 @@ import { SignupComponent } from './containers/signup/signup.component';
 @NgModule({
   imports: [
     AuthRoutingModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   declarations: [
     AuthRootComponent,

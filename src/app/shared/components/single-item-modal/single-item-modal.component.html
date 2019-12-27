@@ -49,7 +49,7 @@
       <ion-item>
         <ion-label>{{ 'Modal.ItemModal.move-folder' | translate }}</ion-label>
         <ion-select formControlName="moveFolder">
-          <ion-select-option *ngFor="let folder of folders | async" [value]="folder">{{ folder.title }}</ion-select-option>
+          <ion-select-option *ngFor="let folder of folders | async" [value]="folder">{{ folder.payload.val().title }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>

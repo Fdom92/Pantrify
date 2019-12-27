@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavParams } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { PopupService } from '../../../shared/popup.service';
+import { PopupService } from '../../services/popup.service';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'firebase';
-import { PantryService } from '../../../shared/pantry.service';
-import { AuthService } from '../../../shared/auth.service';
+import { PantryService } from '../../../shared/services/pantry.service';
+import { AuthService } from '../../../shared/services/auth.service';
 import { Observable } from 'rxjs';
 import { AngularFireAction } from '@angular/fire/database';
 

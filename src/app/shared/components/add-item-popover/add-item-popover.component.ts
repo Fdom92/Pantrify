@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopupService } from '../../../shared/popup.service';
+import { PopupService } from '../../services/popup.service';
 
 @Component({
   selector: 'app-add-item-popover',

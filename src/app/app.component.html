@@ -1,6 +1,6 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu [disabled]="hideMenu">
+  <ion-split-pane contentId="menu-content">
+    <ion-menu [disabled]="hideMenu" contentId="menu-content">
       <ion-header>
         <img class="user-avatar round" src="assets/imgs/default.png" />
         <p class="e-mail">{{ usermail }}</p>
@@ -28,6 +28,6 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

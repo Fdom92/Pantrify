@@ -7,13 +7,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppState } from './app.state';
-import { AuthGuard } from './auth.guard';
-import { AuthService } from './shared/auth.service';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,12 +22,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxsModule.forRoot([]),
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthGuardModule,
     AngularFireAuthModule,
-    NgxsModule.forRoot([AppState], { developmentMode: !environment.production }),
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
@@ -40,7 +36,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

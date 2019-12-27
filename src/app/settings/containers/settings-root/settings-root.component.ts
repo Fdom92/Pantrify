@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../../../shared/auth.service';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-settings-root',
@@ -12,12 +12,12 @@ export class SettingsRootComponent implements OnInit {
   language: string;
   usermail: string;
 
-  constructor(public translate: TranslateService, private authFacade: AuthService) {
+  constructor(public translate: TranslateService, private authService: AuthService) {
     this.language = translate.currentLang;
   }
 
   ngOnInit() {
-    this.usermail = this.authFacade.getUser().email;
+    this.usermail = this.authService.getUser().email;
   }
 
   onChange(event) {
@@ -25,6 +25,6 @@ export class SettingsRootComponent implements OnInit {
   }
 
   logout() {
-    this.authFacade.logout();
+    this.authService.logout();
   }
 }

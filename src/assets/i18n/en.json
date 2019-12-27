@@ -101,5 +101,10 @@
     "addItemMax": "You have reached the maximum number of possible units",
     "removeItemMin": "You can not have less than 0 units",
     "notValid": "Wrong data check them"
+  },
+  "Tabs": {
+    "food": "Food",
+    "home": "Home",
+    "drinks": "Drinks"
   }
 }
